@@ -1,0 +1,129 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenx}
+\usepackage{tikz}
+\usepackage{qrcode}
+\usetikzlibrary{decorations.pathmorphing,decorations.footprints,lindenmayersystems,shadows,decorations.fractals}
+\newbox\mybox
+\pagestyle{empty}
+\usepackage{tgpagella,tgheros}
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
+
+\begin{document}
+
+\begin{tikzpicture}[overlay,shift={(5.5,-11)}] % yes, you *could* do it right, but well …
+
+  \coordinate (front) at (0,0);
+  \coordinate (horizon) at (0,.31\paperheight);
+  \coordinate (bottom) at (0,-.6\paperheight);
+  \coordinate (sky) at (0,.57\paperheight);
+  \coordinate (left) at (-.51\paperwidth,0);
+  \coordinate (right) at (.51\paperwidth,0);
+
+  \shade [bottom color=white, top color=blue!30!black!50]
+    ([yshift=-5mm]horizon -| left) rectangle (sky -| right);
+
+  \shade [bottom color=black!70!green!25, top color=black!70!green!10]
+    (front -| left) -- (horizon -| left)
+    decorate [decoration=random steps] {-- (horizon -| right) }
+    -- (front -| right) -- cycle;
+
+  \shade [top color=black!70!green!25, bottom color=green!20!brown!50!white]
+    ([yshift=-5mm-1pt]front -| left) rectangle ([yshift=1pt]front -| right);
+  \fill [green!20!brown!50!white] (bottom -| left) rectangle ([yshift=-5mm]front -| right);
+
+  \def\nodeshadowed[#1]#2;{
+    \node[scale=2,above,anchor=base,#1]{
+      \global\setbox\mybox=\hbox{#2}
+      \copy\mybox};
+    \node[scale=2,
+          above,
+          anchor=base,
+          #1,
+          yscale=-1,
+          scope fading=south,
+          opacity=0.2,
+          yshift=0.5cm,
+          xshift=-0.2cm]
+      {\box\mybox};
+  }
+
+  \foreach \wherex/\wherey in {7cm/7cm,9cm/8cm,5cm/8.5cm,3cm/7.3cm,2cm/6.9cm,0cm/7.8cm} {
+    \nodeshadowed[at={(\wherex,\wherey)}]{%
+      \tikz \draw [green!20!black, rotate=90]
+        l-system [l-system={
+                     rule set={F -> FF-[-F+F]+[+F-F]},
+                     axiom=F,
+                     order=4,
+                     step=2pt,
+                     randomize step percent=50,
+                     angle=30,
+                     randomize angle percent=5}];};}
+
+  \foreach \i in {0.5,0.6,...,2}
+    \fill [white,
+           opacity=\i/2,
+           decoration=Koch snowflake,
+           shift=(horizon),
+           shift={(rand*11,rand*7)},
+           scale=\i,
+           double copy shadow={%
+             opacity=0.2,
+             shadow xshift=0pt,
+             shadow yshift=3*\i pt,
+             fill=white,
+             draw=none}
+           ]
+      decorate {
+        decorate {
+          decorate {
+            (0,0)-- ++(60:1) -- ++(-60:1) -- cycle
+          }
+        }
+      };
+
+  \foreach \x in {1,2,3}
+    \fill [decorate,
+           decoration={footprints,foot of=gnome},
+           opacity=.5,
+           red!30]
+      (rand*8,-rand*10) to [out=rand*180,in=rand*180](rand*8,-rand*10);
+
+  \nodeshadowed[at={(-6.0, 8.7)}, yslant=0.05]{\Huge\scalebox{1.5}{\textbf{\LaTeX}}};
+  \nodeshadowed[at={(-0.5, 5.2)}, yslant=0.05]{\Huge\scalebox{1.5}{\textbf{Linux}}};
+  \nodeshadowed[at={( 5.5, 1.7)}, yslant=0.05]{\Huge\scalebox{1.5}{\textbf{Python}}};
+
+  \node[anchor=north west] at (-9,-1.5) {\LARGE \parbox{18cm}{\sf\bf%
+      Ein Einführungskurs in das wissenschaftliche Arbeiten mit \LaTeX, GNU/Linux und
+      Python.\\[-0.5cm]
+
+      \begin{quote}
+        \textsc{\color{blue!30!black}{Wo?}}\quad WIL/A120\\[-0.5cm]
+
+        \textsc{\color{blue!30!black}Wann?}\quad Dienstag 6. DS, ab 11.\ April und am 4.\ April Linux-Installations-Party\\[-0.5cm]
+
+        \textsc{\color{blue!30!black}Für Wen?}\quad Alle, die Interesse haben\\[-0.5cm]
+      \end{quote}
+
+      Laptop und USB-Stick sind von Vorteil, da praktische Übungen Bestandteil des Kurses sind.\\[-0.5cm]
+
+      Weitere Informationen unter
+      \begin{center}
+        \newcommand{\llpwebsite}[0]{www.myfsr.de/LLP}
+        \textcolor{blue!30!black}{\llpwebsite}\quad\qrcode %[height=4cm]
+        {https://\llpwebsite}
+      \end{center}
+    }};
+
+  \node[anchor=south west] at (-10.3,-13.9) {%
+    \tiny{Dieses Poster enthält \LaTeX-Code aus dem PGF-Manual. Diesese Plakat basiert auf einem Plakat von Daniel, Maximilian und Tom, erstellt September 2014, quellen und source code unter https://lat.inf.tu-dresden.de/~borch/lehre/llp.html}};
+\end{tikzpicture}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% ispell-local-dictionary: "de_DE"
+%%% End:
