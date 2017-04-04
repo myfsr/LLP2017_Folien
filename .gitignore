@@ -178,3 +178,6 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
+
+# ich möchte nicht alle pdf automatisch ignorieren
+poster.pdf
