@@ -1,0 +1,13 @@
+lecture 00 intro (2016 Kurs fsfw) bis „LaTex als Markup-Sprache“
+
+Beispiel:
+Grundgerüst Preamble, Dokument
+
+Das können wir nun in ein Dokument übersetzen:
+pdflatex latexbspimkurs.tex
+
+eine Menge output, bei längeren Dokumenten deutlich mehr.
+wir kriegen mehrere Dateien: .aux, .log, .pdf ⟶ die können wir uns später ansehen, jetzt freuen wir uns über das Resultat latexbspimkurs.pdf
+(okular latexbspimkurs.pdf)
+
+Wir sehen „Hallo“ und eine Seitenzahl. Unser erstes Dokument!
