@@ -3,6 +3,8 @@ lecture 00 intro (2016 Kurs fsfw) bis „LaTex als Markup-Sprache“
 Beispiel:
 Grundgerüst Preamble, Dokument
 
+Folie „der Editor“, „die Distribution“, „Don't Panic“
+
 Das können wir nun in ein Dokument übersetzen:
 pdflatex latexbspimkurs.tex
 
@@ -11,3 +13,20 @@ wir kriegen mehrere Dateien: .aux, .log, .pdf ⟶ die können wir uns später an
 (okular latexbspimkurs.pdf)
 
 Wir sehen „Hallo“ und eine Seitenzahl. Unser erstes Dokument!
+
+In Zukunft werde ich die Funktion meines Editors nutzen, der pdflatex per Tastenkombination aufruft.
+--------------
+
+nächster commit
+
+--------------
+
+Welche Teile können wir erkennen?
+1) Dokumentenklasse ⟶ Zeile 1 (meistens ganz am Anfang)
+  Folien aus lecture 01 basics 1 „Dokumentenklassen“ (Aussehen + Art des Textes)
+
+2) Präambel
+  Folien zu Präambel
+  wir gehen erstmal davon aus, dass wir deutsche und englische oder zumindest westeuropäische Texte schreiben. ⟶ Kompilieren ohne inputenc ⟶ :(
+  auf weitere Pakete gehe ich nicht ein, kommen, sobald wir sie brauchen
+
