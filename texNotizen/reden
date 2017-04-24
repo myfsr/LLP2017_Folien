@@ -1,17 +1,35 @@
 lecture 00 intro [(2016 Kurs fsfw) bis „LaTex als Markup-Sprache“]
+„Inhalt“
+  Grundidee -> was das ist, kommt vielleicht nachher rüber
+  Pakete -> bieten weitere oder einfachere Funktionalität
+  Markup -> Strukturierung von Text
+  Mathematische Formeln -> eine der großen Stärken von LaTeX
+  Formatierung -> Ränder, Kopf- und Fußzeilen, Schriften, Schriftgrößen, ...
+    erst spät, weil man meistens darauf verzichten kann
+  alles kann sich noch ändern
+„Fragen bis hierher?“
+  fehlen Themen, die euch fehlen?
+„Geschichte von \LaTeX“
+  siehe Folien
+„WYSIWYG“
+  warum will man das nicht? Warum hacken wir darauf rum?
+  u.a. weil ich mir beim schreiben keine Gedanken dazu machen möchte
+  u.a. weil ich zu viel kaputt mache, wenn ich es selbst dauernd tue
+„Text(datei)-Editor“
+  AUCTeX -> empfiehlt Lin
+  Ich: Sublime Text, auch gut, aber nicht frei (aber gratis)
+  
 „nicht alles wissen“
   man lernt immer wieder dazu
-  nicht wissen ⟶ nachlesen
+  nicht wissen ⟶ nachlesen -> z.B. hier ... Liste
+  ausprobieren: texdoc
 
 jetzt anfangen
 
-Beispiel:
-Grundgerüst Preamble, Dokument
-
-Folie „der Editor“, „die Distribution“, „Don't Panic“
+Beispiel: latexbspimkurs1
 
 Das können wir nun in ein Dokument übersetzen:
-pdflatex latexbspimkurs.tex
+pdflatex latexbspimkurs1.tex
 
 eine Menge output, bei längeren Dokumenten deutlich mehr.
 wir kriegen mehrere Dateien: .aux, .log, .pdf ⟶ die können wir uns später ansehen, jetzt freuen wir uns über das Resultat latexbspimkurs.pdf
@@ -20,18 +38,25 @@ wir kriegen mehrere Dateien: .aux, .log, .pdf ⟶ die können wir uns später an
 Wir sehen „Hallo“ und eine Seitenzahl. Unser erstes Dokument!
 
 In Zukunft werde ich die Funktion meines Editors nutzen, der pdflatex per Tastenkombination aufruft.
---------------
-
-nächster commit
-
---------------
 
 Welche Teile können wir erkennen?
 1) Dokumentenklasse ⟶ Zeile 1 (meistens ganz am Anfang)
-  Folien aus lecture 01 basics 1 „Dokumentenklassen“ (Aussehen + Art des Textes)
+  Empfehlung: nimm KOMA: bietet viel, sieht Standardmäßig gut aus
 
 2) Präambel
-  Folien zu Präambel
+  Folien zu Präambel „Die Präambel“
   wir gehen erstmal davon aus, dass wir deutsche und englische oder zumindest westeuropäische Texte schreiben. ⟶ Kompilieren ohne inputenc ⟶ :(
+  es gibt Tausende Pakete, manchmal klein manche riesig
+    werden einige kennen lernen
+  3 Standardpakete (-> latexbspimkurs2.tex)
   auf weitere Pakete gehe ich nicht ein, kommen, sobald wir sie brauchen
+
+  „Standardwerte“
+    -> author, ...
+    -> später vorallem die gesamte Formatierung
+
+  „Makros“
+    -> werden wir später sehen
+
+  kann sehr lang werden
 
