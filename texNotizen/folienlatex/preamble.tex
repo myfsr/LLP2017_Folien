@@ -1,0 +1,124 @@
+\errorcontextlines=5
+
+%%%
+
+\documentclass[
+%handout,
+]{beamer}
+
+\usepackage{ifluatex}
+\ifluatex\else\errmessage{This document requires LuaLaTeX}\fi
+
+\usepackage{etex,etoolbox}
+\usepackage{fontspec}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{ccicons}
+\usepackage{calc}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,intersections,calc,through,%
+  external,positioning,automata,datavisualization,%
+  datavisualization.formats.functions}
+
+\usepackage{luacode}
+\usepackage{pgfplots}
+\usepackage{manfnt}
+
+%%% title and such
+
+\title{Wissenschaftliches Arbeiten mit \LaTeX}
+\author{Felix Hilsky\\basierend auf Kurs von Daniel Borchmann und Tom Hanika}
+\titlegraphic{\ccLogo \ccAttribution \ccShareAlike}
+
+%%% theme
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.multipart}
+\usetheme{CambridgeUS}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{items}{\raisebox{0.3ex}{%
+    \tikz[scale=0.13] \draw[fill] (0,0) -- (0,1) -- (0.9,0.5) -- cycle;}}
+\usetikzlibrary{arrows}
+\tikzset{>={stealth'[sep]}}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+\setlength{\abovedisplayskip}{0pt}
+\setbeamerfont{title}{series=\bfseries}
+\defbeamertemplate{block alerted begin}{bends}{%
+  \begin{columns}
+    \begin{column}{0.05\linewidth}
+      \dbend
+    \end{column}
+    \begin{column}{0.95\linewidth}
+      \vskip.75ex\usebeamercolor[fg]{block title
+        alerted}\insertblocktitle{}
+      \vskip.1em
+      \usebeamercolor[fg]{normal text}
+}
+\defbeamertemplate{block alerted end}{bends}{%
+    \end{column}
+  \end{columns}
+}
+%%%
+
+\mode<handout>{
+  \usepackage{pgfpages}
+  \pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+}
+
+%%% lecture organization
+
+\usepackage{xparse}
+\DeclareDocumentCommand \Lecture { m m }{%
+  \lecture{#1}{#2}
+  \part{#1}
+  \include{#2}
+}
+
+\AtBeginSection{
+  \setbeamertemplate{blocks}[rounded][shadow=true]
+  \begin{frame}[plain]
+    \begin{block}{}
+      \begin{center}
+        \textcolor{darkred}{\textbf{\Large \strut\smash{\insertpart}}}\\[1ex]
+        \textcolor{blue!70!black}{\strut\smash{\insertsection}}
+      \end{center}
+    \end{block}
+  \end{frame}
+  \setbeamertemplate{blocks}[rounded][shadow=false]
+  \setbeamertemplate{block alerted begin}[bends]
+  \setbeamertemplate{block alerted end}[bends]
+}
+
+%%% misc
+
+\newcommand{\GNULinux}{GNU\lower-0.25ex\hbox{/}Linux}
+\newcommand{\TikZ}{Ti\emph{k}Z}
+
+\usepackage{listings}
+
+\lstset{language=[LaTeX]TeX, basicstyle=\ttfamily,
+  keywordstyle={\color{blue}\bfseries}, frame=tb, extendedchars=true, literate=%
+  {ä}{{\"a}}1 {ö}{{\"o}}1, escapeinside={(*@}{@*)}, mathescape=true,
+  basewidth=0.5em, keywordstyle={\color{blue}},
+  morekeywords={[0]includegraphics,rotatebox,scalebox,resizebox,providecommand,
+    subsection,subsubsection,paragraph,subparagraph,part,chapter,tableofcontents,
+    mathring,text,mathbb,printindex,addbibresource,printbibliography,subtitle,
+    institute,titlegraphic,subject,keywords,draw,path,color,textcolor,toprule,
+    midrule,bottomrule,maketitle,setlength,enquote,listoffigures,listoftables,
+    theoremstyle,theoremheaderfont,theorembodyfont,newblock,parencite,footcite,
+    autocite,bibitem,middle,tikzset,usetikzlibrary,coordinate,node,foreach,
+    datavisualization,varepsilon,autocite,bibitem,DeclareRobustCommand,
+    DeclareDocumentCommand,IfBooleanTF,bye,frametitle,setbeamertemplate,pause,
+    onslide,uncover,visible,invisible,only,alt,temporal,alert,AtBeginSection,
+    usetheme,setbeamerfont,tikz,includeonlyframes,mode,pgfpagesuselayout,RequirePackage,
+  },
+}
+
+\AtBeginDocument{\frame[plain]{\maketitle}}
+
+%%% end of preamble
