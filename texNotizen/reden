@@ -89,3 +89,22 @@ Makros
   \tb -> typisch: man kürzt ein anderes Makro ab
 
   Vorteil von \wichtig: kann man ändern, wenn albern
+
+  zu renewcommand: \maketitle
+    typisch
+    sieht noch nicht so fancy aus
+
+Quelltextformatierung („Quelltextformatierung“, latexbspimkurs5)
+---------------------
+  siehe Beispieldokument
+  ich werde Beispieldateien (hoffentlich immer) gut formatieren
+    werde vielleicht noch ein paar Mal erwähnen
+  unten: auch Makro-Argumente ggf. einrücken
+  i.d.R. sind Leerzeichen vor Makroargumenten irrelevant
+    Lesbarkeit diskutabel
+
+  es gibt keinen Formatierungsstandard
+
+  latexbspimkurs6
+  Einzige Ausnahme: Leerzeilen
+    -> „Absätze“
