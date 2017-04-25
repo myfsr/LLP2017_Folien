@@ -40,6 +40,8 @@ Wir sehen „Hallo“ und eine Seitenzahl. Unser erstes Dokument!
 In Zukunft werde ich die Funktion meines Editors nutzen, der pdflatex per Tastenkombination aufruft.
 
 Welche Teile können wir erkennen?
+„Präsentation lecture-01-basics
+
 1) Dokumentenklasse ⟶ Zeile 1 (meistens ganz am Anfang)
   Empfehlung: nimm KOMA: bietet viel, sieht Standardmäßig gut aus
 
@@ -56,7 +58,7 @@ Welche Teile können wir erkennen?
     -> später vorallem die gesamte Formatierung
 
   „Makros“
-    -> werden wir später sehen
+    -> kommt gleich
 
   kann sehr lang werden
 

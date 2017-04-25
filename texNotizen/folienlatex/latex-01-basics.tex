@@ -42,73 +42,28 @@
     \end{itemize}
   \item<2-> Pakete werden eingebunden mittels
 \begin{lstlisting}
-\usepackage[(*@\texti1t{option}@*)]{(*@\textit{paketname}@*)}
+\usepackage[(*@\textit{option}@*)]{(*@\textit{paketname}@*)}
 \end{lstlisting}
   \end{itemize}
 
 \end{frame}
 
-% \begin{frame}[fragile]
-%   \frametitle{Eine \enquote{Standard-Präambel}}
+\begin{frame}[fragile]
+  \frametitle{Der \enquote{Dokumentenkörper}}
 
-%   \onslide<+->
+  Das eigentliche Dokument wird nun zwischen \lstinline!\begin{document}! und
+    \lstinline!\end{document}! angegeben.  Dabei kann der Text \enquote{fast} beliebig
+  eingegeben werden.  Dieser wird dann von \TeX\ ent- und ansprechend formatiert.
 
-% \begin{lstlisting}
-% \documentclass{article}
-% \usepackage[utf8]{inputenc}
-% \usepackage[T1]{fontenc}
-% \usepackage[ngerman]{babel}
+\begin{lstlisting}
+\begin{document}
+Bei Fülltexten sollte man drauf achten, dass es nicht
+allzu viel Sinn macht, lange darüber nachzudenken, was
+man wie schreibt.
+\end{document}
+\end{lstlisting}
 
-% \title{Was sind und was sollen die Zahlen?}
-% \author{Richard Dedekind}
-% \date{1888}
-
-% \begin{document}
-
-% \maketitle
-
-% \end{document}
-% \end{lstlisting}
-
-% \end{frame}
-
-% \begin{frame}[fragile]
-%   \frametitle{Der \enquote{Dokumentenkörper}}
-
-%   \onslide<+->
-
-%   Das eigentliche Dokument wird nun zwischen \lstinline!\begin{document}! und
-%     \lstinline!\end{document}! angegeben.  Dabei kann der Text \enquote{fast} beliebig
-%   eingegeben werden.  Dieser wird dann von \TeX\ ent- und ansprechend formatiert.
-
-%   \onslide<+->
-
-% \begin{lstlisting}
-% \begin{document}
-% Bei Fülltexten sollte man drauf achten, dass es nicht
-% allzu viel Sinn macht, lange darüber nachzudenken, was
-% man wie schreibt.
-% \end{document}
-% \end{lstlisting}
-
-%   wird zu\onslide<+->
-
-%   \begin{center}
-%     \parbox{0.8\linewidth}{\rm Bei Fülltexten sollte man drauf achten, dass es
-%       nicht allzu viel Sinn macht, lange darüber nachzudenken, was man wie schreibt.}
-%   \end{center}
-
-%   \onslide<+->
-
-%   Später mehr!
-
-% \end{frame}
-% \section{Makros}
-
-% \begin{frame}[fragile]
-%   \frametitle{Was sind und was sollen Makros?}
-
-%   \onslide<+->
+  wird zu
 
 %   Makros steuern die Formatierung des Textes in \LaTeX:
 

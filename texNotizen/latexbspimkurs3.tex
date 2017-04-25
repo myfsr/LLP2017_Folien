@@ -1,0 +1,28 @@
+% Dokumentenklasse
+% immer am Anfang des Dokuments
+\documentclass{scrartcl}
+
+% Präambel
+\usepackage[utf8]{inputenc} % Eingabekodierung
+\usepackage[T1]{fontenc}    % Schrifkodierung
+\usepackage[ngerman]{babel} % optimiert für Deutsch (z.B. Titel, Silbentrennung)
+
+\title{Mein erstes \LaTeX-Dokument}
+\author{LLP-Kurs}
+\date{nach Ostern}
+
+% Ende Präambel
+% Beginn eigentliches Dokument
+\begin{document}
+\maketitle
+  Hallo. Jetzt schreibe ich ein deutschen Text mit Umlauten: ä, ö, ü und Accenten: é ù %ȩ
+
+  Das eigentliche Dokument wird nun zwischen
+  \textbackslash begin\{document\} und \textbackslash end\{document\}
+  reingeschrieben. \TeX \emph{formatiert}
+  es dann \emph{ansprechend}.
+
+  Bei Fülltexten sollte man drauf achten, dass es nicht
+  allzu viel Sinn macht, lange darüber nachzudenken, was
+  man wie schreibt.
+\end{document}
