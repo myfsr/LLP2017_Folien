@@ -1,0 +1,74 @@
+\documentclass{latex-htw-uebung}
+
+\title{1. Übungsblatt}
+\date{9.\ November 2015}
+
+\begin{document}
+
+Hier ist ein erstes, kleines \LaTeX-Programm:
+
+\begin{lstlisting}
+\documentclass[ngerman]{scrartcl}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+
+\title{Mein erstes \LaTeX-Dokument}
+\author{Das ist von mir!}
+\date{Stardate 47943.2}
+
+\begin{document}
+
+\maketitle
+
+Das ist ja einfach!
+
+\end{document}
+\end{lstlisting}
+
+Versuche zuerst, dieses Programm in einen \LaTeX-Editor einzugeben und es zu übersetzen.
+
+Sobald das geklappt hat, spiele ein wenig mit dem Code herum:
+\begin{itemize}
+\item Was geschieht, wenn Du statt \lstinline{scrartcl} die \emph{Dokumentenklasse}
+  \lstinline{scrbook} verwendest?  Was geschieht bei \lstinline|scrreprt|,
+  \lstinline|article|, \lstinline|book|, \lstinline|report|?
+\item Was passiert, wenn man vor \lstinline|\begin{document}| einfach das Wort
+    \lstinline|Hallo| schreibt?  Was geschieht, wenn man es nach
+    \lstinline|\end{document}| schreibt?
+\item Versuche, so viel Text an den Satz \lstinline|Das ist ja einfach!| anzufügen, dass
+  mehrere Zeilen im erstellten \LaTeX-Dokument entstehen.  Welche Form hat der Absatz?
+  (Blocksatz, Flattersatz, \dots) Gibt es Trennungen?
+\item Schreibe direkt vor \lstinline|Das ist ja einfach!| den Code
+  \lstinline|\begin{center}|.  Schreibe hinter dem Absatz auf eine
+    neue Zeile den Code
+    \lstinline|\end{center}|.  Was geschieht?
+\item Schreibe vor die letzte Zeile folgenden Code
+\begin{lstlisting}
+\section{Hier geht's los}
+
+Ein Absatz beginnt jeweils mit einer neuen Zeile.  Wenn man also noch
+einen Absatz haben möchte, lässt man einfach etwas Platz.
+
+Etwa so.
+\end{lstlisting}
+  Was geschieht?
+\item Wie bekommt man einen Unterabschnitt?  Wie einen Unterunterabschnitt?
+\item Füge irgendwo vor \lstinline|\end{document}| das Kommando
+\lstinline|\diesenBefehlGibtEsGarNicht| ein.  Wie reagiert \LaTeX?
+\item Füge in der \emph{Präamble}, also nach der ersten Zeile, aber noch vor
+  \lstinline|\begin{document}| die Zeile \lstinline|\usepackage{blindtext}| ein.  Verwende
+    dann den Befehl \lstinline|\blindtext| im Textteil des Dokuments.
+    Was geschieht?
+\item Ersetze \lstinline|\date{Stardate 47943.2}| durch \lstinline|\date{\today}|. Wie
+  ändert sich das Datum? Was steht da wohl morgen?
+\end{itemize}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% ispell-local-dictionary: "de_DE"
+%%% End:
