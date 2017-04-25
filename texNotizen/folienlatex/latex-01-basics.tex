@@ -187,29 +187,6 @@ man wie schreibt.
 
 % \end{frame}
 
-% \begin{frame}[fragile]
-%   \frametitle{Interpunktion}
-
-%   \onslide<+->
-
-%   Interpunktion (.\,,\,;\,- \dots) in \TeX\ funktioniert meist wie gewohnt, es gibt aber einige
-%   Besonderheiten:
-
-%   \begin{itemize}
-%   \item<+-> Hinter .\ wird im allgemeinen ein größerer Abstand eingefügt:
-% \begin{lstlisting}
-% z. B. oder z.\,B.
-% \end{lstlisting}
-%     wird zu
-%     \begin{center}
-%       z. B. oder z.\,B.
-%     \end{center}
-%   \item<+-> \texttt{`\kern0pt`} und \texttt{'\kern0pt'} werden zu englischen
-%     Anführungszeichen ``\dots''
-%   \item<+-> \texttt{-\kern0pt-} wird zu --, ebenso \texttt{-\kern0pt-\kern0pt-} zu ---
-%   \end{itemize}
-
-% \end{frame}
 
 % \section{Textuelles Markup}
 
@@ -239,109 +216,6 @@ man wie schreibt.
 % \end{lstlisting}
 %     und zweimaligem Übersetzen.
 %   \end{itemize}
-
-% \end{frame}
-% \begin{frame}[fragile,fragile]
-%   \frametitle{Ausrichtung von Text}
-
-%   \onslide<+->
-
-% \begin{lstlisting}
-% \begin{flushleft}
-%   Dieser Text ist linksbündig.
-% \end{flushleft}
-% \end{lstlisting}
-
-%   \onslide<+->
-
-% \begin{lstlisting}
-% \begin{flushright}
-%   Dieser Text ist rechtsbündig.
-% \end{flushright}
-% \end{lstlisting}
-
-%   \onslide<+->
-
-% \begin{lstlisting}
-% \begin{center}
-%   Dieser Text ist zentriert
-% \end{center}
-% \end{lstlisting}
-
-%   \onslide<+->
-
-% \begin{lstlisting}
-% \usepackage{ragged2e}
-% \begin{justify}
-%   Dieser Text ist im Blocksatz gesetzt.
-% \end{justify}
-% \end{lstlisting}
-
-% \end{frame}
-
-% \begin{frame}[fragile]
-%   \frametitle{\textbf{Fett}, \textit{Kursiv} und Ähnliches}
-
-%   \onslide<+->
-
-%   Für das Markup einzelnen Wörter oder Sätze stehen die folgenden Kommandos zur Verfügung:
-%   \bigskip
-
-%   \centering
-%   \begin{tabular}[c]{lcl}
-%     \lstinline!\textbf{Text}! & $\leadsto$ & \textbf{Text}\\
-%     \lstinline!\textsc{Text}! & $\leadsto$ & \textsc{Text}\\
-%     \lstinline!\emph{Text}!   & $\leadsto$ & \emph{Text}\\
-%     \lstinline!\textsf{Text}! & $\leadsto$ & \textsf{Text}\\
-%     \lstinline!\textit{Text}! & $\leadsto$ & \textit{Text}\\
-%     \lstinline!\textmd{Text}! & $\leadsto$ & \textmd{Text}\\
-%     \lstinline!\textnormal{Text}! & $\leadsto$ & \textnormal{Text}\\
-%     \lstinline!\textrm{Text}! & $\leadsto$ & \textrm{Text}\\
-%     \lstinline!\textsl{Text}! & $\leadsto$ & \textsl{Text}\\
-%     \lstinline!\texttt{Text}! & $\leadsto$ & \texttt{Text}\\
-%     \lstinline!\textup{Text}! & $\leadsto$ & \textup{Text}
-%   \end{tabular}
-
-% \end{frame}
-
-% \begin{frame}[fragile]
-%   \frametitle{Schriftgröße}
-
-%   \begin{onlyenv}<1>
-%     \begin{block}{Logisch}
-%       \centering
-%       \begin{tabular}[c]{cc}
-%         \lstinline!\tiny Text!         & \tiny Text \\
-%         \lstinline!\scriptsize Text!   & \scriptsize Text \\
-%         \lstinline!\footnotesize Text! & \footnotesize Text \\
-%         \lstinline!\small Text!        & \small Text \\
-%         \lstinline!\normalsize Text!   & \normalsize Text \\
-%         \lstinline!\large Text!        & \large Text \\
-%         \lstinline!\Large Text!        & \Large Text \\
-%         \lstinline!\LARGE Text!        & \LARGE Text \\
-%         \lstinline!\huge Text!         & \huge Text \\
-%         \lstinline!\Huge Text!         & \Huge Text \\
-%       \end{tabular}
-%     \end{block}
-%   \end{onlyenv}
-
-%   \begin{onlyenv}<2>
-%     \begin{block}{Manuell}
-
-% \begin{lstlisting}
-% \usepackage{graphicx}
-% \scalebox{4}[3]{Beispieltext}
-% \resizebox{5cm}{1cm}{Beispieltext 2}
-% \end{lstlisting}
-
-%       wird zu
-
-%       \bigskip
-
-%       \scalebox{4}[3]{Beispieltext 1} \resizebox{5cm}{1cm}{Beispieltext 2}
-
-%     \end{block}
-%   \end{onlyenv}
 
 % \end{frame}
 
