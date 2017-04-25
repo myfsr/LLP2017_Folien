@@ -65,63 +65,67 @@ man wie schreibt.
 
   wird zu
 
-%   Makros steuern die Formatierung des Textes in \LaTeX:
+  \begin{center}
+    \parbox{0.8\linewidth}{\rm Bei Fülltexten sollte man drauf achten, dass es
+      nicht allzu viel Sinn macht, lange darüber nachzudenken, was man wie schreibt.}
+  \end{center}
 
-%   \begin{itemize}
-%   \item<+-> sie beginnen mit \textbackslash, gefolgt von einer Folge von Buchstaben (keine
-%     Zahlen!)
-%   \item<+-> Mögliche Formen von Argumenten sind
-%     \begin{itemize}
-%     \item \lstinline!{$\textit{Argument}$}! bezeichnet \emph{obligatorische} Argumente
-%     \item \lstinline![$\textit{Argument}$]! bezeichnet \emph{optionale} Argumente
-%     \item \lstinline!($\textit{x},\textit{y}$)! oder \lstinline!<$\dots$>! sind auch
-%       üblich
-%     \end{itemize}
+\end{frame}
+\section{Makros}
 
-%     Aber das ist \enquote{nur} Konvention!
-%   \end{itemize}
-% \end{frame}
+\begin{frame}[fragile]
+  \frametitle{Was sind und was sollen Makros?}
 
-% \begin{frame}[fragile]
-%   \frametitle{Eigene Makros}
-%   \onslide<+->
+  \onslide<+->
 
-%   Eigene Makros ermöglichen komplexe Formatierungen und verringern Schreibaufwand.  In
-%   \LaTeX\ werden eigene Makros durch
-% \begin{lstlisting}
-% \newcommand{$\textit{Name}$}[$\textit{Anzahl\_der\_Argumente}$]{$\textit{Text}$}
-% \end{lstlisting}
-%   definiert. Dabei wird in Text jedes Vorkommen von \#\emph{Nummer} durch den Wert des
-%   \emph{Nummer}-ten Arguments \emph{syntaktisch} ersetzt.
+  Makros steuern die Formatierung des Textes in \LaTeX:
 
-%   \onslide<+->
+  \begin{itemize}
+  \item<+-> sie beginnen mit \textbackslash, gefolgt von einer Folge von Buchstaben (keine
+    Zahlen!)
+  \item<+-> Mögliche Formen von Argumenten sind
+    \begin{itemize}
+    \item \lstinline!{$\textit{Argument}$}! bezeichnet \emph{obligatorische} Argumente
+    \item \lstinline![$\textit{Argument}$]! bezeichnet \emph{optionale} Argumente
+    \item \lstinline!($\textit{x},\textit{y}$)! oder \lstinline!<$\dots$>! sind auch
+      üblich
+    \end{itemize}
 
-%   \begin{Beispiel}
-% \begin{lstlisting}
-% \newcommand{\blue}[1]{\textcolor{blue}{#1}}
-% \end{lstlisting}
-%     und der Aufruf \lstinline!\blue{Mein Text}! erzeugt \textcolor{blue}{Mein Text}.
-%   \end{Beispiel}
-% \end{frame}
+    Aber das ist \enquote{nur} Konvention!
+  \end{itemize}
+\end{frame}
 
-% \begin{frame}[fragile]
-%   \frametitle{Weitere Makro-Definitions-Befehle}
+\begin{frame}[fragile]
+  \frametitle{Eigene Makros}
+  \onslide<+->
 
-%   \onslide<+->
+  Eigene Makros ermöglichen (komplexe) Formatierungen und verringern Schreibaufwand.  In
+  \LaTeX\ werden eigene Makros durch
+\begin{lstlisting}
+\newcommand{$\textit{Name}$}[$\textit{Anzahl\_der\_Argumente}$]{$\textit{Text}$}
+\end{lstlisting}
+  definiert. Dabei wird in Text jedes Vorkommen von \#\emph{Nummer} durch den Wert des
+  \emph{Nummer}-ten Arguments \emph{syntaktisch} ersetzt.
+\end{frame}
 
-%   \begin{itemize}[<+->]
-%   \item Sollte es ein Makro schon geben, so redefiniert \lstinline!\renewcommand!
-%     dieses Makro
-%   \item \lstinline!\providecommand! definiert ein Makro nur, wenn es vorher noch nicht
-%     existierte
-%   \item Die Varianten \lstinline!\newcommand*!, \lstinline!\renewcommand*! bzw.\,
-%     \lstinline!\providecommand*! erlauben keine neuen Absätze in ihren Argumenten (und
-%     erlauben damit eine \enquote{bessere} Fehlerdiagnose, wenn man doch mal
-%     \texttt{\}} vergessen hat)
-%   \item Das Paket \texttt{xparse} bietet noch umfangreiche Möglichkeiten zur
-%     Makrodefinition
-%   \end{itemize}
-% \end{frame}
+\begin{frame}[fragile]
+  \frametitle{Weitere Makro-Definitions-Befehle}
+
+  % \onslide<+->
+
+  \begin{itemize}[<+->]
+  \item Sollte es ein Makro schon geben, so redefiniert \lstinline!\renewcommand!
+    dieses Makro
+  \item \lstinline!\providecommand! definiert ein Makro nur, wenn es vorher noch nicht
+    existierte
+  \item Die Varianten \lstinline!\newcommand*!, \lstinline!\renewcommand*! bzw.\,
+    \lstinline!\providecommand*! erlauben keine neuen Absätze in ihren Argumenten (und
+    erlauben damit eine \enquote{bessere} Fehlerdiagnose, wenn man doch mal
+    \texttt{\}} vergessen hat)
+  \item Das Paket \texttt{xparse} bietet noch umfangreiche Möglichkeiten zur
+    Makrodefinition, z.B.\ mehrere optionale Argumente.
+  \end{itemize}
+\end{frame}
 
 % \section{Grundlagen der Textformatierung}
 

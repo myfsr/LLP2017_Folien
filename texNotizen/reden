@@ -62,3 +62,22 @@ Welche Teile können wir erkennen?
 
   kann sehr lang werden
 
+3) Dokumentenkörper Folie „Dokumentenkörper”
+  „latexbspimkurs3“
+  -> Text reingeschrieben
+  -> Ausgabe ansehen
+
+Makros
+------
+  sehen, dass einige Wörter (textbackslash) nicht angezeigt werden.
+  -> sind Makros
+  -> Folie „Makros“
+
+  „keine Zahlen“, Sonderzeichen (.,;:να\)
+
+  Eigene Makros schreiben: latexbspimkurs4 (\wichtig)
+  Was passiert im untersten Bsp? emph in emph
+
+  \tb -> typisch: man kürzt ein anderes Makro ab
+
+  Vorteil von \wichtig: kann man ändern, wenn albern

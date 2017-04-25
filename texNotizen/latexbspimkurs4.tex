@@ -1,0 +1,35 @@
+% Dokumentenklasse
+% immer am Anfang des Dokuments
+\documentclass{scrartcl}
+
+% Präambel
+\usepackage[utf8]{inputenc} % Eingabekodierung
+\usepackage[T1]{fontenc}    % Schrifkodierung
+\usepackage[ngerman]{babel} % optimiert für Deutsch (z.B. Titel, Silbentrennung)
+
+\title{Mein erstes \LaTeX-Dokument}
+\author{LLP-Kurs}
+\date{nach Ostern}
+
+\newcommand{\wichtig}[1]{(Wichtig!) \emph{#1} (Achtung, dieses Wort sollte man sich merken!)}
+\newcommand{\tb}{\textbackslash}
+
+% Ende Präambel
+% Beginn eigentliches Dokument
+\begin{document}
+\maketitle
+  Hallo. Jetzt schreibe ich ein deutschen Text mit Umlauten: ä, ö, ü und Accenten: é ù %ȩ
+
+  Das eigentliche Dokument wird nun zwischen
+  \tb begin\{document\} und \tb end\{document\}
+  reingeschrieben. \TeX \wichtig{formatiert}
+  es dann \wichtig{ansprechend}.
+
+  Bei Fülltexten sollte man drauf achten, dass es nicht
+  allzu viel Sinn macht, lange darüber nachzudenken, was
+  man wie schreibt.
+
+  Ich kann auch Makros ineinander tun: Jetzt kommt ein echt
+  wichtiges Wort:
+  \emph{\wichtig{Genialkohöllischer Wunschpunsch}}
+\end{document}
