@@ -1,6 +1,8 @@
 % hier kommen Teile aus den Präsentationen hin, die man später nochmal erwähnenn sollte, aber an der Stelle, wo sie waren, zu früh sind.
 
 
+  \lstinline!\begin{document} ... \end{document}! ist ein Beispiel für eine Umgebung (\enquote{environment}). Wir werden viele weitere kennen lernen.
+
 % \begin{frame}[fragile]
 %   \frametitle{Interpunktion}
 
@@ -156,3 +158,909 @@
 %   \end{itemize}
 
 % \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Aufzählungen}
+
+%   \LaTeX\ stellt standardmäßig drei Aufzählungstypen zur Verfügung%
+
+%   \onslide<+->
+
+%   \begin{enumerate}
+%   \item<+-> \lstinline{itemize} für unnummerierte Aufzählungen
+%   \item<+-> \lstinline{enumerate} für nummerierte Aufzählungen
+%   \item<+-> \lstinline{description} für Definitionslisten
+%   \end{enumerate}
+
+%   \onslide<+->
+
+%   \begin{Beispiel}
+%     \begin{columns}
+%       \begin{column}{0.5\linewidth}
+% \begin{lstlisting}
+% \begin{itemize}
+% \item Eins
+% \item Zwei
+% \item Drei
+% \end{itemize}
+% \end{lstlisting}
+%       \end{column}
+%       \onslide<+->
+%       \begin{column}{0.5\linewidth}
+%         \begin{itemize}
+%         \item Eins
+%         \item Zwei
+%         \item Drei
+%         \end{itemize}
+%       \end{column}
+%     \end{columns}
+%   \end{Beispiel}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Farben}
+
+%   \onslide<+->
+
+%   Farben werden durch das Paket \lstinline{xcolor} bereit gestellt.
+
+%   \onslide<+->
+
+% \begin{lstlisting}
+% \usepackage{xcolor}
+% \textcolor{blue}{Blauer Text}
+% \textcolor{green}{Grüner Text}
+% \textcolor{red!50!blue}{Text blau-rot gemischt}
+% \color{gray} Alles, was jetzt noch kommt ist grau
+% \end{lstlisting}
+
+%   wird zu\onslide<+->
+
+%   \textcolor{blue}{Blauer Text}
+%   \textcolor{green}{Grüner Text}
+%   \textcolor{red!50!blue}{Text blau-rot gemischt}
+%   \color{gray} Alles, was jetzt noch kommt ist grau
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Tabellen}
+
+%   \onslide<+->
+
+%   Sinnvolle Pakete:
+% \begin{lstlisting}
+% \usepackage{array,booktabs}
+% \end{lstlisting}
+
+%   \onslide<+->
+
+%   \bigskip
+
+%   \begin{columns}
+%     \begin{column}{0.55\linewidth}
+% \begin{lstlisting}
+% \begin{tabular}[c]{l|cr}
+%   \toprule
+%   Tabelle & Kopf  & Kopf  \\
+%   \midrule
+%   Zeile   & Zelle & Zelle \\
+%   Zeile   & Zelle & Zelle \\
+%   \bottomrule
+% \end{tabular}
+% \end{lstlisting}
+%     \end{column}
+%     \begin{column}{0.45\linewidth}
+%       \centering
+%       \begin{tabular}[c]{l|cr}
+%         \toprule
+%         Tabelle & Kopf & Kopf \\
+%         \midrule
+%         Zeile & Zelle & Zelle \\
+%         Zeile & Zelle & Zelle \\
+%         \bottomrule
+%       \end{tabular}
+%     \end{column}
+%   \end{columns}
+
+% \end{frame}
+
+% \section{Bilder einbinden und Grafiken erstellen}
+
+% \begin{frame}[fragile]
+%   \frametitle{Bilder einbinden}
+
+%   \onslide<+->
+
+%   \begin{itemize}
+%   \item Einbinden von Graphiken in \LaTeX\ mit Hilfe des Pakets \texttt{graphicx}
+%   \item Befehl
+% \begin{lstlisting}
+% \includegraphics[(*@\textit{Optionen}@*)]{(*@\textit{Bildname}@*)}
+% \end{lstlisting}
+%   \end{itemize}
+
+%   \onslide<+->
+
+%   \begin{Beispiel}
+% \begin{lstlisting}
+% \centerline{\includegraphics[width=0.3\linewidth,
+%   keepaspectratio]{meinBild.pdf}}
+% \end{lstlisting}
+
+%     ergibt
+
+%     \centerline{\includegraphics[width=0.3\linewidth,keepaspectratio]{pics/meinBild.pdf}}
+%   \end{Beispiel}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Optionen zum Einbinden von Graphiken}
+
+%   \onslide<+->
+
+%   Meist verwendete Optionen von \lstinline{\includegraphics} sind
+%   \begin{itemize}
+%     \item \texttt{width}, \texttt{height} für Breite und Höhe
+%     \item \texttt{keepaspectratio}, so dass nach Angabe von Breite oder Höhe
+%       das Bild automatisch skaliert wird
+%     \item \texttt{scale} zur Skalierung des Bildes
+%     \item \texttt{angle} zur Angabe eines Drehwinkels
+%     \item \texttt{origin} zur Angabe des Drehpunktes
+%   \end{itemize}
+
+%   \onslide<+->
+
+%   \begin{Beispiel}
+% \begin{lstlisting}
+% \centerline{\includegraphics[scale=1.2,origin=cc,
+%     angle=42]{bild.jpg}}
+% \end{lstlisting}
+
+%     \centerline{\includegraphics[scale=1.2,origin=cc,angle=42]{pics/bild.jpg}}
+%   \end{Beispiel}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Weitere Befehle aus \texttt{graphicx}}
+
+%   \onslide<+->
+
+%   \begin{itemize}[<+->]
+%   \item Drehen von Inhalten mit
+%     \lstinline!\rotatebox[$\textit{Optionen}$]{$\textit{Winkel}$}{$\textit{Inhalt}$}!
+%     \onslide<+->
+% \begin{lstlisting}
+% \rotatebox[origin=lB]{-30}{TextTextTextText}
+% \end{lstlisting}
+%     \rotatebox[origin=lB]{-30}{TextTextTextText}
+%   \item \lstinline!\resizebox{$\textit{Breite}$}{$\textit{Höhe}$}{$\textit{Text}$}!
+%     \onslide<+->
+% \begin{lstlisting}
+% \resizebox{1cm}{.4cm}{Hier ist es eng...}
+% \end{lstlisting}
+%     \resizebox{1cm}{.4cm}{Hier ist es eng...}
+%   \item \lstinline!\scalebox{$\textit{horizontal}$}[$\textit{vertikal}$]{$\textit{Text}$}!
+%     \onslide<+->
+% \begin{lstlisting}
+% \scalebox{3}[-1]{Breitergehtnicht}
+% \end{lstlisting}
+%     \scalebox{3}[-1]{Breitergehtnicht}
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Gleitumgebungen}
+
+%   \onslide<+->
+
+%   Größere Bilder werden mittels \emph{Gleitumgebungen} gesetzt:
+% \begin{lstlisting}
+% \begin{figure}[$\textit{Optionen}$]
+%   $\dots$
+%   \caption{Bildunterschrift}
+% \end{figure}
+% \end{lstlisting}
+%   \LaTeX\ platziert dann die Bilder auf der aktuellen oder auf einer der folgenden Seiten.
+%   \onslide<+-> Die Platzierung wird durch die entsprechenden \textit{Optionen} angegeben:
+%   \begin{description}
+%   \item[h] Platzierung an der aktuellen Stelle
+%   \item[t] Platzierung oben auf einer Seite
+%   \item[b] Platzierung unten auf einer Seite
+%   \item[p] Platzierung auf einer extra Seite
+%   \end{description}
+
+%   \onslide<+->
+
+%   Optionen können gemischt werden.
+
+%   \onslide<+->
+
+%   Für Tabellen gibt es die spezielle \texttt{table}-Umgebung.
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Grafiken erstellen}
+
+%   \begin{center}
+%     \begin{tikzpicture}[
+%         thick,
+%         >=stealth',
+%         dot/.style = {
+%           draw,
+%           fill = white,
+%           circle,
+%           inner sep = 0pt,
+%           minimum size = 4pt
+%         }
+%       ]
+%       \coordinate (O) at (0,0);
+%       \draw[->] (-0.3,0) -- (8,0) coordinate[label = {below:$x$}] (xmax);
+%       \draw[->] (0,-0.3) -- (0,5) coordinate[label = {right:$f(x)$}] (ymax);
+%       \path[name path=x] (0.3,0.5) -- (6.7,4.7);
+%       \path[name path=y] plot[smooth] coordinates {(-0.3,2) (2,1.5) (4,2.8) (6,5)};
+%       \scope[name intersections = {of = x and y, name = i}]
+%         \fill[gray!20] (i-1) -- (i-2 |- i-1) -- (i-2) -- cycle;
+%         \draw      (0.3,0.5) -- (6.7,4.7) node[pos=0.8, below right] {Sekante};
+%         \draw[red] plot[smooth] coordinates {(-0.3,2) (2,1.5) (4,2.8) (6,5)};
+%         \draw (i-1) node[dot, label = {above:$P$}] (i-1) {} -- node[left,yshift=-3pt]
+%           {$f(x_0)$} (i-1 |- O) node[dot, label = {below:$x_0$}] {};
+%         \path (i-2) node[dot, label = {above:$Q$}] (i-2) {} -- (i-2 |- i-1)
+%           node[dot] (i-12) {};
+%         \draw           (i-12) -- (i-12 |- O) node[dot,
+%                                   label = {below:$x_0 + \varepsilon$}] {};
+%         \draw[blue, <->] (i-2) -- node[right] {$f(x_0 + \varepsilon) - f(x_0)$}
+%                                   (i-12);
+%         \draw[blue, <->] (i-1) -- node[below] {$\varepsilon$} (i-12);
+%         \path       (i-1 |- O) -- node[below] {$\varepsilon$} (i-2 |- O);
+%         \draw[gray]      (i-2) -- (i-2 -| xmax);
+%         \draw[gray, <->] ([xshift = -0.5cm]i-2 -| xmax) -- node[fill = white]
+%           {$f(x_0 + \varepsilon)$}  ([xshift = -0.5cm]xmax);
+%       \endscope
+%     \end{tikzpicture}
+%   \end{center}
+
+%   \onslide<2->{mit \textcolor{red}{Ti\textit{k}Z} $\leadsto$ später!}
+
+%   \vfill\hbox{}\hfill\hbox{\tiny\url{http://www.texample.net/tikz/examples/linear-regression/}}
+
+% \end{frame}
+
+% \section{Mathematik}
+
+% \begin{frame}
+%   \frametitle{Wozu \TeX\ geschaffen wurde...}
+
+%   \onslide<+->
+
+%   \begin{equation*}
+%     \frac{f\left(\zeta\right)}{\zeta-z_0} = \frac{f\left(\zeta\right)}
+%     {\zeta-z_0}\frac{1}{
+%       1-\frac{z-z_0}{\zeta-z_0}} = \sum_{n=0}^{\infty}\frac{f\left(\zeta\right)}
+%     {\zeta-z_0}
+%     \left(\frac{z-z_0}{\zeta-z_0}\right)^n
+%   \end{equation*}
+
+%   \medskip
+
+%   \begin{equation*}
+%     0 \neq \left|\, \frac{1}{10^{10}} \left( \sum_{n = -\infty}^{\infty}
+%         e^{\frac{n^2}{10^{10}}} \right)^2 - \pi \,\right|
+%     \le 10^{-42 \cdot 10^9}
+%   \end{equation*}
+
+%   \medskip
+
+%   \begin{equation*}
+%     \frac{1}{\pi} = \frac{2\sqrt{2}}{9801} \sum^\infty_{k=0} \frac{(4k)!(1103+26390k)}{(k!)^4 396^{4k}}
+%   \end{equation*}
+
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Setzen mathematischer Formeln}
+
+%   \onslide<+->
+
+%   Prinzipiell ist Mathematik eine ganz andere Welt (nicht nur in \LaTeX), denn
+%   \begin{itemize}
+%   \item<+-> das Setzen mathematischer Formeln erfolgt in einer eigenen Umgebung
+%   \item<+-> mit eigenen Befehlen,
+%   \item<+-> eigener Schrift,
+%   \item<+-> eigenen Einstellungen
+%   \item<+-> und eigenen Tücken...
+%   \end{itemize}
+
+%   \onslide<+->
+
+%   aber es ist einfacher (und schöner) als in den meisten (allen) anderen Textsatzsystemen
+% \end{frame}
+
+% \begin{frame}[fragile,fragile]
+%   \frametitle{Das Grundgerüst}
+
+%   \onslide<+->
+
+%   2 Möglichkeiten, Formeln zu setzen:
+%   \begin{itemize}
+%   \item<+-> Im laufenden Text mit \lstinline!$\text{\$}\dots\text{\$}$! oder
+%     \lstinline!\($\dots$\)!
+%   \item<+-> oder abgesetzt mit \lstinline!\[$\dots$\]! oder
+%     \lstinline!\begin{equation*}$\dots$\end{equation*}!
+%   \end{itemize}
+
+%   \onslide<+->
+
+%   Dies ist eine $\sum_{i=0}^\infty\frac{1}{n}=\infty$ Textformel und dies ist eine
+%   \begin{equation*}
+%     \sum_{i=0}^\infty\frac{1}{n} = \infty
+%   \end{equation*}
+%   abgesetzte Formel.
+
+%   \onslide<+->
+
+% \begin{lstlisting}
+% Dies ist eine $\text{\$}$\sum_{i=0}^\infty\frac{1}{n}=\infty$\text{\$}$
+% Textformel und dies ist eine
+% \begin{equation*}
+%   \sum_{i=0}^\infty\frac{1}{n} = \infty
+% \end{equation*}
+% abgesetzte Formel.
+% \end{lstlisting}
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Grundlegende Formelelemente}
+
+%   \onslide<+->
+
+%   Einige grundlegende Formelelemente sind
+%   \begin{itemize}
+%   \item Buchstaben, dargestellt als \textit{jeweils ein} Symbol, $xyz$,
+%   \item Zahlen, einfach gesetzt $123$,
+%   \item griechische Buchstaben wie $\gamma, \varepsilon, \xi, \ldots$, und hebräische wie
+%     $\aleph, \beth, \ldots$
+%   \item Operationen wie $+$,$-$ und $\cdot$ (mit \lstinline!\cdot!)
+%   \item Exponenten, gesetzt mit \textasciicircum, z.B. $\text{\lstinline!x^2!}
+%     \mathrel{\hat=} x^2$,
+%   \item Indizes mit \_, z.B. $\text{\lstinline!x_2!} \mathrel{\hat=} x_2$,
+%   \item \lstinline!\frac{$\textit{Zähler}$}{$\textit{Nenner}$}! für $\frac{1}{n}$,
+%   \item Wurzeln mit \lstinline!\sqrt[$\textit{Grad}$]{$\textit{Radikant}$}!, z.B.
+%     \lstinline!\sqrt[3]{x}! ${} \mathrel{\hat=} \sqrt[3]{x}$
+%   \end{itemize}
+
+%   \onslide<+->
+
+%   und natürlich kann man das \textit{alles} auch kombinieren:
+%   \begin{equation*}
+%     \gamma + \frac{\aleph^{\beth - \frac{1+\beta\cdot x^2}{\sqrt{2}}}-5}{\sqrt[2+\sqrt{\phi}]
+%       {42-\alpha-\theta-\mu}^\pi}
+%   \end{equation*}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Klammern}
+
+%   \onslide<+->
+
+%   \LaTeX\ unterstützt jegliche Formen von Klammern:
+%   \begin{equation*}
+%     (x), \{x\},[x],\lfloor x\rfloor, \lceil x\rceil,|x|,\langle x \rangle,\ldots
+%   \end{equation*}
+
+%   \onslide<+->
+
+%   Größenanpassung mit \lstinline{\left} und \lstinline{\right}, jeweils paarig:
+
+% \begin{lstlisting}
+% \left(\sum_{i=0}^1 5 = 10\right)
+% \end{lstlisting}
+
+%   ergibt
+%   \vspace*{-3ex}
+
+%   \begin{equation*}
+%     \left(\sum_{i=0}^1 5 = 10\right)
+%   \end{equation*}
+
+%   \vspace*{1ex}
+
+%   \onslide<+->
+
+% \begin{lstlisting}
+% \left|\sum_{i=0}^1 5 = 10\right[
+% \end{lstlisting}
+
+%   ergibt
+%   \vspace*{-3ex}
+
+%   \begin{equation*}
+%     \left|\sum_{i=0}^1 5 = 10\right[
+%   \end{equation*}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Klammern II}
+
+%   \onslide<+->
+
+%   oder auch
+
+% \begin{lstlisting}
+% \int_0^1x^2 \mathop{} \mathsf d x =
+%   \left.\frac{1}{3}x^3\right|_0^1
+% \end{lstlisting}
+%   \begin{equation*}
+%     \int_0^1x^2 \mathop{} \mathsf d x = \left.\frac{1}{3}x^3\right|_0^1
+%   \end{equation*}
+
+%   denn \verb|.| ist das Sonderzeichen für eine leere Klammer.
+
+%   \onslide<+->
+%   \medskip
+
+%   Klammern gibt es auch über- und unterhalb von Formeln mit Hilfe von
+%   \lstinline{\underbrace} und \lstinline{\overbrace}:
+% \begin{lstlisting}
+% 1+\underbrace{ 2 + \overbrace{3 + 4}^{7} }_{9} = 10
+% \end{lstlisting}
+%   \begin{equation*}
+%     1+\underbrace{ 2 + \overbrace{3 + 4}^{7} }_{9} = 10
+%   \end{equation*}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Grenzen}
+
+%   \onslide<+->
+
+%   Änderbar mit den Befehlen \lstinline{\limits} und \lstinline{\nolimits}, also z.B.
+
+% \begin{lstlisting}
+% \sum\nolimits_{i=1}^\infty\frac{1}{n^2}
+%    = \frac{\pi^2}{6}
+% \end{lstlisting}
+
+%   \begin{equation*}
+%     \sum\nolimits_{i=1}^\infty\frac{1}{n^2} = \frac{\pi^2}{6}
+%   \end{equation*}
+
+%   \bigskip
+
+%   \onslide<+->
+
+% \begin{lstlisting}
+% \int\limits_0^1x^2 \mathop{} \mathsf d x
+%    = \frac{1}{3}
+% \end{lstlisting}
+
+%   \begin{equation*}
+%     \int\limits_0^1 x^2 \mathop{} \mathsf d x = \frac{1}{3}
+%   \end{equation*}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Funktionen}
+
+%   \onslide<+->
+
+%   \begin{block}{Beobachtung}
+%     \vspace*{-\baselineskip}
+%     \begin{equation*}
+%       sin(x) \neq \sin(x)
+%     \end{equation*}
+%   \end{block}
+
+%   \onslide<+->
+
+%   daher: allgemein gebräuchliche Funktionen werden gesondert behandelt:
+
+%   \smallskip
+
+%   \begin{center}
+%     \begin{tabular}{ll|ll|ll|ll}
+%       \toprule
+%       \lstinline{\log} & $\log$ & \lstinline{\lg} & $\lg$ & \lstinline{\ln} & $\ln$ & \lstinline{\lim} & $\lim$ \\
+%       \lstinline{\sin} & $\sin$ & \lstinline{\arcsin} & $\arcsin$ & \lstinline{\sinh} & $\sinh$ & \lstinline{\cos} & $\cos$ \\
+%       \lstinline{\arccos} & $\arccos$ & \lstinline{\cosh} & $\cosh$ & \lstinline{\tan} & $\tan$ & \lstinline{\tanh} & $\tanh$ \\
+%       \lstinline{\arctan} & $\arctan$ & \lstinline{\cot} & $\cot$ & \lstinline{\coth} & $\coth$ & \lstinline{\max} & $\max$ \\
+%       \lstinline{\min} & $\min$  & \lstinline{\arg} & $\arg$ & \lstinline{\det} & $\det$  & \lstinline{\Pr} & $\Pr$ \\
+%       \bottomrule
+%     \end{tabular}
+%   \end{center}
+
+%   \smallskip
+
+%   \onslide<+->
+
+%   Damit sind auch korrekte Indizierungen möglich:
+% \begin{lstlisting}
+% lim_{n\to\infty} \frac{1}{n} = 0 \quad
+%   \not\equiv \quad \lim_{n\to\infty}\frac{1}{n}=0
+% \end{lstlisting}
+%   \begin{equation*}
+%     lim_{n\to\infty} \frac{1}{n} = 0 \quad \not\equiv \quad \lim_{n\to\infty}\frac{1}{n}=0
+%   \end{equation*}
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Mengen}
+
+%   \onslide<+->
+
+%   Mengenbedingungen werden mit dem Kommando \lstinline{\mid} gesetzt:
+% \begin{lstlisting}
+% \{\, n \in \mathbb N \mid n \ge \pi \,\}
+% \end{lstlisting}
+%   \vskip1ex
+%   \begin{equation*}
+%     \{\, n \in \mathbb N \mid n \ge \pi \,\}
+%   \end{equation*}
+
+%   \onslide<+->
+
+%   Ein einfacher Strich | reicht nicht aus!
+%   \begin{equation*}
+%     \{\, n \in \mathbb N | n \ge \pi \,\}
+%   \end{equation*}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Akzente}
+
+%   \onslide<+->
+
+%   Auch Akzente sind im Mathematikmodus neu:
+
+%   \medskip
+
+%   \begin{center}
+%     \begin{tabular}{ll|ll|ll}
+%       \toprule
+%       \lstinline{\acute}    & $\acute x$    & \lstinline{\hat}       & $\hat x$          & \lstinline{\grave}   & $\grave x$ \\
+%       \lstinline{\ddot}     & $\ddot x$     & \lstinline{\tilde}     & $\tilde x$        & \lstinline{\bar}     & $\bar x$ \\
+%       \lstinline{\breve}    & $\breve x$    & \lstinline{\check}     & $\check x$        & \lstinline{\dot}     & $\dot x$ \\
+%       \lstinline{\vec}      & $\vec x$      & \lstinline{\widetilde} & $\widetilde{xyz}$ & \lstinline{\widehat} & $\widehat{xyz}$ \\
+%       \lstinline{\mathring} & $\mathring x$ & \lstinline{\prime}     & $x^{\prime}$        & \lstinline{'}        & $x'$\\
+%       \bottomrule
+%     \end{tabular}
+%   \end{center}
+
+%   \medskip
+
+%   und mit Hilfe einiger Zusatzpakete gibt es noch viel mehr\ldots
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{und noch viel mehr Symbole}
+
+%   \onslide<+->
+
+%   Noch viel mehr Symbole:
+
+%   \begin{center}
+%     \hbox{\url{http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf}}
+%   \end{center}
+
+%   \vspace*{-\baselineskip}
+
+%   \onslide<+->
+
+%   und noch viel mehr zu sagen, z.B.
+%   \begin{itemize}
+%   \item<+-> gibt es 8 unterschiedliche Symbolklassen
+%   \item<+-> eigentlich 4 (8) Modi im Mathematikmodus
+%   \item<+-> Text in mathematischen Formeln (mit \lstinline!\text{ein wenig Text}!)
+%   \item<+-> manuelle Feinjustierung, z.B.
+%     \begin{equation*}
+%       \int_0^1x^2dx \qquad \int_0^1 x^2 \mathop{} \mathrm{d}x
+%     \end{equation*}
+%   \item<+-> \ldots
+%   \end{itemize}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Referenzen auf Gleichungen}
+
+%   \onslide<+->
+
+%   Verweise auf Formeln mit
+
+% \begin{lstlisting}
+% \begin{equation}\label{$\textit{label}$}
+%   $\dots$
+% \end{equation}
+% \end{lstlisting}
+
+%   z.B.
+
+% \begin{lstlisting}
+% \begin{equation}\label{eqn:hahah}
+%   2 + 2 = 5
+% \end{equation}
+% und die Formel~(\ref{eqn:hahah}) ist doch richtig!
+% \end{lstlisting}
+
+%   wird zu:
+%   \begin{equation}\label{eqn:hahah}
+%     2 + 2 = 5
+%   \end{equation}
+%   und die Formel~(\ref{eqn:hahah}) ist doch richtig!
+
+%   \onslide<+->
+
+%   Hinweis: \texttt{equation*} statt \texttt{equation} unterdrückt die Nummerierung.
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Umgebungen}
+
+%   \onslide<+->
+
+%   Ausgerichtete Formeln mit
+% \begin{lstlisting}
+% \usepackage{amsmath}
+% \begin{align*}
+%   $\dots$
+% \end{align*}
+% \end{lstlisting}
+
+%   \onslide<+->
+
+%   z.B.
+
+% \begin{lstlisting}
+% \begin{align*}
+%   2x + y + 5x + z
+%   &= 2x + 5x + y + z \\
+%   &= 7x + y + z
+% \end{align*}
+% \end{lstlisting}
+
+%   wird zu\vspace*{-\baselineskip}
+%   \begin{align*}
+%     2x + y + 5x + z &= 2x + 5x + y + z \\
+%                     &= 7 x + y + z
+%   \end{align*}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Umgebungen II -- \AmS\TeX}
+
+%   \onslide<+->
+
+%   Das Paket \texttt{amsmath} stellt weiter Umgebungen bereit:
+%   \begin{itemize}
+%   \item \texttt{split} für den Einsatz mehrzeiliger Formeln in der \texttt{equation}
+%   \item \texttt{align}
+%   \item \texttt{multline} für \enquote{zu lange} Formeln
+%   \item \texttt{gather} für lose zusammengeworfenen Formeln
+%   \item ...
+%   \end{itemize}
+
+%   und \AmS\TeX\ erlaubt den Umbruch mehrseitiger Formeln mit \lstinline!\allowdisplaybreaks!.
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Tabellen (Matrizen)}
+
+%   \onslide<+->
+
+%   Für Matrizen gibt es die Umgebung \texttt{pmatrix}:
+
+% \begin{lstlisting}
+% \begin{pmatrix}
+%   1 & 2 & 3 \\
+%   4 & 5 & 6 \\
+%   7 & 8 & 9
+% \end{pmatrix}
+% \end{lstlisting}
+%   \begin{equation*}
+%     \begin{pmatrix}
+%       1 & 2 & 3 \\
+%       4 & 5 & 6 \\
+%       7 & 8 & 9
+%     \end{pmatrix}
+%   \end{equation*}
+%   ist aber auch mit der Umgebung \texttt{array} möglich.
+
+% \end{frame}
+
+
+% \section{Referenzieren}
+
+% \begin{frame}[fragile]
+%   \frametitle{Label und Referenzen}
+
+%   \onslide<+->
+
+%   \LaTeX\ erlaubt die automatische Handhabung von Verweisen mittels \lstinline{\label} und
+%   \lstinline{\ref}.
+
+%   \onslide<+->
+
+% \begin{lstlisting}
+% \section{Abschnitt}
+% \label{abschnittslabel}
+
+% \begin{enumerate}
+% \item\label{item:1} Eintrag
+% \end{enumerate}
+
+% \begin{figure}
+%   $\dots$
+%   \caption{\label{figure} Bildunterschrift}
+% \end{figure}
+% \end{lstlisting}
+
+%   \onslide<+->
+
+%   Verweis mittels \lstinline!\ref{figure}! im Text.
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Literaturverweise}
+
+%   \onslide<+->
+
+%   Verweise auf Literatur werden mittels \lstinline{cite} erreicht:
+
+% \begin{lstlisting}
+% \cite{MyPaper}
+% $\dots$
+% \begin{thebiliography}[MyPaper]
+% \bibitem{BHM14}{MyPaper} \LaTeX, Linux, Python
+% $\dots$
+% \end{thebibliography}
+% \end{lstlisting}
+
+%   \onslide<+->
+
+%   Einfacher mittels \emph{externer} Literaturangaben und Bib\TeX.
+
+% \end{frame}
+
+% \begin{frame}[fragile,fragile]
+%   \frametitle{Bib\TeX}
+
+%   \onslide<+->
+
+%   Literaturangabe in \emph{externer Datei} (z.B. \texttt{my.bib})
+
+% \begin{lstlisting}
+% @article{MyPaper,
+%   title = {\LaTeX, Linux, Python},
+%   author = {Daniel Borchmann and Tom Hanika
+%     and Maximilian Marx},
+%   journal = {Advancing Technical Understanding of
+%     Mathematics Students},
+%   year = {2014},
+% }
+% \end{lstlisting}
+
+%   \onslide<+->
+
+%   Einbinden im Dokument mit zugehörigem Stil
+% \begin{lstlisting}
+% \bibliography{my}
+% \bibliographystyle{plain}
+% \end{lstlisting}
+
+%   \onslide<+->
+
+%   Nach dem ersten Durchlauf von \texttt{pdflatex} (o.ä.) Aufruf von \texttt{bibtex}, und
+%   danach nochmal Durchlauf von \texttt{pdflatex}.
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Bib\LaTeX}
+
+%   \onslide<+->
+
+%   Problem mit Bib\TeX: Stile schwer anpassbar.
+
+%   \onslide<+->
+
+%   Ausweg: Bib\LaTeX\ und Biber
+
+%   \onslide<+->
+
+% \begin{lstlisting}
+% \usepackage[style=numeric-comp,
+%   backref=true, isbn=true,
+%   doi=false, maxbibnames=5]
+%   {biblatex}
+% \addbibresource{my.bib}
+
+% \begin{document}
+
+% \printbibliography{}
+
+% \end{document}
+% \end{lstlisting}
+
+%   \onslide<+->
+
+%   Aufruf von \texttt{biber} statt \texttt{bibtex}.
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Der Index}
+
+%   \onslide<+->
+
+%   Um einen Index zu erstellen geht man wie folgt vor:
+%   \begin{itemize}
+%   \item Einbinden des Paktes \textit{makeidx} mit \lstinline!\usepackage{makeidx}!
+%   \item Aufruf des Befehls \lstinline{\makeindex} \textit{in der Präambel}
+%   \item Aufruf von \lstinline!\printindex! an der Stelle, an der der Index gedruckt werden
+%     soll
+%   \end{itemize}
+
+%   \onslide<+->
+
+%   \begin{itemize}
+%   \item Nach dem ersten \LaTeX-Durchlauf sollte das Programm \texttt{makeindex}
+%     auf der erzeugten *.idx-Datei aufgerufen werden, um den Index zu erstellen
+%   \item Ein weiterer \LaTeX-Durchlauf erzeugt dann das gewünschte Dokument
+%   \end{itemize}
+
+%   \onslide<+->
+
+%   \begin{itemize}
+%   \item Indexeinträgen mit \lstinline!\index{Eintrag}!
+%   \item Untereinträge mit \lstinline?\index{Haupteintrag!Untereintrag}?
+%   \item Viele weitere Formatierungsmöglichkeiten
+%   \end{itemize}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Tabellen (Matrizen)}
+
+%   \onslide<+->
+
+%   Für Matrizen gibt es die Umgebung \texttt{pmatrix}:
+
+% \begin{lstlisting}
+% \begin{equation*}
+%   \begin{pmatrix}
+%     1 & 2 & 3 \\
+%     4 & 5 & 6 \\
+%     7 & 8 & 9
+%   \end{pmatrix}
+% \end{equation*}
+% \end{lstlisting}
+
+%   \onslide<+->
+
+%   \begin{equation*}
+%     \begin{pmatrix}
+%       1 & 2 & 3 \\
+%       4 & 5 & 6 \\
+%       7 & 8 & 9
+%     \end{pmatrix}
+%   \end{equation*}
+
+%   \onslide<+->
+
+%   ist aber auch mit der Umgebung \texttt{array} möglich.
+
+% \end{frame}
+
