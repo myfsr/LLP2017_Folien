@@ -26,6 +26,7 @@ unterbrecht mich sobald es für _Einen_ zu viel auf einmal ist
 „Text(datei)-Editor“
   AUCTeX -> empfiehlt Lin
   Ich: Sublime Text, auch gut, aber nicht frei (aber gratis)
+    empfehle nicht, da Installation 2 Schritte mehr braucht
   
 „nicht alles wissen“
   man lernt immer wieder dazu
@@ -52,6 +53,7 @@ Welche Teile können wir erkennen?
 
 1) Dokumentenklasse ⟶ Zeile 1 (meistens ganz am Anfang)
   Empfehlung: nimm KOMA: bietet viel, sieht Standardmäßig gut aus
+  Standalone: für Graphiken, die man dann woanders einfügen kann
 
 2) Präambel
   Folien zu Präambel „Die Präambel“
