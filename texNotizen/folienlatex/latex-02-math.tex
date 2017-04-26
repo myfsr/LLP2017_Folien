@@ -1,0 +1,427 @@
+\input{preamble}
+\subtitle{Setzen Mathematischer Formeln}
+\date{2017-05-02}
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{Ziele dieses Abschnitts (oder: Wozu \TeX\ geschaffen wurde)}
+
+  \onslide<+->
+
+  \begin{equation*}
+    \frac{f\left(\zeta\right)}{\zeta-z_0} = \frac{f\left(\zeta\right)}
+    {\zeta-z_0}\frac{1}{
+      1-\frac{z-z_0}{\zeta-z_0}} = \sum_{n=0}^{\infty}\frac{f\left(\zeta\right)}
+    {\zeta-z_0}
+    \left(\frac{z-z_0}{\zeta-z_0}\right)^n
+  \end{equation*}
+
+  \medskip
+
+  \begin{equation*}
+    0 \neq \left|\, \frac{1}{10^{10}} \left( \sum_{n = -\infty}^{\infty}
+        e^{\frac{n^2}{10^{10}}} \right)^2 - \pi \,\right|
+    \le 10^{-42 \cdot 10^9}
+  \end{equation*}
+
+  \medskip
+
+  \begin{equation*}
+    \frac{1}{\pi} = \frac{2\sqrt{2}}{9801} \sum^\infty_{k=0} \frac{(4k)!(1103+26390k)}{(k!)^4 396^{4k}}
+  \end{equation*}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Setzen mathematischer Formeln}
+
+  \onslide<+->
+
+  Prinzipiell ist Mathematik eine ganz andere Welt (nicht nur in \LaTeX), denn
+  \begin{itemize}
+  \item<+-> das Setzen mathematischer Formeln erfolgt in einer eigenen Umgebung
+  \item<+-> mit eigenen Befehlen,
+  \item<+-> eigener Schrift,
+  \item<+-> eigenen Einstellungen
+  \item<+-> und eigenen Tücken \dots
+  \end{itemize}
+
+  \onslide<+->
+
+  aber es ist einfacher (und schöner) als in den meisten (allen) anderen Textsatzsystemen.
+\end{frame}
+
+%%% HERE
+
+\section{Grundlagen}
+
+\begin{frame}[fragile]
+  \frametitle{Das Grundgerüst}
+
+  % \onslide<+->
+
+  \begin{block}{Zwei grundlegende Modi für Mathematik}
+    \begin{itemize}
+    \item<+-> Im laufenden Text mit
+      \begin{itemize}
+        \item \lstinline!$\text{\$}\dots\text{\$}$!
+        \item \lstinline!\($\dots$\)!
+        \item \lstinline!\begin{math}$\dots$\end{math}!
+      \end{itemize}
+      Wähle eines und nutze es konsistent!
+    \item<+-> oder abgesetzt mit
+      \begin{itemize}
+        \item \lstinline!\[$\dots$\]!
+        \item \lstinline!\begin{displaymath}$\dots$\end{displaymath}!
+        \item \textbf{Nicht:} \lstinline!$\text{\$\$}\dots\text{\$\$}$! (Veraltet!)
+        \item \lstinline!\begin{equation}$\dots$\end{equation}! (Empfehlung für einzeilige Formeln)
+        \item \lstinline!\begin{align}$\dots$\end{align}! (Empfehlung für mehrzeilige Formeln)
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Formelelemente}
+    \begin{itemize}
+    \item Buchstaben, dargestellt als \textit{jeweils ein} Symbol, $xyz$,
+    \item Zahlen: $123$,
+    \item griechische Buchstaben $\gamma, \varepsilon, \xi, \ldots$ und
+      hebräische wie $\aleph, \beth, \ldots$
+    \item Operationen: $+$,$-$ und $\cdot$ (mit \lstinline!\cdot!)
+    \item Sub- und Superskripte: $\text{\lstinline!x^2!}  \mathrel{\hat=} x^2$
+      und $\text{\lstinline!x_2!} \mathrel{\hat=} x_2$,
+    \item Brüche: \lstinline!\frac{$\textit{Zähler}$}{$\textit{Nenner}$}!
+      ${} \mathrel{\hat=} \frac{1}{n}$,
+    \item Wurzeln: \lstinline!\sqrt[3]{x}! ${} \mathrel{\hat=} \sqrt[3]{x}$
+    \end{itemize}
+
+\end{frame}
+
+\section{Das Paket \texttt{amsmath}}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{amsmath}}
+
+  \onslide<+->
+
+  \begin{block}{\textcolor{red!90}{Wichtig!}}
+    Für das Setzen mathematischer Formeln sollte \emph{immer} das Paket \texttt{amsmath}
+    geladen werden (oder ein Paket, welches \texttt{amsmath} lädt).
+  \end{block}
+
+  \onslide<+->
+
+  Umgebungen aus dem Paket \texttt{amsmath}:
+
+  \onslide<+->
+
+  \begin{itemize}
+  \item \texttt{equation} für einfache Formeln (ersetzt \texttt{displaymath})
+  \item \texttt{split} für den Einsatz mehrzeiliger Formeln in der
+    \texttt{equation}
+  \item \texttt{align}, \texttt{alignat}, \texttt{aligned}, \texttt{alignedat}
+    für mehrzeilige ausgerichtete Formeln
+  \item \texttt{multline} für \enquote{zu lange} Formeln
+  \item \texttt{gather} für lose zusammengeworfenen Formeln
+  \item ...
+  \end{itemize}
+  \onslide<+->
+
+  \texttt{*}-Variante für Umgebung ohne Nummer.
+
+  \onslide<+->
+  Empfehlenswert: Dokumentation von \texttt{amsmath} (\lstinline|texdoc amsmath|)
+
+\end{frame}
+
+% \section{Einzelelemente}
+
+% % Grundregeln: Leerzeichen werden ignoriert, keine Leerzeilen, kein Text in Matheformeln
+
+% \begin{frame}[fragile]
+%   \frametitle{Klammern}
+
+%   \onslide<+->
+
+%   \LaTeX\ unterstützt jegliche Formen von Klammern:
+%   \begin{equation*}
+%     (x), \{x\},[x],\lfloor x\rfloor, \lceil x\rceil,\lvert x\rvert,\langle x \rangle,\ldots
+%   \end{equation*}
+
+%   \onslide<+->
+
+%   \begin{lstlisting}
+%     (x), \{x\},[x],\lfloor x\rfloor, \lceil x\rceil,
+%     \lvert x\rvert,\langle x \rangle,\ldots
+%   \end{lstlisting}
+    
+%   \medskip
+
+%   \onslide<+->
+
+%   Größenanpassung mit \lstinline{\left} und \lstinline{\right}, jeweils paarig:
+
+% \begin{lstlisting}
+% \left(\sum_{i=0}^1 5 = 10\right)
+% \end{lstlisting}
+
+%   \vspace*{-2ex}
+
+%   \begin{equation*}
+%     \left(\sum_{i=0}^1 5 = 10\right)
+%   \end{equation*}
+
+%   \vspace*{1ex}
+
+%   \onslide<+->
+
+% \begin{lstlisting}
+% \left|\sum_{i=0}^1 5 = 10\right[
+% \end{lstlisting}
+
+%   \vspace*{-2ex}
+
+%   \begin{equation*}
+%     \left|\sum_{i=0}^1 5 = 10\right[
+%   \end{equation*}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Klammern II}
+
+%   \onslide<+->
+
+%   oder auch
+
+% \begin{lstlisting}
+% \int_0^1 x^2 \mathop{} \mathsf d x =
+%   \left.\frac{1}{3}x^3\right|_0^1
+% \end{lstlisting}
+%   \begin{equation*}
+%     \int_0^1x^2 \mathop{} \mathsf d x = \left.\frac{1}{3}x^3\right|_0^1
+%   \end{equation*}
+
+%   denn \verb|.| ist das Sonderzeichen für eine leere Klammer.
+
+%   \onslide<+->
+%   \medskip
+
+%   Klammern gibt es auch über- und unterhalb von Formeln mit Hilfe von
+%   \lstinline{\underbrace} und \lstinline{\overbrace}:
+% \begin{lstlisting}
+% 1+\underbrace{ 2 + \overbrace{3 + 4}^{7} }_{9} = 10
+% \end{lstlisting}
+%   \begin{equation*}
+%     1+\underbrace{ 2 + \overbrace{3 + 4}^{7} }_{9} = 10
+%   \end{equation*}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Funktionen}
+
+%   \onslide<+->
+
+%   \begin{block}{Beobachtung}
+%     \vspace*{-\baselineskip}
+%     \begin{equation*}
+%       sin(x) \neq \sin(x)
+%     \end{equation*}
+%   \end{block}
+
+%   \onslide<+->
+
+%   daher: allgemein gebräuchliche Funktionen werden gesondert behandelt:
+
+%   \smallskip
+
+%   \begin{center}
+%     \begin{tabular}{ll|ll|ll|ll}
+%       \toprule
+%       \lstinline!\log! & $\log$ & \lstinline!\lg! & $\lg$ & \lstinline!\ln! & $\ln$ & \lstinline!\lim! & $\lim$ \\
+%       \lstinline!\sin! & $\sin$ & \lstinline!\arcsin! & $\arcsin$ & \lstinline!\sinh! & $\sinh$ & \lstinline!\cos! & $\cos$ \\
+%       \lstinline!\arccos! & $\arccos$ & \lstinline!\cosh! & $\cosh$ & \lstinline!\tan! & $\tan$ & \lstinline!\tanh! & $\tanh$ \\
+%       \lstinline!\arctan! & $\arctan$ & \lstinline!\cot! & $\cot$ & \lstinline!\coth! & $\coth$ & \lstinline!\max! & $\max$ \\
+%       \lstinline!\min! & $\min$  & \lstinline!\arg! & $\arg$ & \lstinline!\det! & $\det$  & \lstinline!\Pr! & $\Pr$ \\
+%       \bottomrule
+%     \end{tabular}
+%   \end{center}
+
+%   \smallskip
+
+%   \onslide<+->
+
+%   Damit sind auch korrekte Indizierungen möglich:
+% \begin{lstlisting}
+% lim_{n\to\infty} \frac{1}{n} = 0 \quad
+%   \not\equiv \quad \lim_{n\to\infty}\frac{1}{n}=0
+% \end{lstlisting}
+%   \begin{equation*}
+%     lim_{n\to\infty} \frac{1}{n} = 0 \quad \not\equiv \quad \lim_{n\to\infty}\frac{1}{n}=0
+%   \end{equation*}
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Mengen}
+
+%   \onslide<+->
+
+%   Mengenbedingungen werden mit dem Kommando \lstinline{\mid} gesetzt:
+% \begin{lstlisting}
+% \{\, n \in \mathbb N \mid n \ge \pi \,\}
+% \end{lstlisting}
+%   \vskip1ex
+%   \begin{equation*}
+%     \{\, n \in \mathbb N \mid n \ge \pi \,\}
+%   \end{equation*}
+
+%   \onslide<+->
+
+%   Ein einfacher Strich | reicht nicht aus!
+%   \begin{equation*}
+%     \{\, n \in \mathbb N | n \ge \pi \,\}
+%   \end{equation*}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Akzente}
+
+%   \onslide<+->
+
+%   Auch Akzente sind im Mathematikmodus neu:
+
+%   \medskip
+
+%   \begin{center}
+%     \begin{tabular}{ll|ll|ll}
+%       \toprule
+%       \lstinline!\acute!    & $\acute x$    & \lstinline!\hat!       & $\hat x$          & \lstinline!\grave!   & $\grave x$ \\
+%       \lstinline!\ddot!     & $\ddot x$     & \lstinline!\tilde!     & $\tilde x$        & \lstinline!\bar!     & $\bar x$ \\
+%       \lstinline!\breve!    & $\breve x$    & \lstinline!\check!     & $\check x$        & \lstinline!\dot!     & $\dot x$ \\
+%       \lstinline!\vec!      & $\vec x$      & \lstinline!\widetilde! & $\widetilde{xyz}$ & \lstinline!\widehat! & $\widehat{xyz}$ \\
+%       \lstinline!\mathring! & $\mathring x$ & \lstinline!\prime!     & $x^{\prime}$        & \lstinline!'!        & $x'$\\
+%       \bottomrule
+%     \end{tabular}
+%   \end{center}
+
+%   \medskip
+
+%   und mit Hilfe einiger Zusatzpakete gibt es noch viel mehr\ldots
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{\dots\ und noch viel mehr Symbole}
+
+%   \onslide<+->
+
+%   Hier:
+
+%   \begin{center}
+%     \small \url{http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf}
+%   \end{center}
+
+%   oder
+
+% \begin{verbatim}
+% $ texdoc symbols-a4.pdf
+% \end{verbatim}
+
+%   \onslide<+->
+
+%   und noch viel mehr zu sagen, z.B.
+%   \begin{itemize}
+%   \item<+-> gibt es 8 unterschiedliche Symbolklassen
+%   \item<+-> eigentlich 4 (8) Modi im Mathematikmodus
+%   \item<+-> Text in mathematischen Formeln (mit \lstinline!\text{ein wenig Text}!)
+%   \item<+-> manuelle Feinjustierung, z.B.
+%     \begin{equation*}
+%       \int_0^1x^2dx \neq \int_0^1 \! x^2 \mathop{} \mathrm{d}x
+%     \end{equation*}
+%   \item<+-> \ldots
+%   \end{itemize}
+
+% \end{frame}
+
+
+% \section{Mathematische Aussagen}
+
+% \begin{frame}
+%   \frametitle{Definition, Satz, Beweis}
+
+%   \onslide<+->
+
+%   Für mathematische Argumentation sind oft spezielle Formatierungen für Definitionen,
+%   Sätze, usw.\,nötig.
+
+%   \onslide<+->
+
+%   \begin{Lemma}
+%     Ist $W$ eine ideale Welt, dann
+%     \begin{enumerate}
+%     \item werden alle Texte nur mit \LaTeX\ gesetzt, und deswegen
+%     \item sind alle mathematischen Formeln schön!
+%     \end{enumerate}
+%   \end{Lemma}
+%   \onslide<+->
+%   \begin{Proof}
+%     \onslide<+->Klar.\onslide<+->
+%   \end{Proof}
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Umgebungen für Defitionen, Sätze, \dots}
+
+%   \onslide<+->
+
+%   Manchmal werden solche Umgebungen von der Dokumentenklasse bereit gestellt (wie
+%   z.B.\,\texttt{beamer}).
+
+%   \onslide<+->
+
+%   \medskip
+
+%   Ansonsten helfen Pakete (\texttt{amsthm}, \texttt{ntheorem}, \dots)
+
+%   \onslide<+->
+
+% \begin{lstlisting}
+% \usepackage[thmmarks,amsmath,hyperref]{ntheorem}
+% \theoremstyle{standard}
+% \theoremheaderfont{\normalfont\bfseries}
+% \theorembodyfont{\slshape}
+% \newtheorem{Theorem}     {Theorem} [section]
+% \newtheorem{Proposition} [Theorem] {Proposition}
+% \newtheorem{Lemma}       [Theorem] {Lemma}
+% \newtheorem{Corollary}   [Theorem] {Corollary}
+% \end{lstlisting}
+
+% \end{frame}
+
+% \section{Zum Abschluß}
+
+% \begin{frame}
+%   \frametitle{Eine wichtige Grundregel}
+
+%   \onslide<2->
+
+%   \begin{center}
+%     \Huge\color[rgb]{0.9,0.1,0.1}
+
+%     Lesbarkeit geht vor!
+%   \end{center}
+
+% \end{frame}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-engine: luatex
+%%% ispell-local-dictionary: "de_DE"
+%%% End:

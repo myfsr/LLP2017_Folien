@@ -108,3 +108,30 @@ Quelltextformatierung („Quelltextformatierung“, latexbspimkurs5)
   latexbspimkurs6
   Einzige Ausnahme: Leerzeilen
     -> „Absätze“
+
+Mathematik (Präsentation 3)
+----------
+  siehe Folien
+  „Umgebung” -> das mit begin, end -> sehen gleich
+  „eigenen Befehlen” -> meisten Makros funktionieren nur in Mathe oder nur im Textmodus
+  „eigene Schrift” -> über Schrift reden wir erst sehr viel später
+
+  Folie „Grundgerüst“
+  „Formelelemente“ zeigen nach Bsp.-Dokument
+
+  Buchstaben sind getrennte Zeichen (2 hintereinander ist ja Multiplikation)
+  Zahlen
+  griechische und hebräische Buchstaben (Liste kommt noch)
+  Hochgestelltes, tiefgestelltes (Sub-, Superskripte) mit Dach, Unterstrich (schon gesehen)
+  Brüche mit \frac
+  Wurzeln mit \sqrt
+    opt. Arg
+  letztes Bsp: bei mir bricht es innerhalb der Formel um
+    oft besser: Formel absetzen
+
+  Folie „amsmath“: meist kommt man mit equation und align klar.
+  amsmath bietet vieles, Dokumentation lesen lohnt sich
+    (gut verständlich geschrieben)
+    wäre Option für Zusatz
+
+

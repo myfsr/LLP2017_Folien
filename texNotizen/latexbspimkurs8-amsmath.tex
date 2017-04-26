@@ -1,0 +1,46 @@
+% Dokumentenklasse
+% immer am Anfang des Dokuments
+\documentclass{scrartcl}
+
+% Präambel
+\usepackage[utf8]{inputenc} % Eingabekodierung
+\usepackage[T1]{fontenc}    % Schrifkodierung
+\usepackage[ngerman]{babel} % optimiert für Deutsch (z.B. Titel, Silbentrennung)
+
+\usepackage{amsmath}        % (nahezu) unerlässliches Paket für den Mathemodus
+\usepackage{amssymb}        % ebenso
+\title{Mathematikmodus}
+\author{LLP-Kurs}
+\date{nach Ostern}
+
+% Ende Präambel
+% Beginn eigentliches Dokument
+\begin{document}
+\maketitle
+  Meistens kommt man für einzelne Gleichungen wie
+  \begin{equation}
+    \gamma +
+    \frac{
+      \aleph^{
+        \beth -
+        \frac{
+          1+\beta\cdot x^2
+        }{
+          \sqrt{2}
+        }
+      }-5
+    }{
+      \sqrt[2+\sqrt{\phi}]{
+        42-\alpha-\theta-\mu
+      }^\pi
+    }
+  \end{equation}
+  oder mehrzeiligen Gleichungen mit mehreren Umformungen
+  \begin{align}
+    (a+b)^2 &= ( a+b ) (a+b) & \text{Def. $\cdot^{\cdot}$} \\
+            &= a (a+b) + b (a+b) & \text{Linksdistributivität} \\
+            &= aa + ab + ba + bb & \text{Rechtsdistributivität} \\
+            &= a^2 + ab + ba + b^2 & \text{Def. $\cdot^{\cdot}$} \\
+            &= a^2 + 2 ab + b^2 & \text{Kommutativität}
+  \end{align}
+\end{document}

@@ -1,0 +1,74 @@
+% Dokumentenklasse
+% immer am Anfang des Dokuments
+\documentclass{scrartcl}
+
+% Präambel
+\usepackage[utf8]{inputenc} % Eingabekodierung
+\usepackage[T1]{fontenc}    % Schrifkodierung
+\usepackage[ngerman]{babel} % optimiert für Deutsch (z.B. Titel, Silbentrennung)
+
+\usepackage{amsmath}        % (nahezu) unerlässliches Paket für den Mathemodus
+\usepackage{amssymb}        % ebenso
+\title{Mathematikmodus}
+\author{LLP-Kurs}
+\date{nach Ostern}
+
+% Ende Präambel
+% Beginn eigentliches Dokument
+\begin{document}
+\maketitle
+  Wir lernen jetzt den Mathematikmodus kennen. Er ist einer der wichtigsten Fähigkeiten von \TeX.
+
+  Im Text kann man eine Formel $a + b = c$ mit Dollar-Zeichen schreiben. Aber auch mit \(a^2 + b^2 = dc_g^2\) den runden Klammern. Dagegen ist die Schreibweise
+  \begin{math}
+    \sum^5_{j=2} a_i = 7
+  \end{math}
+  etwas länger und daher nicht so beliebt.
+
+  Größere Formeln sollten nicht im Text eingebettet werden. Dafür gibt es den abgesetzten Mathematik-Modus:
+  \begin{equation}
+    \frac{\alpha}{\gamma} = \varepsilon^2
+  \end{equation}
+  \begin{equation}
+    \varepsilon < \aleph_0 - \aleph_{-1}
+  \end{equation}
+
+  Hier haben wir gerade zwei Formeln untereinander gehabt. Für diesen Zweck gibt es eine bessere Lösung, die das anordnen (align) ermöglicht:
+  \begin{align}
+    \sqrt[3]{7} &= 1,9129 \\
+    \sqrt{7} &= 2.6457513110645907
+  \end{align}
+  Ohne das alignment sieht es nämlich so aus:
+  \begin{align}
+    \sqrt[3]{7} = 1,9129 \\
+    \sqrt{7} = 2.6457513110645907
+  \end{align}
+
+  Um den Unterschied bei gleichem Inhalt zu sehen hier noch ein Beispiel:
+  Dies $\sum_{i=1}^\infty\frac{1}{n}=\infty$ ist eine Textformel und
+  \begin{equation}
+    \sum_{i=1}^\infty\frac{1}{n} = \infty
+  \end{equation}
+  ist eine abgesetzte Formel.
+
+  Wenn man sich diese Seite so anschaut, sieht es doch schon so aus, als hätte man etwas geschafft.
+
+  Man kann alles ineinanderschachteln:
+  \begin{equation}
+    \gamma +
+    \frac{
+      \aleph^{
+        \beth -
+        \frac{
+          1+\beta\cdot x^2
+        }{
+          \sqrt{2}
+        }
+      }-5
+    }{
+      \sqrt[2+\sqrt{\phi}]{
+        42-\alpha-\theta-\mu
+      }^\pi
+    }
+  \end{equation}
+\end{document}
