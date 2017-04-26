@@ -19,7 +19,7 @@
     \item[scrartcl, scrreprt, scrbook] KOMA-Script Varianten von article, report, book mit
       europäischen Standardwerten
     \item[memoir] Individuell anpassbare Dokumentenklasse
-    \item[minimal] Minimale Dokumentenklasse
+    \item[standalone] Minimale Seitnegröße für Graphiken
   \end{description}
   \begin{itemize}
     \item<+-> Können Optionen bekommen
@@ -69,8 +69,8 @@ man wie schreibt.
     \parbox{0.8\linewidth}{\rm Bei Fülltexten sollte man drauf achten, dass es
       nicht allzu viel Sinn macht, lange darüber nachzudenken, was man wie schreibt.}
   \end{center}
-
 \end{frame}
+
 \section{Makros}
 
 \begin{frame}[fragile]
@@ -127,7 +127,7 @@ man wie schreibt.
   \end{itemize}
 \end{frame}
 
-\section{Grundlagen der Textformatierung}
+\section{Quelltextformatierung: Nutze whitespace}
 
 \begin{frame}[fragile]
   \frametitle{Quelltextformatierung}
@@ -164,7 +164,7 @@ Zwei Leerzeichen
   Die Formatierung des Quelltextes ist (wie gesagt) \enquote{fast} beliebig.  Diese
   Formatierung wird allerdings nicht unbedingt im Dokument wieder gespiegelt.
   \begin{description}
-    \item Leerzeilen und \lstinline|\par| erzeugen einen neuen Absatz.
+    \item Leerzeilen und \textbackslash\lstinline!par! erzeugen einen neuen Absatz.
   \end{description}
 \end{frame}
 
