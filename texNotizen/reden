@@ -113,6 +113,9 @@ Quelltextformatierung („Quelltextformatierung“, latexbspimkurs5)
   Einzige Ausnahme: Leerzeilen
     -> „Absätze“
 
+---> hier 1. Übung
+
+
 Mathematik (Präsentation 3)
 ----------
   siehe Folien
@@ -138,4 +141,16 @@ Mathematik (Präsentation 3)
     (gut verständlich geschrieben)
     wäre Option für Zusatz
 
+  Symbol suchen:
+    1) Raten (klappt oft)
+    2) texdoc symbols -> The Comprehensive LATEX Symbol List
+      vorher erwähnt!!
+    3) detexify -> http://detexify.kirelabs.org/classify.html
+
+--> Übung 2 aber nur 10 min
+
+  -> welche Makros definiert?
+
+
+  
 
