@@ -1,0 +1,31 @@
+% Dokumentenklasse
+% immer am Anfang des Dokuments
+\documentclass{scrartcl}
+
+% Präambel
+\usepackage[utf8]{inputenc} % Eingabekodierung
+\usepackage[T1]{fontenc}    % Schrifkodierung
+\usepackage[ngerman]{babel} % optimiert für Deutsch (z.B. Titel, Silbentrennung)
+
+\usepackage{amsmath}        % (nahezu) unerlässliches Paket für den Mathemodus
+\usepackage{amssymb}        % ebenso
+\title{Mathematikmodus}
+\author{LLP-Kurs}
+\date{nach Ostern}
+
+% Ende Präambel
+% Beginn eigentliches Dokument
+\begin{document}
+\maketitle
+  Was passiert mit Absätzen im Mathemodus?
+  \begin{align}
+    a^b = \frac {1}{d+c}
+
+    7 = 7
+  \end{align}
+
+  Manchmal möchte man Schritte begründen:
+  \begin{equation}
+    \cos \alpha + \beta = \cos \alph \sin \beta + \sin \alpha \cos \beta (Additionstheorem)
+  \end{equation}
+\end{document}

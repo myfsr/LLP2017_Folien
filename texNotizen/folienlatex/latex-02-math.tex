@@ -136,58 +136,68 @@
 
 \end{frame}
 
-% \section{Einzelelemente}
+\section{einzelne Elemente}
 
-% % Grundregeln: Leerzeichen werden ignoriert, keine Leerzeilen, kein Text in Matheformeln
+\begin{frame}[fragile]
+  \frametitle {Whitespace}
+  \begin{block}{Grundregeln}
+    \begin{itemize}
+      \item Leerzeichen werden ignoriert
+      \item keine Leerzeilen (probiert es aus!)
+      \item kein Text (was passiert?)
+    \end{itemize}
+  \end{block}
+\end{frame}
+% 
 
-% \begin{frame}[fragile]
-%   \frametitle{Klammern}
+\begin{frame}[fragile]
+  \frametitle{Klammern}
 
-%   \onslide<+->
+  \onslide<+->
 
-%   \LaTeX\ unterstützt jegliche Formen von Klammern:
-%   \begin{equation*}
-%     (x), \{x\},[x],\lfloor x\rfloor, \lceil x\rceil,\lvert x\rvert,\langle x \rangle,\ldots
-%   \end{equation*}
+  \LaTeX\ unterstützt jegliche Formen von Klammern:
+  \begin{equation*}
+    (x), \{x\},[x],\lfloor x\rfloor, \lceil x\rceil,\lvert x\rvert,\langle x \rangle,\ldots
+  \end{equation*}
 
-%   \onslide<+->
+  \onslide<+->
 
-%   \begin{lstlisting}
-%     (x), \{x\},[x],\lfloor x\rfloor, \lceil x\rceil,
-%     \lvert x\rvert,\langle x \rangle,\ldots
-%   \end{lstlisting}
+  \begin{lstlisting}
+    (x), \{x\},[x],\lfloor x\rfloor, \lceil x\rceil,
+    \lvert x\rvert,\langle x \rangle,\ldots
+  \end{lstlisting}
     
-%   \medskip
+  \medskip
 
-%   \onslide<+->
+  \onslide<+->
 
-%   Größenanpassung mit \lstinline{\left} und \lstinline{\right}, jeweils paarig:
+  Größenanpassung mit \lstinline{\left} und \lstinline{\right}, jeweils paarig:
 
-% \begin{lstlisting}
-% \left(\sum_{i=0}^1 5 = 10\right)
-% \end{lstlisting}
+\begin{lstlisting}
+\left(\sum_{i=0}^1 5 = 10\right)
+\end{lstlisting}
 
-%   \vspace*{-2ex}
+  \vspace*{-2ex}
 
-%   \begin{equation*}
-%     \left(\sum_{i=0}^1 5 = 10\right)
-%   \end{equation*}
+  \begin{equation*}
+    \left(\sum_{i=0}^1 5 = 10\right)
+  \end{equation*}
 
-%   \vspace*{1ex}
+  \vspace*{1ex}
 
-%   \onslide<+->
+  \onslide<+->
 
-% \begin{lstlisting}
-% \left|\sum_{i=0}^1 5 = 10\right[
-% \end{lstlisting}
+\begin{lstlisting}
+\left|\sum_{i=0}^1 5 = 10\right[
+\end{lstlisting}
 
-%   \vspace*{-2ex}
+  \vspace*{-2ex}
 
-%   \begin{equation*}
-%     \left|\sum_{i=0}^1 5 = 10\right[
-%   \end{equation*}
+  \begin{equation*}
+    \left|\sum_{i=0}^1 5 = 10\right[
+  \end{equation*}
 
-% \end{frame}
+\end{frame}
 
 % \begin{frame}[fragile]
 %   \frametitle{Klammern II}
