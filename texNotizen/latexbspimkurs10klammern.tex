@@ -1,0 +1,38 @@
+% Dokumentenklasse
+% immer am Anfang des Dokuments
+\documentclass{scrartcl}
+
+% Präambel
+\usepackage[utf8]{inputenc} % Eingabekodierung
+\usepackage[T1]{fontenc}    % Schrifkodierung
+\usepackage[ngerman]{babel} % optimiert für Deutsch (z.B. Titel, Silbentrennung)
+
+\usepackage{amsmath}        % (nahezu) unerlässliches Paket für den Mathemodus
+\usepackage{amssymb}        % ebenso
+\title{Mathematikmodus}
+\author{LLP-Kurs}
+\date{nach Ostern}
+
+\newcommand{\setDef}[2]{\left\{#1 
+  \,\middle\vert\, #2\right\}}
+
+% Ende Präambel
+% Beginn eigentliches Dokument
+\begin{document}
+\maketitle
+  Klammmern können zu groß werden:
+  \begin{equation}
+    \left(\sum_{i=0, \dots 5} 5 = 25\right)
+  \end{equation}
+
+  Sei $A = \{a \in B \mid \lnot a \equiv b\}$ eine Menge, bei der man mid nutzen kann.
+  \begin{align}
+    C = \left\{a^{\sum_{i = 1}^n i} \middle| n = m_7\right\} \\
+    C = \left\{a^{\sum_{i = 1}^n i} \mid n = m_7\right\}
+  \end{align}
+  $C$ ist keine solche Menge. Der Kompromiss kann ein eigenes Makro sein:
+  \begin{equation}
+    C = \setDef{a^{\sum_{i = 1}^n i}}{n = m_7}
+  \end{equation}
+  Übersichtlicher ist der Code auch.
+\end{document}

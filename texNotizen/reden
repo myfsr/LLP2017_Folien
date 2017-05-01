@@ -151,8 +151,18 @@ Mathematik (Präsentation 3)
 
   -> welche Makros definiert?
 
-
-  
-
   - vielleicht seid ihr schon an die Grenzen gestoßen
   -> gibt einige spezielle Situationen
+
+  „Leerzeilen“ + „Text“ -> siehe Bsp. 9
+
+  „Klammern“
+
+  Größen: manche machen prinzipiell immer \left und \right
+    reicht auch, wenn es nötig ist
+    in manchen Fällen unpassend -> Bsp. 9 -> in amsmath doku nachlesen
+
+  middle: mir bekannt: Mengendef.
+    1) \mid -> skaliert nicht
+    2) | -> Abstände passen nicht
+    -> Kompromiss: newcommand
