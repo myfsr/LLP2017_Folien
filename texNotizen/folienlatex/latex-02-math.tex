@@ -2,6 +2,11 @@
 \subtitle{Setzen Mathematischer Formeln}
 \date{2017-05-02}
 
+
+  \DeclareMathOperator{\id}{id}
+  \newcommand{\supp}{\operatorname{supp}}
+  \newcommand{\llim}{L_2\operatorname*{-lim}}
+
 \begin{document}
 
 \begin{frame}
@@ -184,179 +189,205 @@
     \left(\sum_{i=0}^1 5 = 10\right)
   \end{equation*}
 
-  \vspace*{1ex}
+  % \vspace*{1ex}
 
   \onslide<+->
 
 \begin{lstlisting}
-\left|\sum_{i=0}^1 5 = 10\right[
+\left.\sum_{i=0}^1 f \right\vert_{\Omega}
 \end{lstlisting}
 
   \vspace*{-2ex}
 
   \begin{equation*}
-    \left|\sum_{i=0}^1 5 = 10\right[
+    \left.\sum_{i=0}^1 f \right\vert_{\Omega}
   \end{equation*}
 
 \end{frame}
 
-% \begin{frame}[fragile]
-%   \frametitle{Klammern II}
+\begin{frame}[fragile]
+  \frametitle{Klammern II}
 
 %   \onslide<+->
 
 %   oder auch
 
-% \begin{lstlisting}
-% \int_0^1 x^2 \mathop{} \mathsf d x =
-%   \left.\frac{1}{3}x^3\right|_0^1
-% \end{lstlisting}
-%   \begin{equation*}
-%     \int_0^1x^2 \mathop{} \mathsf d x = \left.\frac{1}{3}x^3\right|_0^1
-%   \end{equation*}
-
-%   denn \verb|.| ist das Sonderzeichen für eine leere Klammer.
-
+% 
 %   \onslide<+->
 %   \medskip
 
-%   Klammern gibt es auch über- und unterhalb von Formeln mit Hilfe von
-%   \lstinline{\underbrace} und \lstinline{\overbrace}:
-% \begin{lstlisting}
-% 1+\underbrace{ 2 + \overbrace{3 + 4}^{7} }_{9} = 10
-% \end{lstlisting}
-%   \begin{equation*}
-%     1+\underbrace{ 2 + \overbrace{3 + 4}^{7} }_{9} = 10
-%   \end{equation*}
+  Klammern gibt es auch über- und unterhalb von Formeln mit Hilfe von
+  \lstinline{\underbrace} und \lstinline{\overbrace}:
+\begin{lstlisting}
+1+\underbrace{ 2 + \overbrace{3 + 4}^{7} }_{9} = 10
+\end{lstlisting}
+  \begin{equation*}
+    1+\underbrace{ 2 + \overbrace{3 + 4}^{7} }_{9} = 10
+  \end{equation*}
 
-% \end{frame}
+\end{frame}
 
-% \begin{frame}[fragile]
-%   \frametitle{Funktionen}
+\begin{frame}[fragile]
+  \frametitle{Funktionen}
 
-%   \onslide<+->
+  \onslide<+->
 
-%   \begin{block}{Beobachtung}
-%     \vspace*{-\baselineskip}
-%     \begin{equation*}
-%       sin(x) \neq \sin(x)
-%     \end{equation*}
-%   \end{block}
+  \begin{block}{Beobachtung}
+    \vspace*{-\baselineskip}
+    \begin{equation*}
+      sin(x) \neq \sin(x)
+    \end{equation*}
+  \end{block}
 
-%   \onslide<+->
+  \onslide<+->
 
-%   daher: allgemein gebräuchliche Funktionen werden gesondert behandelt:
+  daher: allgemein gebräuchliche Funktionen werden gesondert behandelt:
 
-%   \smallskip
+  \smallskip
 
-%   \begin{center}
-%     \begin{tabular}{ll|ll|ll|ll}
-%       \toprule
-%       \lstinline!\log! & $\log$ & \lstinline!\lg! & $\lg$ & \lstinline!\ln! & $\ln$ & \lstinline!\lim! & $\lim$ \\
-%       \lstinline!\sin! & $\sin$ & \lstinline!\arcsin! & $\arcsin$ & \lstinline!\sinh! & $\sinh$ & \lstinline!\cos! & $\cos$ \\
-%       \lstinline!\arccos! & $\arccos$ & \lstinline!\cosh! & $\cosh$ & \lstinline!\tan! & $\tan$ & \lstinline!\tanh! & $\tanh$ \\
-%       \lstinline!\arctan! & $\arctan$ & \lstinline!\cot! & $\cot$ & \lstinline!\coth! & $\coth$ & \lstinline!\max! & $\max$ \\
-%       \lstinline!\min! & $\min$  & \lstinline!\arg! & $\arg$ & \lstinline!\det! & $\det$  & \lstinline!\Pr! & $\Pr$ \\
-%       \bottomrule
-%     \end{tabular}
-%   \end{center}
+  \begin{center}
+    \begin{tabular}{ll|ll|ll|ll}
+      \toprule
+      \lstinline!\log! & $\log$ & \lstinline!\lg! & $\lg$ & \lstinline!\ln! & $\ln$ & \lstinline!\lim! & $\lim$ \\
+      \lstinline!\sin! & $\sin$ & \lstinline!\arcsin! & $\arcsin$ & \lstinline!\sinh! & $\sinh$ & \lstinline!\cos! & $\cos$ \\
+      \lstinline!\arccos! & $\arccos$ & \lstinline!\cosh! & $\cosh$ & \lstinline!\tan! & $\tan$ & \lstinline!\tanh! & $\tanh$ \\
+      \lstinline!\arctan! & $\arctan$ & \lstinline!\cot! & $\cot$ & \lstinline!\coth! & $\coth$ & \lstinline!\max! & $\max$ \\
+      \lstinline!\min! & $\min$  & \lstinline!\arg! & $\arg$ & \lstinline!\det! & $\det$  & \lstinline!\Pr! & $\Pr$ \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
 
-%   \smallskip
+  \smallskip
 
-%   \onslide<+->
+  \onslide<+->
 
-%   Damit sind auch korrekte Indizierungen möglich:
-% \begin{lstlisting}
-% lim_{n\to\infty} \frac{1}{n} = 0 \quad
-%   \not\equiv \quad \lim_{n\to\infty}\frac{1}{n}=0
-% \end{lstlisting}
-%   \begin{equation*}
-%     lim_{n\to\infty} \frac{1}{n} = 0 \quad \not\equiv \quad \lim_{n\to\infty}\frac{1}{n}=0
-%   \end{equation*}
-% \end{frame}
+  Damit sind auch korrekte Indizierungen möglich:
+\begin{lstlisting}
+lim_{n\to\infty} \frac{1}{n} = 0 \quad
+  \not\equiv \quad \lim_{n\to\infty}\frac{1}{n}=0
+\end{lstlisting}
+  \begin{equation*}
+    lim_{n\to\infty} \frac{1}{n} = 0 \quad \not\equiv \quad \lim_{n\to\infty}\frac{1}{n}=0
+  \end{equation*}
+\end{frame}
 
-% \begin{frame}[fragile]
-%   \frametitle{Mengen}
+\begin{frame}[fragile]
+  \frametitle{Eigene Funktionen}
+  Die Liste ist nicht vollständig. Daher kann man solche Funktionen auch selbst definieren:
+\begin{lstlisting}
+\DeclareMathOperator{\id}{id}
+\newcommand{\supp}{\operatorname{supp}}
+\DeclareMathOperator*{\llim}{L2-lim}
+\id, \supp f, \llim_{i \to \infty} f_i % TODO how to do it correctly?
+\end{lstlisting}
 
-%   \onslide<+->
+  \begin{equation*}
+    \id_A, \supp f, \llim_{i \to \infty} f_i
+  \end{equation*}
+\end{frame}
 
-%   Mengenbedingungen werden mit dem Kommando \lstinline{\mid} gesetzt:
-% \begin{lstlisting}
-% \{\, n \in \mathbb N \mid n \ge \pi \,\}
-% \end{lstlisting}
-%   \vskip1ex
-%   \begin{equation*}
-%     \{\, n \in \mathbb N \mid n \ge \pi \,\}
-%   \end{equation*}
+\begin{frame}[fragile]
+  \frametitle{Akzente}
 
-%   \onslide<+->
+  \onslide<+->
 
-%   Ein einfacher Strich | reicht nicht aus!
-%   \begin{equation*}
-%     \{\, n \in \mathbb N | n \ge \pi \,\}
-%   \end{equation*}
+  Auch Akzente sind im Mathematikmodus neu:
 
-% \end{frame}
+  \medskip
 
-% \begin{frame}[fragile]
-%   \frametitle{Akzente}
+  \begin{center}
+    \begin{tabular}{ll|ll|ll}
+      \toprule
+      \lstinline!\acute!    & $\acute x$    & \lstinline!\hat!       & $\hat x$          & \lstinline!\grave!   & $\grave x$ \\
+      \lstinline!\ddot!     & $\ddot x$     & \lstinline!\tilde!     & $\tilde x$        & \lstinline!\bar!     & $\bar x$ \\
+      \lstinline!\breve!    & $\breve x$    & \lstinline!\check!     & $\check x$        & \lstinline!\dot!     & $\dot x$ \\
+      \lstinline!\vec!      & $\vec x$      & \lstinline!\widetilde! & $\widetilde{xyz}$ & \lstinline!\widehat! & $\widehat{xyz}$ \\
+      \lstinline!\mathring! & $\mathring x$ & \lstinline!\prime!     & $x^{\prime}$        & \lstinline!'!        & $x'$\\
+      \bottomrule
+    \end{tabular}
+  \end{center}
 
-%   \onslide<+->
+  \medskip
 
-%   Auch Akzente sind im Mathematikmodus neu:
+  und mit Hilfe einiger Zusatzpakete gibt es noch viel mehr\ldots
+\end{frame}
 
-%   \medskip
+\section{Sonderfälle}
+\begin{frame}[fragile]
+  \frametitle{Integrale}
+\begin{lstlisting}
+\newcommand{\intd}{\mathop{} \mathrm{d}}
+\int_0^1 \intd x
+\end{lstlisting}
+    \begin{equation*}
+      \int_0^1x^2dx \neq \int_0^1 \! x^2 \mathop{} \mathrm{d}x
+    \end{equation*}
+\end{frame}
 
-%   \begin{center}
-%     \begin{tabular}{ll|ll|ll}
-%       \toprule
-%       \lstinline!\acute!    & $\acute x$    & \lstinline!\hat!       & $\hat x$          & \lstinline!\grave!   & $\grave x$ \\
-%       \lstinline!\ddot!     & $\ddot x$     & \lstinline!\tilde!     & $\tilde x$        & \lstinline!\bar!     & $\bar x$ \\
-%       \lstinline!\breve!    & $\breve x$    & \lstinline!\check!     & $\check x$        & \lstinline!\dot!     & $\dot x$ \\
-%       \lstinline!\vec!      & $\vec x$      & \lstinline!\widetilde! & $\widetilde{xyz}$ & \lstinline!\widehat! & $\widehat{xyz}$ \\
-%       \lstinline!\mathring! & $\mathring x$ & \lstinline!\prime!     & $x^{\prime}$        & \lstinline!'!        & $x'$\\
-%       \bottomrule
-%     \end{tabular}
-%   \end{center}
+\begin{frame}[fragile]
+  \frametitle{Folgerungen}
+  \begin{center}
+    \begin{tabular}{ll|ll|ll}
+      \lstinline!\iff! & $\iff$ & \lstinline!\implies! & $\implies$ & \lstinline!\impliedby! & $\impliedby$
+    \end{tabular}
+  \end{center}
+\end{frame}
 
-%   \medskip
+\begin{frame}[fragile]
+  \frametitle{Funktionsdefinitionen}
+\begin{lstlisting}
+f \colon A \to B
+\end{lstlisting}
+  \begin{align*}
+    f \colon A \to B \colon x \mapsto x^2 && \\
+    f \colon A \to B, x \mapsto x^2 && \\
+    f : A \to B : x \mapsto x^2 && \text{schlecht!}
+  \end{align*}
+  \lstinline|:| hat falsche Abstände!
+\end{frame}
 
-%   und mit Hilfe einiger Zusatzpakete gibt es noch viel mehr\ldots
-% \end{frame}
+\begin{frame}[fragile]
+  \frametitle{Text}
+  Oft braucht man Text im Mathematikmodus, z.B.\
+  % \begin{align*}
+  %   (a+b)^2 &= ( a+b ) (a+b) & \text{Def. $\cdot^2$} \\
+  %           &= aa + ab + ba + bb & \text{Distributivität} \\
+  %           &= a^2 + ab + ba + b^2 & \text{Def. $\cdot^2} \\
+  %           &= a^2 + 2 ab + b^2 & \text{Kommutativität}
+  % \end{align*}
+  Dafür gibt es den Befehl \lstinline|\text{$\textit{Text}$}|.
+\end{frame}
 
-% \begin{frame}[fragile]
-%   \frametitle{\dots\ und noch viel mehr Symbole}
+\begin{frame}[fragile]
+  \frametitle{1-Symbolige Argumente}
+  Argumente von Makros aus nur 1 Symbol (oder Befehl) brauchen keine \lstinline|{,}|!
+  \begin{lstlisting}
+a^3+ b_2 = \gamma_\delta
+\mathbb N
+\frac 12
+\end{lstlisting}
+  \begin{align*}
+    a^3+ b_2 = \sum_{i = 3}^n \gamma_\delta \\
+    \mathbb N \\
+    \frac 12
+  \end{align*}
+  Das gilt nicht nur im Mathemodus!
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{\dots\ und noch viel mehr Symbole}
 
-%   \onslide<+->
+  und noch viel mehr zu sagen, z.B.\ in
+  \begin{center}
+    \begin{tabular}{p{0.3\textwidth}p{0.7\textwidth}}
+      \lstinline|texdoc symbols| & (fast) alle Symbole \\
+      \url{detexify.kirelabs.org/}\newline\url{classify.html} & handgemalte Symbolerkennung \\
+      \lstinline|texdoc lshort| & Einstieg in \LaTeX \\
+      \lstinline|texdoc mathmode| & Mathematikmodus ausführlich\\
+      \lstinline|texdoc amsmath| & Dokumentation des Paketes \lstinline|amsmath|
+    \end{tabular}
+  \end{center}
 
-%   Hier:
-
-%   \begin{center}
-%     \small \url{http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf}
-%   \end{center}
-
-%   oder
-
-% \begin{verbatim}
-% $ texdoc symbols-a4.pdf
-% \end{verbatim}
-
-%   \onslide<+->
-
-%   und noch viel mehr zu sagen, z.B.
-%   \begin{itemize}
-%   \item<+-> gibt es 8 unterschiedliche Symbolklassen
-%   \item<+-> eigentlich 4 (8) Modi im Mathematikmodus
-%   \item<+-> Text in mathematischen Formeln (mit \lstinline!\text{ein wenig Text}!)
-%   \item<+-> manuelle Feinjustierung, z.B.
-%     \begin{equation*}
-%       \int_0^1x^2dx \neq \int_0^1 \! x^2 \mathop{} \mathrm{d}x
-%     \end{equation*}
-%   \item<+-> \ldots
-%   \end{itemize}
-
-% \end{frame}
-
+\end{frame}
 
 % \section{Mathematische Aussagen}
 

@@ -166,3 +166,24 @@ Mathematik (Präsentation 3)
     1) \mid -> skaliert nicht
     2) | -> Abstände passen nicht
     -> Kompromiss: newcommand
+
+  ., vert -> Einschränkung einer Funktion -> . ist leere Klammer
+    nötig, damit klar ist, woran sich Klammer anpassen muss
+
+  „Klammern über, unterhalb“
+    -> probiert _ mit overbrace aus!
+
+  „Funktionen“
+  „eigene Funktionen“
+    DeclareMathOperator, operatorname: equivalent!
+    kommt aus amsmath
+
+  „Sonderfälle“
+    Dinge, auf die man nicht von alleine kommt
+
+  „{,}“ -> kommt im Mathemodus besonders oft vor
+    schon gesehen
+    nicht immer empfehlenswert
+
+
+  
