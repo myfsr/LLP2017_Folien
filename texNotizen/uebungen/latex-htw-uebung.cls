@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{latex-htw-2015-uebung}[2015/05/17]
+\ProvidesClass{latex-htw-uebung}[2015/05/17]
 \LoadClass[parskip=half-]{scrartcl}
 
 %%%
@@ -46,13 +46,16 @@
 \RequirePackage{url}
 \RequirePackage{amsmath}
 
+\RequirePackage{scrlayer-scrpage}
+\cofoot{Aufgaben mit Dank von Daniel Borchmann vom \LaTeX-Kurs 2015 an der HTW}
+
 \pagestyle{empty}
 
 %%%
 
 \renewcommand{\maketitle}{
   \begin{tikzpicture}[overlay]
-    \node at (12.2,0.3) [black!50,text width=5.5cm,align=right] {\url{http://algebra20.de/dtl1516}};
+    \node at (12.2,0.3) [black!50,text width=5.5cm,align=right] {\url{http://myfsr.de/llp}};
     \node at (4,0.4) {\scalebox{2}{\textcolor{black!20}{\Huge Einführung}}};
     \node at (12, -2.5) {\scalebox{2}{\textcolor{black!20}{\Huge in
           \LaTeX}}};
