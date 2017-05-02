@@ -1,0 +1,56 @@
+% Dokumentenklasse
+% immer am Anfang des Dokuments
+\documentclass{scrartcl}
+
+% Präambel
+\usepackage[utf8]{inputenc} % Eingabekodierung
+\usepackage[T1]{fontenc}    % Schrifkodierung
+\usepackage[ngerman]{babel} % optimiert für Deutsch (z.B. Titel, Silbentrennung)
+
+\usepackage{amsmath}        % (nahezu) unerlässliches Paket für den Mathemodus
+\usepackage{amssymb}        % ebenso
+
+\usepackage{amsthm}       % Theorem-Umgebungen
+\usepackage{hyperref}     % bietet viel für Verweise
+
+% Erstellt neues Theorem-Umgebung mit Namen Theorem, das im Dokument Satz heißt und innerhalb von section nummeriert wird
+\newtheorem{theorem}     {Satz} [section]
+% Propositionen werden mit Theorem zusammen nummeriert
+\newtheorem{proposition} [theorem] {Proposition}
+\newtheorem{lemma}       [theorem] {Lemma}
+\newtheorem{corollary}   [theorem] {Korollar}
+
+\title{Mathematikmodus}
+\author{LLP-Kurs}
+\date{nach Ostern}
+
+\newcommand{\setDef}[2]{\left\{#1 
+  \,\middle\vert\, #2\right\}}
+
+% Ende Präambel
+% Beginn eigentliches Dokument
+\begin{document}
+\maketitle
+  Nahezu alle mathematischen Paper nutzen als Strukturierung Sätze, Definitionen, Lemmata, etc. Das Paket amsthm bietet dafür Umgebungen.
+  %
+  \begin{theorem}
+    Sei $A$ eine Menge. Dann ist $B \subset A \times A$ definiert durch
+    \begin{equation*}
+      B = \{(a,a) \in A \times A \mid a \in A\}
+    \end{equation*}
+    eine \emph{Äquivalenzrelation} auf $A$.
+  \end{theorem}
+
+  Um den obigen Satz zu beweisen, ist etwas Vorarbeit vonnöten. Dafür betrachte die folgende Proposition:
+  \begin{proposition}
+    Sei $a$ etwas. Dann ist $(a,a) = (a,a)$ und $a = a$.
+  \end{proposition}
+  \begin{proof}
+    Dies ist klar aufgrund der Definition von $=$.
+  \end{proof}
+
+  Jetzt können wir den ersten Satz beweisen.
+  \begin{proof}
+    Also jetzt gehen mir die Ideen aus. Das ist halt wahr. Heureka!
+  \end{proof}
+\end{document}
