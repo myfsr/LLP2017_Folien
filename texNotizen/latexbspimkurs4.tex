@@ -13,6 +13,7 @@
 
 \newcommand{\wichtig}[1]{(Wichtig!) \emph{#1} (Achtung, dieses Wort sollte man sich merken!)}
 \newcommand{\tb}{\textbackslash}
+\newcommand{\unwichtig}[2][Tschau]{(unwichtig: #1, #2)}
 
 % Ende Präambel
 % Beginn eigentliches Dokument
@@ -32,4 +33,6 @@
   Ich kann auch Makros ineinander tun: Jetzt kommt ein echt
   wichtiges Wort:
   \emph{\wichtig{Genialkohöllischer Wunschpunsch}}
+
+  \unwichtig[tschüss]{Hallo}
 \end{document}
