@@ -7,6 +7,11 @@
 % KOMA-Skript ist eine vielseitiges Paket für deutsche/ europäische Formate
 \documentclass{scrartcl}
 
+% beim Kompilieren kommt der Fehler "Undefined control sequence" für \text
+% Lösung: nutze Paket amsmath
+% amsmath sollte immer benutzt werden, wenn man den Mathematikmodus nutzt
+\usepackage{amsmath}
+
 % Gib Autor, Titel und Datum an
 % wird bei \maketitle genutzt
 \author{Felix Hilsky, Matr.nr. 4122148}
