@@ -270,6 +270,16 @@
   % Eine Bemerkung passt auch gut in eine Umgebung.
 
   \begin{remark}[Gradient]
-    Für eine Funktion $u \colon \Omega \to \reals$ ist der Gradient $\nabla u$ definiert als
+    Für offenes $\Omega \subseteq \reals^d$ sei für eine Funktion $u \colon \Omega \to \reals$ der Gradient $\nabla u$ definiert als
+    \begin{equation}
+      \nabla u (x) =
+      \begin{pmatrix} % Matrix mit runden Klammern, aus Paket amsmath
+      % weitere Matrizen und Bemerkungen in "texdoc amsmath" "4.1 Matrices"
+        \partial_1 u(x) \\
+        \vdots \\
+        \partial_d u(x)
+      \end{pmatrix}.
+      % wie bei align sind mehrere Spalten durch & zu trennen
+    \end{equation}
   \end{remark}
 \end{document}
