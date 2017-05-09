@@ -83,7 +83,7 @@
 
 % Gib Autor, Titel und Datum an
 % wird bei \maketitle genutzt
-\author{Felix Hilsky, Matr.nr. 4122148}
+\author{Felix Hilsky, Matr.nr.\ 4122148}
 \title{HANA PDE Übungsblatt 2}
 \date{2017-05-09}
 
@@ -125,9 +125,11 @@
   Sei $u_0 \colon \Rand{\Omega} \to
   % das doppelt gestrichene R hat einen langen Befehl, den man lieber auslagert für lesbaren Code und Änderbarkeit
   \reals$ stetig.
+  % "." bedeutet für LaTeX, dass ein Satz beendet wird. Danach wird eine etwas größere Lücke gelassen. Bei Abkürzungen wie d.h. ist das falsch, daher sagen wir LaTeX, dass es ein normales Leerzeichen ist: \ 
+  Sei $u$ ein Minimierer von $I$, d.h.\ 
   % Einschränkungen von Funktionen haben verschiedene Notationen
   % um mich jetzt nicht einzuschränken, nutze Makro
-  Sei $u$ ein Minimierer von $I$, d.h. $\restr{u}{\Rand {\Omega}} = u_0$ mit
+  $\restr{u}{\Rand {\Omega}} = u_0$ mit
   \begin{equation}
     % \leq ist "kleiner als"
     I(u) \leq I(v)
