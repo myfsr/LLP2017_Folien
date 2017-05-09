@@ -1,0 +1,33 @@
+% Wir möchten am Ende dieser DS in der Lage sein unsere Hausaufgaben getext abzugeben.
+% Als Beispiel nutze ich meine HANA HA von letzter Woche.
+
+% wie letzte Woche gesehen:
+% Dokumentenklasse gibt an, was für ein Dokument wir schreiben
+% scrartcl ist die Variante des KOMA-Skriptes für Artikel, also kürzere Texte
+% KOMA-Skript ist eine vielseitiges Paket für deutsche/ europäische Formate
+\documentclass{scrartcl}
+
+% Gib Autor, Titel und Datum an
+% wird bei \maketitle genutzt
+\author{Felix Hilsky, Matr.nr. 4122148}
+\title{HANA PDE Übungsblatt 2}
+\date{2017-05-09}
+
+% zwischen \begin{document} und \end{document} steht der Text
+\begin{document}
+  % \maketitle erstellt eine einfache Überschrift
+  % meißt wird man den Titel selbst gestalten
+  % aber jetzt interessiert uns erstmal der Inhalt
+  \maketitle
+
+  % 1. Aufgabe verkürzt hier wiedergegeben
+
+  Gegeben sei das Gebiet
+  % Omega ist eine Variable und damit im mathematischen Modus
+  % dies ist "inline-Modus", also Mathematik im fließenden Text
+  $\Omega$ mit
+  % vergleiche "-" innerhalb und außerhalb von \text
+  % inhaltlich ist das "-" kein Minus, sondern ein Bindestrich, also Text
+  \(C^1\text{-Rand}\) und das auf hinreichend glatten Funktionen definierte Funktional \begin{math} I \end{math}
+  % inline-Math kann auch mit \(Math\) oder \begin{math} Math \end{math} angeschaltet werden. Alle drei Varianten tun das gleiche, aber es ist empfehlenswert, konsistent eine zu verwenden
+\end{document}
