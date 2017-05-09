@@ -53,6 +53,19 @@
 % \partial sollte nicht im Text auftauchen, da "partial" nichts mit dem Rand, sondern partiellen Ableitungen zu tun hat und so zu Verwirrung führt
 \newcommand{\Rand}[1]{\partial #1}
 
+% Reelle Zahlen
+% \mathbb macht das Doppeltgestriche R
+\newcommand{\reals}{\mathbb{R}}
+
+% Natürliche Zahlen
+\newcommand{\naturals}{\mathbb{N}}
+
+% Ganze Zahlen
+\newcommand{\integers}{\mathbb{Z}}
+
+% Rationale Zahlen
+\newcommand{\rationals}{\mathbb{Q}}
+
 % ----------
 % Basic info
 % ----------
@@ -98,6 +111,8 @@
   %
   % Für die Doppelpunkte, die in Funktionsdef. genutzt werden
   % nutze immer \colon, da : als binäre Relation falsche Abstände hat
-  Sei $u_0 \colon \Rand{\Omega} \to R$ stetig.
+  Sei $u_0 \colon \Rand{\Omega} \to
+  % das doppelt gestrichene R hat einen langen Befehl, den man lieber auslagert für lesbaren Code und Änderbarkeit
+  \reals$ stetig.
 
 \end{document}
