@@ -7,6 +7,11 @@
 % KOMA-Skript ist eine vielseitiges Paket für deutsche/ europäische Formate
 \documentclass{scrartcl}
 
+% das Ü wird nicht angezeigt
+% das liegt daran, dass LaTeX standardmäßig nicht das Speicherformat UTF-8 erkennt. Das muss man ihm mitteilen:
+% damit sollte (fast) alle westeuropäischen Buchstaben erkannt werden
+\usepackage[utf8]{inputenc}
+
 % beim Kompilieren kommt der Fehler "Undefined control sequence" für \text
 % Lösung: nutze Paket amsmath
 % amsmath sollte immer benutzt werden, wenn man den Mathematikmodus nutzt
