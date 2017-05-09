@@ -49,6 +49,9 @@
 % das d in Integralen
 \newcommand{\intd}{\mathop{} \mathrm{d}}
 
+% Rand einer Menge
+% \partial sollte nicht im Text auftauchen, da "partial" nichts mit dem Rand, sondern partiellen Ableitungen zu tun hat und so zu Verwirrung führt
+\newcommand{\Rand}[1]{\partial #1}
 
 % ----------
 % Basic info
@@ -93,7 +96,6 @@
     \intd x.
   \end{equation}
   %
-  % \partial ist eigentlich für partielle Ableitungen, aber das gleiche Symbol wie für den Rand einer Menge
-  Sei $u_0 : \partial \Omega \to R$ stetig.
+  Sei $u_0 : \Rand{\Omega} \to R$ stetig.
 
 \end{document}
