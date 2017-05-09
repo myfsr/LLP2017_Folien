@@ -29,6 +29,9 @@
 % amssymb liefert diverse Symbole für den Mathemodus
 % unter anderem \mathbb für doppelt gestrichene Buchstaben (bb = blackboard)
 \usepackage{amssymb}
+% amsthm bietet Formatierung für Sätze, Bemerkungen, Lemmas, Aufgaben, ...
+\usepackage{amsthm}
+% für mehr Einstellungsmöglichkeiten gibt es zusätzlich \usepackage{ntheorem}
 
 % --------------
 % eigene Befehle
@@ -77,6 +80,15 @@
 
 % Abschluss einer Menge
 \newcommand{\closure}[1]{\overline{#1}}
+
+% --------------------------------
+% eigene Umgebungen (environments)
+% --------------------------------
+
+% bietet die Umgebung "problem" mit dem Titel "Aufgabe"
+% Formatierung ist die, die die AMS für Theoreme vorsieht
+\newtheorem {problem} {Aufgabe}
+
 % ----------
 % Basic info
 % ----------
@@ -94,6 +106,10 @@
   % aber jetzt interessiert uns erstmal der Inhalt
   \maketitle
 
+  % Umgebung für eine Aufgabe (im Englischen heißt das immer problem)
+  % Nummerierung passiert automatisch
+  \begin{problem}
+    
   % 1. Aufgabe verkürzt hier wiedergegeben
 
   Gegeben sei das Gebiet
@@ -166,6 +182,6 @@
     = 0 \text{ in } \Omega, \qquad u = u_0 \text{ auf } \Rand{\Omega}
   \end{equation}
 
-
+  \end{problem}
 
 \end{document}
