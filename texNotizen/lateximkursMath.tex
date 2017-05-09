@@ -60,6 +60,13 @@
 
 % das d in Integralen
 \newcommand{\intd}{\mathop{} \mathrm{d}}
+% d nach dx (Ableitung)
+% Arg: die Variable, nach der abgeleitet wird
+\newcommand{\ableitung}[1]{
+  \frac
+    {\mathrm{d}}
+    {\mathrm{d} #1}
+  }
 
 % Rand einer Menge
 % \partial sollte nicht im Text auftauchen, da "partial" nichts mit dem Rand, sondern partiellen Ableitungen zu tun hat und so zu Verwirrung führt
@@ -193,7 +200,9 @@
     und $\varphi \in C_C^{\infty}(\Omega)$ eine Richtung.
     Dann ist für $t \in \reals$ die Funktion $u + t\varphi$ im Definitionsbereich von $I$ und es muss
     \begin{equation}
-      \restr {\frac {\intd}{\intd t} I(u + t\varphi)}{t = 0} = 0
+      % der zusätzliche Platz vor dem d ist jetzt hinderlich
+      % also neues Makro
+      \restr {\ableitung{t} I(u + t\varphi)}{t = 0} = 0
     \end{equation}
   \end{proof}
 \end{document}
