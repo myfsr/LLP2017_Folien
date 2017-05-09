@@ -199,16 +199,19 @@
     % man kann Sub- und Superskripte kombinieren. Die Reihenfolge ist egal.
     und $\varphi \in C_C^{\infty}(\Omega)$ eine Richtung.
     Dann ist für $t \in \reals$ die Funktion $u + t\varphi$ im Definitionsbereich von $I$ und es muss
-    \begin{equation}
+    % align ist ähnlich wie equation eine abgesetzte Mathematikumgebung
+    % sie bietet aber die Möglichkeit mehrere Zeilen zu nutzen und aneinander auszurichten
+    \begin{align}
       % der zusätzliche Platz vor dem d ist jetzt hinderlich
       % also neues Makro
-      \restr {\ableitung{t} I(u + t\varphi)}{t = 0} = 0
+      \restr {\ableitung{t} I(u + t\varphi)}{t = 0} = 0 \\
+      % Neuzeilen mit \\
       \ableitung{t} I(u + t\varphi) =
       \ableitung{t} \int_{\Omega} \sqrt{
         \abs{
           \nabla(u+tv) (x)
         }^2 + 1
       } \intd x
-    \end{equation}
+    \end{align}
   \end{proof}
 \end{document}
