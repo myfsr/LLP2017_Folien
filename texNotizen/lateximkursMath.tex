@@ -106,6 +106,12 @@
 % Formatierung ist die, die die AMS für Theoreme vorsieht
 \newtheorem {problem} {Aufgabe}
 
+% alle weiteren environments, die über \newtheorem definiert werden,
+% bekommen den Stil "remark"
+% die möglichen Stile sind plain (Standard), definition und remark
+% Erläuterung siehe "texdoc amsthm" "4.1 The \theoremstyle command"
+\theoremstyle{remark}
+
 % Bemerkungen
 \newtheorem {remark} {Bemerkung}
 
