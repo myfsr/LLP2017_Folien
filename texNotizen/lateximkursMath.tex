@@ -26,6 +26,9 @@
 % Lösung: nutze Paket amsmath
 % amsmath sollte immer benutzt werden, wenn man den Mathematikmodus nutzt
 \usepackage{amsmath}
+% amssymb liefert diverse Symbole für den Mathemodus
+% unter anderem \mathbb für doppelt gestrichene Buchstaben (bb = blackboard)
+\usepackage{amssymb}
 
 % --------------
 % eigene Befehle
@@ -113,6 +116,6 @@
   % nutze immer \colon, da : als binäre Relation falsche Abstände hat
   Sei $u_0 \colon \Rand{\Omega} \to
   % das doppelt gestrichene R hat einen langen Befehl, den man lieber auslagert für lesbaren Code und Änderbarkeit
-  \mathbb{R}$ stetig.
+  \reals$ stetig.
 
 \end{document}
