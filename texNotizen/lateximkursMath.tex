@@ -11,6 +11,8 @@
 % genutzte Pakete
 % ---------------
 
+% Standardpakete, die immer geladen werden sollten
+
 % das Ü wird nicht angezeigt
 % das liegt daran, dass LaTeX standardmäßig nicht das Speicherformat UTF-8 erkennt. Das muss man ihm mitteilen:
 % damit sollte (fast) alle westeuropäischen Buchstaben erkannt werden
@@ -21,6 +23,14 @@
 % mit fontenc kann eingestellt werden, tatsächlich mehr Zeichen zu nutzen
 % Standard für westeuropäische Texte:
 \usepackage[T1]{fontenc}
+% Die Umgebung "proof" startet mit dem Wort "proof". Das passt nicht in einen deutschen Text
+% automatisch generierte Texte werden mit dem Paket babel in die angegebene Sprache übersetzt
+% babel sorgt auch für deutsche Silbentrennung und weitere Feinheiten
+% deshalb ist babel ein Standardpaket, was immer geladen werden sollte (auch für englische Texte)
+% ngerman = new german (neue deutsche Rechtschreibung)
+\usepackage[ngerman]{babel}
+
+% Standardpakete für Mathematik, die man immer braucht
 
 % beim Kompilieren kommt der Fehler "Undefined control sequence" für \text
 % Lösung: nutze Paket amsmath
