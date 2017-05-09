@@ -214,11 +214,25 @@
           \nabla(u+tv) (x)
         }^2 + 1
       } \intd x\\
-      & = \dots & \text{Magie}
+      & = \dots & \text{Magie}\\
+      % Implikationen und Äquivalenzen sind passend benannt:
+      % \implied, \iff, \impliedby
+      % alternativ auch \because und \therefore
+      \implies \restr {\ableitung{t} I(u + t\varphi)}{t = 0} & =
+      \int_{\Omega} \frac
+        {\nabla v (x) \cdot \nabla u(x)}
+        {\sqrt{
+          \abs{
+            \nabla (u(x))
+            }^2 + 1
+          }
+        }
+      \intd x
       % \dots schreibt drei Punkte
       % es gibt auch \ldots, \vdots, \ddots, ...
       % siehe auch texdoc symbols Table 262 AMS dots (page 108)
     \end{align}
+
     % um die Ausrichtung innerhalb von align zu verstehen, wisse:
     % es handelt sich um eine Tabelle, deren Spalten durch & getrennt sind
     % und abwechselnd rechts- und linksbündig ausgerichtet sind
