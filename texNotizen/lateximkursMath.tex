@@ -204,9 +204,11 @@
     \begin{align}
       % der zusätzliche Platz vor dem d ist jetzt hinderlich
       % also neues Makro
-      \restr {\ableitung{t} I(u + t\varphi)}{t = 0} = 0 \\
+      \restr {\ableitung{t} I(u + t\varphi)}{t = 0} & = 0 \\
       % Neuzeilen mit \\
-      \ableitung{t} I(u + t\varphi) =
+      % Alle & werden untereinander gesetzt
+      % typischerweise schreibt man sie vor Relationen wie =
+      \ableitung{t} I(u + t\varphi)  &=
       \ableitung{t} \int_{\Omega} \sqrt{
         \abs{
           \nabla(u+tv) (x)
