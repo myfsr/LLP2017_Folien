@@ -106,6 +106,9 @@
 % Formatierung ist die, die die AMS für Theoreme vorsieht
 \newtheorem {problem} {Aufgabe}
 
+% Bemerkungen
+\newtheorem {remark} {Bemerkung}
+
 % newenvironment bietet eine neue Umgebung (unabhängig von amsthm)
 % 1. Arg: Name der Umgebung
 % 2. Arg: Code, der am Anfang geschrieben wird (bei \begin{loesung})
@@ -256,4 +259,11 @@
     % es handelt sich um eine Tabelle, deren Spalten durch & getrennt sind
     % und abwechselnd rechts- und linksbündig ausgerichtet sind
   \end{loesung}
+
+  % Ein paar Details möchte ich noch zeigen. Die passen thematisch in eine Bemerkung, die die Notation erläutert.
+  % Eine Bemerkung passt auch gut in eine Umgebung.
+
+  \begin{remark}[Gradient]
+    Für eine Funktion $u \colon \Omega \to \reals$ ist der Gradient $\nabla u$ definiert als
+  \end{remark}
 \end{document}
