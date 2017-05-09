@@ -75,6 +75,8 @@
 % Rationale Zahlen
 \newcommand{\rationals}{\mathbb{Q}}
 
+% Abschluss einer Menge
+\newcommand{\closure}[1]{\overline{#1}}
 % ----------
 % Basic info
 % ----------
@@ -134,7 +136,9 @@
     % \forall ist das "für alle" Symbol
     \forall v
     % \in ist das "ist Element von" Symbol
-    \in C^2(\overline \Omega)
+    \in
+    % overline sagt nichts über die Bedeutung des Symbols aus, deshalb auslagern
+    C^2(\closure{\Omega})
     % Text im Mathemodus wird erstmal als Variablen aufgefasst
     % daher müssen wir erwähnen, dass es sich um Text handelt
     \text{ mit } v = u_0 \text{ auf } \Rand {\Omega}
