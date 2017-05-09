@@ -31,6 +31,10 @@
 % eigene Befehle
 % --------------
 
+% Absolutbetrag
+% nutze \lvert und \rvert statt | um die Abstände von linken und rechten Trennsymbolen ("Delimiter") zu nutzen
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
 % ----------
 % Basic info
 % ----------
@@ -67,8 +71,8 @@
     I(u) = \int_{\Omega}
     % \sqrt ist das Wurzelzeichen. Im Argument steht, woraus die Wurzel gezogen wird
     \sqrt
-    % Betragsstriche erstmal "von Hand"
-    {| \nabla u (x) | ^ 2 + 1} dx.
+    % Betrag mit dem Befehl \abs, selbstdefiniert!
+    { \abs{ \nabla u (x) } ^ 2 + 1} dx.
   \end{equation}
 
 \end{document}
