@@ -49,6 +49,12 @@
 % \rceil (⌉), \lceil, \lfloor, \rfloor für Auf- und Abrunden
 % \{, \} für geschwungene Klammern
 
+% Restriktion einer Funktion (1. Argument) auf eine Teilmenge (2. Argument)
+\newcommand{\restr}[2]{\left. #1 \right|_{#2}}
+% \left und \right sorgen dafür, dass Delimiter sich an die Größe anpassen
+% sie müssen immer in Paaren auftreten
+% . steht für den leeren/ nicht vorhandenen Delimiter
+
 % das d in Integralen
 \newcommand{\intd}{\mathop{} \mathrm{d}}
 
@@ -117,6 +123,8 @@
   Sei $u_0 \colon \Rand{\Omega} \to
   % das doppelt gestrichene R hat einen langen Befehl, den man lieber auslagert für lesbaren Code und Änderbarkeit
   \reals$ stetig.
-  Sei $u$ ein Minimierer von $I$, d.h. $u|_{\Rand {\Omega}} = u_0$ mit
+  % Einschränkungen von Funktionen haben verschiedene Notationen
+  % um mich jetzt nicht einzuschränken, nutze Makro
+  Sei $u$ ein Minimierer von $I$, d.h. $\restr{u}{\Rand {\Omega}} = u_0$ mit
 
 \end{document}
