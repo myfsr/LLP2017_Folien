@@ -46,4 +46,17 @@
   % inhaltlich ist das "-" kein Minus, sondern ein Bindestrich, also Text
   $C^1\text{-Rand}$ und das auf hinreichend glatten Funktionen definierte Funktional $I$
   % inline-Math kann auch mit \(Math\) oder \begin{math} Math \end{math} angeschaltet werden. Alle drei Varianten tun das gleiche, aber es ist empfehlenswert, konsistent eine zu verwenden
+  %
+  % equation ist eine Möglichkeit für "abgesetzte Formeln"
+  % etwas größere Formeln sollten abgesetzt werden
+  % equation kommt auch aus dem Paket amsmath
+  \begin{equation}
+    % \int ist das Integral-Zeichen
+    I(u) = \int_{\Omega}
+    % \sqrt ist das Wurzelzeichen. Im Argument steht, woraus die Wurzel gezogen wird
+    \sqrt
+    % Betragsstriche erstmal "von Hand"
+    {| \nabla u (x) | ^ 2 + 1} dx.
+  \end{equation}
+
 \end{document}
