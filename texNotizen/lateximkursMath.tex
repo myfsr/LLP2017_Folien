@@ -46,6 +46,10 @@
 % \rceil (⌉), \lceil, \lfloor, \rfloor für Auf- und Abrunden
 % \{, \} für geschwungene Klammern
 
+% das d in Integralen
+\newcommand{\d}{\mathop{} \mathrm{d}}
+
+
 % ----------
 % Basic info
 % ----------
@@ -83,7 +87,10 @@
     % \sqrt ist das Wurzelzeichen. Im Argument steht, woraus die Wurzel gezogen wird
     \sqrt
     % Betrag mit dem Befehl \abs, selbstdefiniert!
-    { \abs{ \nabla u (x) } ^ 2 + 1} dx.
+    { \abs{ \nabla u (x) } ^ 2 + 1}
+    % das d in Integralen ist etwas komplizierter
+    % deshalb schreiben wir dafür einen Befehl
+    \d x.
   \end{equation}
 
 \end{document}
