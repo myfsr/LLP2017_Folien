@@ -62,8 +62,11 @@
 % \rceil (⌉), \lceil, \lfloor, \rfloor für Auf- und Abrunden
 % \{, \} für geschwungene Klammern
 
+% Restriktion einer Funktion (1. Argument) auf eine Teilmenge (2. Argument)
+\newcommand{\restr}[2]{\left. #1 \right|_{#2}}
 % \left und \right sorgen dafür, dass Delimiter sich an die Größe anpassen
 % sie müssen immer in Paaren auftreten
+% . steht für den leeren/ nicht vorhandenen Delimiter
 
 % das d in Integralen
 \newcommand{\intd}{\mathop{} \mathrm{d}}
@@ -178,7 +181,7 @@
   Sei $u$ ein Minimierer von $I$, d.h.\ 
   % Einschränkungen von Funktionen haben verschiedene Notationen
   % um mich jetzt nicht einzuschränken, nutze Makro
-  $u = u_0$ auf $\Rand {\Omega}$ mit
+  $\restr{u}{\Rand {\Omega}} = u_0$ mit
   \begin{equation}
     % \leq ist "kleiner als"
     I(u) \leq I(v)
@@ -229,7 +232,7 @@
     \begin{align}
       % der zusätzliche Platz vor dem d ist jetzt hinderlich
       % also neues Makro
-      \left. \ableitung{t} I(u + t\varphi) \right|_{t = 0} & = 0 \\
+      \restr {\ableitung{t} I(u + t\varphi)}{t = 0} & = 0 \\
       % Neuzeilen mit \\
       % Alle & werden untereinander gesetzt
       % typischerweise schreibt man sie vor Relationen wie =
@@ -243,7 +246,7 @@
       % Implikationen und Äquivalenzen sind passend benannt:
       % \implied, \iff, \impliedby
       % alternativ auch \because und \therefore
-      \implies \left. \ableitung{t} I(u + t\varphi) \right|_{t = 0} & =
+      \implies \restr {\ableitung{t} I(u + t\varphi)}{t = 0} & =
       \int_{\Omega} \frac
         {\nabla v (x) \cdot \nabla u(x)}
         {\sqrt{
