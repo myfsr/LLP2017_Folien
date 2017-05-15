@@ -65,6 +65,16 @@
 % \left und \right sorgen dafür, dass Delimiter sich an die Größe anpassen
 % sie müssen immer in Paaren auftreten
 
+% das d in Integralen
+\newcommand{\intd}{\mathop{} \mathrm{d}}
+% d nach dx (Ableitung)
+% Arg: die Variable, nach der abgeleitet wird
+\newcommand{\ableitung}[1]{
+  \frac
+    {\mathrm{d}}
+    {\mathrm{d} #1}
+  }
+
 % Rand einer Menge
 % \partial sollte nicht im Text auftauchen, da "partial" nichts mit dem Rand, sondern partiellen Ableitungen zu tun hat und so zu Verwirrung führt
 \newcommand{\Rand}[1]{\partial #1}
@@ -156,7 +166,7 @@
     { \abs{ \nabla u (x) } ^ 2 + 1}
     % das d in Integralen ist etwas komplizierter
     % deshalb schreiben wir dafür einen Befehl
-    d x.
+    \intd x.
   \end{equation}
   %
   % Für die Doppelpunkte, die in Funktionsdef. genutzt werden
@@ -219,21 +229,21 @@
     \begin{align}
       % der zusätzliche Platz vor dem d ist jetzt hinderlich
       % also neues Makro
-      \left. \frac {d}{dt} I(u + t\varphi) \right|_{t = 0} & = 0 \\
+      \left. \ableitung{t} I(u + t\varphi) \right|_{t = 0} & = 0 \\
       % Neuzeilen mit \\
       % Alle & werden untereinander gesetzt
       % typischerweise schreibt man sie vor Relationen wie =
-      \frac {d}{dt} I(u + t\varphi)  &=
-      \frac {d}{dt} \int_{\Omega} \sqrt{
+      \ableitung{t} I(u + t\varphi)  &=
+      \ableitung{t} \int_{\Omega} \sqrt{
         \abs{
           \nabla(u+tv) (x)
         }^2 + 1
-      } d x\\
+      } \intd x\\
       & = \dots & \text{Magie}\\
       % Implikationen und Äquivalenzen sind passend benannt:
       % \implied, \iff, \impliedby
       % alternativ auch \because und \therefore
-      \implies \left. \frac {d}{dt} I(u + t\varphi) \right|_{t = 0} & =
+      \implies \left. \ableitung{t} I(u + t\varphi) \right|_{t = 0} & =
       \int_{\Omega} \frac
         {\nabla v (x) \cdot \nabla u(x)}
         {\sqrt{
@@ -242,7 +252,7 @@
             }^2 + 1
           }
         }
-      d x
+      \intd x
       % \dots schreibt drei Punkte
       % es gibt auch \ldots, \vdots, \ddots, ...
       % siehe auch texdoc symbols Table 262 AMS dots (page 108)
