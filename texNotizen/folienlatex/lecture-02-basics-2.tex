@@ -1,8 +1,45 @@
 \input{preamble.tex}
-\subtitle{Tabellen und Bilder}
+\subtitle{Abschnitte, Tabellen und Bilder}
 \date{2017-05-16}
 
 \begin{document}
+
+\begin{frame}[fragile]
+  \frametitle{Abschnitte}
+
+  \begin{itemize}
+    \item<+-> geben die Grobstruktur des Dokuments an
+    \item<+-> In \LaTeX\ mit
+      \begin{itemize}
+        \item \lstinline!\part!, \lstinline!\part*!
+        \item \lstinline!\chapter!, \lstinline!\chapter*!
+        \item \lstinline!\section!, \lstinline!\section*!
+        \item \lstinline!\subsection!, \lstinline!\subsection*!
+        \item \lstinline!\subsubsection!, \lstinline!\subsubsection*!
+        \item \lstinline!\paragraph!, \lstinline!\paragraph*!
+        \item \lstinline!\subparagraph!, \lstinline!\subparagraph*!
+      \end{itemize}
+    \item<+-> *-Formen werden nicht nummeriert und treten auch nicht im
+      Inhaltsverzeichnis auf
+    \item<+-> In \lstinline|book| ist auch erlaubt
+      \begin{itemize}
+        \item \lstinline!\chapter!, \lstinline!\chapter*!
+      \end{itemize}
+    \item<+-> Abschnitte werden nicht explizit beendet.
+\begin{lstlisting}
+\section{Einführung} Jetzt labert man ein bisschen.
+\subsection*{Notation} Notation muss halt benannt werden.
+\end{lstlisting}
+  \end{itemize}
+%   \item<+-> Inhaltsverzeichnisse mit
+% \begin{lstlisting}
+% \tableofcontents
+% \end{lstlisting}
+%     und zweimaligem Übersetzen.
+%   \end{itemize}
+
+\end{frame}
+
 
 \begin{frame}
   \frametitle{Ziel dieses Abschnitts}
