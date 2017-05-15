@@ -102,6 +102,15 @@
 % Bemerkungen
 \newtheorem {remark} {Bemerkung}
 
+% newenvironment bietet eine neue Umgebung (unabhängig von amsthm)
+% 1. Arg: Name der Umgebung
+% 2. Arg: Code, der am Anfang geschrieben wird (bei \begin{loesung})
+% 3. Arg: Code, der am Ende geschrieben wird (bei \end{loesung})
+\newenvironment{loesung}
+  % Das optionale Argument von Proof enthält den Ersatz vom Wort Proof am Anfang des Beweises
+  {\begin{proof}[Lösung]}
+  {\end{proof}}
+
 % ----------
 % Basic info
 % ----------
@@ -199,7 +208,7 @@
   \end{problem}
 
   % Meine Lösung:
-  \begin{proof}[Lösung]
+  \begin{loesung}
     Seien $\Omega$, $u \in C^2(\closure{\Omega})$, $I$ wie in der Aufgabe
     % \infty ist das Unendlich-Symbol
     % man kann Sub- und Superskripte kombinieren. Die Reihenfolge ist egal.
@@ -242,7 +251,7 @@
     % um die Ausrichtung innerhalb von align zu verstehen, wisse:
     % es handelt sich um eine Tabelle, deren Spalten durch & getrennt sind
     % und abwechselnd rechts- und linksbündig ausgerichtet sind
-  \end{proof}
+  \end{loesung}
 
   % Ein paar Details möchte ich noch zeigen. Die passen thematisch in eine Bemerkung, die die Notation erläutert.
   % Eine Bemerkung passt auch gut in eine Umgebung.
