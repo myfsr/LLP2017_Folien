@@ -1,0 +1,446 @@
+\input{preamble.tex}
+\subtitle{Tabellen und Bilder}
+\date{2017-05-16}
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{Ziel dieses Abschnitts}
+
+  \begin{itemize}
+  \item Tabellen
+  \item Bilder einbinden (nicht erstellen!)
+  \item Abbildungen
+  % \item Verweise innerhalb eines Dokuments
+  \end{itemize}
+
+\end{frame}
+
+\section{Tabellen}
+
+\begin{frame}[fragile]
+  \frametitle{Tabellen}
+
+  \onslide<1->
+
+  \LaTeX\ stellt die Grundfunktionalität für Tabellen bereit
+
+  \begin{columns}
+    \begin{column}{0.4\linewidth}
+      \begin{block}<3->{}
+\begin{lstlisting}
+\begin{tabular}{lr|c||l}
+  \hline
+  1 & 2 & 3 & 4 \\
+  \hline\hline
+  5 & 6 & 7 & 8 \\
+  9 & 0 & 1 & 2 \\
+  \hline
+\end{tabular}
+\end{lstlisting}
+      \end{block}
+    \end{column}
+    \begin{column}{0.5\linewidth}
+      \centering
+      \onslide<2->{%
+        \begin{tabular}{lr|c||l}
+          \hline
+          1 & 2 & 3 & 4 \\
+          \hline\hline
+          5 & 6 & 7 & 8 \\
+          9 & 0 & 1 & 2 \\
+          \hline
+        \end{tabular}
+      }
+    \end{column}
+  \end{columns}
+
+  \begin{itemize}
+  \item<4-> \lstinline!{lr|c||l}! ist das \emph{Tabellenformat}
+  \item<5-> Spalten werden mit \lstinline|&| unterteilt
+  \item<6-> Zeilen werden mit \lstinline|\\| beendet
+  \item<7-> \lstinline|\hline| ergibt eine horizontale Linie
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Tabellen}
+
+  \onslide<+->
+
+  \begin{itemize}
+  \item<+-> Tabellenformat
+    \onslide<+->
+    \begin{itemize}
+    \item \lstinline|c| ergibt eine zentrierte Spalte
+    \item \lstinline|r| ergibt eine rechtsbündige Spalte
+    \item \lstinline|l| ergibt eine linksbündige Spalte
+    \item \lstinline!p{5cm}! ergibt eine Spalte der Breite 5cm
+    \item \lstinline!|! ergibt eine vertikale Linie
+    \end{itemize}
+  \item<+-> \lstinline!\cline{4-7}! ergibt je eine vertikale Linie von Spalte 4 bis Spalte 7
+  \item<+-> \lstinline!\multicolumn{3}{|c|}{Inhalt}! formatiert die nächsten drei Spalten
+    im Format \lstinline!|c|! mit \lstinline!Inhalt!
+  \end{itemize}
+
+  \onslide<+->
+
+  \medskip
+
+  \begin{center}
+    \begin{tabular}{|lr|c|p{2cm}|}
+      Hier & geht's & RUND! & \dots \\
+      \hline\hline
+      1    &      2 & \multicolumn{2}{c}{ DreiDreiDrei! } \\
+      \cline{2-3}
+      4    &      5 & 6     & 7
+    \end{tabular}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Tabellenlayout (modern)}
+
+  \onslide<+->
+
+  Schönere Tabellenstriche mittels
+
+\begin{lstlisting}
+\usepackage{booktabs}
+\end{lstlisting}
+
+  \onslide<+->
+
+  \bigskip
+
+  Dann:
+
+  \begin{columns}
+    \begin{column}{0.55\linewidth}
+\begin{lstlisting}
+\begin{tabular}{l|cr}
+  \toprule
+  Tabelle & Kopf  & Kopf  \\
+  \midrule
+  Zeile   & Zelle & Zelle \\
+  Zeile   & Zelle & Zelle \\
+  \bottomrule
+\end{tabular}
+\end{lstlisting}
+    \end{column}
+    \begin{column}{0.45\linewidth}
+      \centering
+      \begin{tabular}{l|cr}
+        \toprule
+        Tabelle & Kopf & Kopf \\
+        \midrule
+        Zeile & Zelle & Zelle \\
+        Zeile & Zelle & Zelle \\
+        \bottomrule
+      \end{tabular}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pakete für Tabellen}
+
+  \onslide<+->
+
+  Es gibt eine Reihe von nützlichen Paketen für Tabellen
+
+  \begin{itemize}
+  \item<+-> \lstinline!array! für erweiterte Tabellenformate (und kleine Korrekturen)
+  \item<+-> \lstinline!tabularx! für noch mehr Tabellenformate
+  \item<+-> \lstinline!longtable! für Tabellen, die über mehrere Seiten gehen
+  \item<+-> \dots
+  \end{itemize}
+
+\end{frame}
+
+\section{Bilder einbinden}
+
+\begin{frame}[fragile]
+  \frametitle{Bilder einbinden}
+
+  \onslide<+->
+
+  \begin{itemize}
+  \item Einbinden von Graphiken in \LaTeX\ mit Hilfe des Pakets \texttt{graphicx}
+  \item Befehl
+\begin{lstlisting}
+\includegraphics[(*@\textit{Optionen}@*)]{(*@\textit{Bildname}@*)}
+\end{lstlisting}
+  \end{itemize}
+
+  \onslide<+->
+
+  \begin{Beispiel}
+\begin{lstlisting}
+\centerline{\includegraphics[width=0.3\linewidth{bild.jpg}}
+\end{lstlisting}% ,keepaspectratio]
+
+    ergibt
+
+    \centerline{\includegraphics[width=0.3\linewidth]{pics/willersuhr.jpeg}} % ,keepaspectratio
+  \end{Beispiel}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Optionen zum Einbinden von Graphiken}
+
+  \onslide<+->
+
+  Oft verwendete Optionen von \lstinline{\includegraphics} sind
+  \begin{itemize}
+    \item \texttt{width}, \texttt{height} für Breite und Höhe
+    % \item \texttt{keepaspectratio}, wenn Breite \emph{und} Höhe angegeben, sind es beides Maximalmaße und Bild wird passend skaliert %so dass nach Angabe von Breite oder Höhe
+      % das Bild automatisch skaliert wird
+    \item \texttt{scale} zur Skalierung des Bildes
+    \item \texttt{angle} zur Angabe eines Drehwinkels
+    \item \texttt{origin} zur Angabe des Drehpunktes
+  \end{itemize}
+
+  \onslide<+->
+
+  \begin{Beispiel}
+\begin{lstlisting}
+\centerline{\includegraphics[scale=1.2,origin=cc,
+    angle=42]{bild.jpg}}
+\end{lstlisting}
+
+    \centerline{\includegraphics[scale=0.08,origin=cc,angle=42]{pics/willersuhr.jpeg}}
+  \end{Beispiel}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Weitere Befehle aus \texttt{graphicx}}
+
+  \onslide<+->
+
+  \begin{itemize}[<+->]
+  \item Drehen von Inhalten mit
+    \lstinline!\rotatebox[$\textit{Optionen}$]{$\textit{Winkel}$}{$\textit{Inhalt}$}!
+    \onslide<+->
+\begin{lstlisting}
+\rotatebox[origin=lB]{-30}{TextTextTextText}
+\end{lstlisting}
+    \rotatebox[origin=lB]{-30}{TextTextTextText}
+  \item \lstinline!\resizebox{$\textit{Breite}$}{$\textit{Höhe}$}{$\textit{Text}$}!
+    \onslide<+->
+\begin{lstlisting}
+\resizebox{1cm}{.4cm}{Hier ist es eng...}
+\end{lstlisting}
+    \resizebox{1cm}{.4cm}{Hier ist es eng...}
+  \item \lstinline!\scalebox{$\textit{horizontal}$}[$\textit{vertikal}$]{$\textit{Text}$}!
+    \onslide<+->
+\begin{lstlisting}
+\scalebox{3}[-1]{Breitergehtnicht}
+\end{lstlisting}
+    \scalebox{3}[-1]{Breitergehtnicht}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ausblick: Grafiken erstellen}
+
+  \begin{center}
+    \begin{tikzpicture}[
+        thick,
+        >=stealth',
+        dot/.style = {
+          draw,
+          fill = white,
+          circle,
+          inner sep = 0pt,
+          minimum size = 4pt
+        }
+      ]
+      \coordinate (O) at (0,0);
+      \draw[->] (-0.3,0) -- (8,0) coordinate[label = {below:$x$}] (xmax);
+      \draw[->] (0,-0.3) -- (0,5) coordinate[label = {right:$f(x)$}] (ymax);
+      \path[name path=x] (0.3,0.5) -- (6.7,4.7);
+      \path[name path=y] plot[smooth] coordinates {(-0.3,2) (2,1.5) (4,2.8) (6,5)};
+      \scope[name intersections = {of = x and y, name = i}]
+        \fill[gray!20] (i-1) -- (i-2 |- i-1) -- (i-2) -- cycle;
+        \draw      (0.3,0.5) -- (6.7,4.7) node[pos=0.8, below right] {Sekante};
+        \draw[red] plot[smooth] coordinates {(-0.3,2) (2,1.5) (4,2.8) (6,5)};
+        \draw (i-1) node[dot, label = {above:$P$}] (i-1) {} -- node[left,yshift=-3pt]
+          {$f(x_0)$} (i-1 |- O) node[dot, label = {below:$x_0$}] {};
+        \path (i-2) node[dot, label = {above:$Q$}] (i-2) {} -- (i-2 |- i-1)
+          node[dot] (i-12) {};
+        \draw           (i-12) -- (i-12 |- O) node[dot,
+                                  label = {below:$x_0 + \varepsilon$}] {};
+        \draw[blue, <->] (i-2) -- node[right] {$f(x_0 + \varepsilon) - f(x_0)$}
+                                  (i-12);
+        \draw[blue, <->] (i-1) -- node[below] {$\varepsilon$} (i-12);
+        \path       (i-1 |- O) -- node[below] {$\varepsilon$} (i-2 |- O);
+        \draw[gray]      (i-2) -- (i-2 -| xmax);
+        \draw[gray, <->] ([xshift = -0.5cm]i-2 -| xmax) -- node[fill = white]
+          {$f(x_0 + \varepsilon)$}  ([xshift = -0.5cm]xmax);
+      \endscope
+    \end{tikzpicture}
+  \end{center}
+
+  \onslide<2->{mit \textcolor{red}{Ti\textit{k}Z} $\leadsto$ später!}
+
+  \vfill\hbox{}\hfill\hbox{\tiny\url{http://www.texample.net/tikz/examples/linear-regression/}}
+
+\end{frame}
+
+
+\section{Abbildungen}
+
+\begin{frame}[fragile]
+  \frametitle{Abbildungen}
+
+  \begin{itemize}
+  \item<+-> Größere Bilder und Tabellen werden mittels \emph{Gleitumgebungen (Floats)} gesetzt:
+  \onslide<+->
+\begin{lstlisting}
+\begin{figure}
+  $\dots$
+  \caption{Bildunterschrift}
+\end{figure}
+\end{lstlisting}
+  \onslide<+->
+  \LaTeX\ platziert dann die Bilder auf der aktuellen oder auf einer der folgenden Seiten.
+
+  \item<+-> Für Tabellen gibt es die spezielle \texttt{table}-Umgebung.
+  \item<+-> Verzeichnisse für Abbildungen und Tabellen mit \lstinline!\listoffigures! und
+    \lstinline!\listoftables!.
+  \item<+-> Nützliches Paket: \lstinline!float!: zur Definition weiterer Gleitumgebungen.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Platzierung von Floats}
+
+  \onslide<+->
+
+  Die Platzierung wird durch die entsprechenden \textit{Optionen} angegeben:
+
+  \onslide<+->
+
+  \begin{description}
+  \item[h] Platzierung an der aktuellen Stelle
+  \item[t] Platzierung oben auf einer Seite
+  \item[b] Platzierung unten auf einer Seite
+  \item[p] Platzierung auf einer extra Seite
+  \end{description}
+
+  \onslide<+->
+
+  Optionen können gemischt werden.
+
+  \onslide<+->
+
+\begin{lstlisting}
+\begin{figure}[tp]
+  Diese \enquote{Abbildung} erscheint entweder oben auf
+  einer Seite, oder auf einer extra Seite.
+
+  \caption{Bildunterschrift}
+\end{figure}
+\end{lstlisting}
+
+\end{frame}
+
+% \section{Referenzieren}
+
+% \begin{frame}[fragile]
+%   \frametitle{Verweise im Dokument}
+
+%   \onslide<+->
+
+%   \LaTeX\ erlaubt die automatische Erstellung von Verweisen innerhalb des Dokuments
+
+%   \begin{itemize}
+%   \item<+-> mit dem Befehl \lstinline!\label{label-name}! wird ein \emph{Label} im Dokument
+%     gesetzt
+%   \item<+-> mit dem Befehl \lstinline!\ref{label-name}! wird auf dieses Label verwiesen
+%   \end{itemize}
+
+%   \onslide<+->
+
+% \begin{lstlisting}
+% \section{Einführung}
+% \label{sec:introduction}
+
+% Das Problem, welches wir behandeln wollen, ist wichtig!
+
+% \section{Das Problem}
+
+% Siehe Abschnitt~\ref{sec:introduction}!
+% \end{lstlisting}
+
+%   \onslide<+->
+
+%   \emph{Wichtig}: Zweimaliges Übersetzen notwendig!
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Platzierung von Labeln}
+
+%   \onslide<+->
+
+%   Die Formatierung von \lstinline!\ref{label-name}! hängt von dem Verweis ab.
+
+%   \onslide<+->
+
+% \begin{lstlisting}
+% \section{Abschnitt}
+% \label{sec:section}         % Verweis auf Abschnittsnummer
+
+% \begin{enumerate}
+% \item\label{item:1} Eintrag % Verweis auf Einzelpunkt
+% \end{enumerate}
+
+% \begin{figure}
+%   $\dots$
+%   \caption{\label{figure} Bildunterschrift}
+%                             % Verweis auf Abbildung
+% \end{figure}
+% \end{lstlisting}
+
+%   \onslide<+->
+
+%   Verweis auf die Seitenzahl mit \lstinline!\pageref{label-name}!.
+
+% \end{frame}
+
+% \begin{frame}[fragile]
+%   \frametitle{Nützliche Pakete}
+
+%   \onslide<+->
+
+%   Es gibt einige nützliche Pakete, die Verweise besser formatieren können
+
+%   \begin{itemize}
+%   \item<+-> \lstinline!ntheorem! gibt den Befehl \lstinline!\thref{thm:main-theorem}!,
+%     welcher automatisch den Typ der Aussage hinzufügt (Satz~5.1, Lemma~5.1, Bemerkung~5.1,
+%     \dots)
+%   \item<+-> \lstinline!cleveref! gibt \lstinline!\cref! und weitere Befehle, welche
+%     automatisch den Typ der Referenz hinzufügen
+%   \item<+-> \lstinline!varioref! gibt \lstinline!\vref!, \lstinline!\vpageref!, und
+%     weitere, welche intelligente Formatierungen abhängig vom Abstand zwischen Referenz und
+%     Verweis erlauben
+%   \end{itemize}
+
+% \end{frame}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-engine: luatex
+%%% ispell-local-dictionary: "de_DE"
+%%% End:
