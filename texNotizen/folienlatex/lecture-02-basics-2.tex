@@ -4,6 +4,19 @@
 
 \begin{document}
 
+\begin{frame}
+  \frametitle{Ziel Heute}
+
+  \begin{itemize}
+  \item Dokumentstruktur
+  \item Tabellen
+  \item Bilder einbinden (nicht erstellen!)
+  \item Abbildungen
+  % \item Verweise innerhalb eines Dokuments
+  \end{itemize}
+
+\end{frame}
+
 \begin{frame}[fragile]
   \frametitle{Abschnitte}
 
@@ -13,6 +26,7 @@
       \begin{itemize}
         \item \lstinline!\part!, \lstinline!\part*!
         \item \lstinline!\chapter!, \lstinline!\chapter*!
+          (nicht in \lstinline!article!/ \lstinline!scrartcl!)
         \item \lstinline!\section!, \lstinline!\section*!
         \item \lstinline!\subsection!, \lstinline!\subsection*!
         \item \lstinline!\subsubsection!, \lstinline!\subsubsection*!
@@ -21,14 +35,12 @@
       \end{itemize}
     \item<+-> *-Formen werden nicht nummeriert und treten auch nicht im
       Inhaltsverzeichnis auf
-    \item<+-> In \lstinline|book| ist auch erlaubt
-      \begin{itemize}
-        \item \lstinline!\chapter!, \lstinline!\chapter*!
-      \end{itemize}
     \item<+-> Abschnitte werden nicht explizit beendet.
 \begin{lstlisting}
-\section{Einführung} Jetzt labert man ein bisschen.
-\subsection*{Notation} Notation muss halt benannt werden.
+\section{Einführung}
+Jetzt labert man ein bisschen.
+\subsection*{Notation}
+Notation muss halt benannt werden.
 \end{lstlisting}
   \end{itemize}
 %   \item<+-> Inhaltsverzeichnisse mit
@@ -37,19 +49,6 @@
 % \end{lstlisting}
 %     und zweimaligem Übersetzen.
 %   \end{itemize}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Ziel dieses Abschnitts}
-
-  \begin{itemize}
-  \item Tabellen
-  \item Bilder einbinden (nicht erstellen!)
-  \item Abbildungen
-  % \item Verweise innerhalb eines Dokuments
-  \end{itemize}
 
 \end{frame}
 
