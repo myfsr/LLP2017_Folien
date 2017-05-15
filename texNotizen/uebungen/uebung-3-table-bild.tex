@@ -1,0 +1,39 @@
+\documentclass{latex-htw-uebung}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\title{3. Übungsblatt}
+\date{2017-05-16}
+
+\begin{document}
+
+Schreibe das Dokument, das auf der Seite \url{myfsr.de/llp} als Bild verlinkt ist. Dabei muss das Resultat nicht genauso aussehen, sondern ein schönes Dokument werden. Um dir Tipparbeit zu ersparen, findest du im \url{github}-Repository eine Datei mit einem Gutteil der Texte (\url{uebung2Texte.txt}).
+
+Wenn du stattdessen einen eigenen Text texst, lasse es eine Tabelle und ein Bild beinhalten.
+
+Für ein paar Teile können dir diese Hinweise hoffentlich helfen:
+\begin{itemize}
+  \item Modifikationen von Symbolen wie Punkte, Pfeile, Hüte, etc.\ finden sich als \enquote{accents} in der Symbolliste. (\url{ctan.org/pkg/comprehensive} oder \lstinline!texdoc symbols!)
+  \item Mehrere Zeilen umspannende Klammern können mithilfe der \lstinline!aligned!-Umgebung des Paketes \lstinline!amsmath! erstellt werden. Schaue dir dafür die Dokumentation (Abschnitt \enquote{Alignment building blocks}) des Paketes an!
+  \item Neben \lstinline!\mathbb! gibt es noch mehr besondere Arten Variablen im Mathematikmodus zu setzen. Auch diese finden sich in der Symbolliste.
+  \item Das Paket \lstinline!hyperref! bietet (neben vielem anderen) das Makro \lstinline!\url{Link}!, dass \enquote{Link} als Link formatiert.
+\end{itemize}
+% Schreibe ein paar Formeln. Schreibe deine Hausaufgaben oder die untenstehenden Formeln ab. 
+% Stößt du auf Symbole, deren \LaTeX-Makroname nichts mit der Bedeutung zu tun haben oder dir zu lang sind? Definiere Makros, die den Code lesbarer machen!
+% \begin{align}
+%   a + \frac {b}{3} = \gamma \\
+%   7^{\sum_{a = 1}^{\sigma{5}} \zeta(a)} \equiv \frac 35 \mod 2 \\
+%   \sum_{a = 1}^{\sigma(5)} \zeta(a) = \prod_{x \in \{y \in D : \beta(y) \notin \aleph\}} x^{-1} \cdot \vec {y} \times \vec {z}
+% \end{align}
+% Eine Formel im Text sollte nicht zu lang sein. Dies ist also eine schlechte Idee: $
+%   \naturals = \integers \cap \rationals_{+}  = \{z \in \complex \mid \Im (z) = 0 \logand
+%     \exists a, b \in \integers: z = \frac ab \logand
+%     ((a > 0 \logand b > 0) \logor (a < 0 \logand b < 0)\}$
+% Ändert sich das Aussehen dieser Gleichung im abgesetzten Mathemodus?
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% ispell-local-dictionary: "de_DE"
+%%% End:

@@ -1,0 +1,37 @@
+Differentialgleichungen
+
+Typen
+-----
+
+Wenn man Differentialgleichungen betrachtet, teilt man sie in verschiedene Typen auf, die mit verschiedenen Ansätzen gelöst werden können.
+
+Gewöhnlichen Differentialgleichung
+explizite ODE
+lineare ODE
+partielle Differentialgleichung
+
+Dabei ist Rmm der Raum der quadratischen Matrizen der Größe m. Ein Element ist die Vandermonde-Matrix mit der folgenden Eigenschaft.
+
+% Die Vandermonde-Determinante
+
+Bemerkung
+---------
+Oftmals werden physikalische Zusammenhänge vereinfacht bevor man sie mit mathematischen Methoden bearbeitet. Das Pendel kann durch die Gleichungen beschrieben werden.
+
+% Bild von einem Pendel finden und einfügen
+
+(nicht-lineare Differentialgleichung 2. Ordnung)
+
+Aufgrund der Annährung sin α ≈ α vereinfacht sich dies zu
+
+Analytisches Handwerkszeug
+--------------------------
+Stirlingformel
+Die Stirlingformel ist die Approximation für n ∈ ℕ
+
+Satz
+Der nächste Term in der Fehlerapproximation O(ln(n)) in der Stirlingformel ist , sodass sich 
+
+ergibt. Tatsächlich hat die Stirlingformel als Approximationsformel für die Fakultätsfunktion die Eigenschaft, dass
+
+Beweis siehe https://en.wikipedia.org/wiki/Stirling%27s_approximation
