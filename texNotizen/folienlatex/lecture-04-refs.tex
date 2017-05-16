@@ -94,4 +94,335 @@ Siehe Abschnitt~\ref{sec:introduction}!
 
 \end{frame}
 
+\begin{frame}
+  \frametitle{Ziele}
+  \onslide<+->
+
+  \begin{itemize}
+  \item<+-> Manuelle Erstellung von Literaturverzeichnissen in \LaTeX
+  \item<+-> Automatische Erstellung mittels Bib\TeX
+  \item<+-> Anpassung von Zitier- und Verzeichnisstilen mit Bib\LaTeX
+  \end{itemize}
+
+\end{frame}
+
+\section{Manuelle Erstellung}
+
+\begin{frame}[fragile]
+  \frametitle{Die Grundidee}
+  \onslide<+->
+
+  \begin{itemize}
+  \item<+-> Formatierung des Literaturverzeichnisses innerhalb der Umgebung
+    \lstinline|thebibliography|%
+  \item<+-> Formatierung der einzelnen Einträge mit \lstinline|\bibitem|
+    \onslide<+->
+\begin{lstlisting}
+\begin{thebibliography}{LongestKey}
+\bibitem[Label]{Key} Autor. \newblock Titel.
+  \newblock Verlag, Jahr.
+$\dots$
+\end{thebibliography}
+\end{lstlisting}
+  \item<+-> Zitieren im Text mittels \lstinline|\cite{Key}|\onslide<+->%
+\begin{lstlisting}
+Für mehr Details, siehe~\cite{Key}.
+\end{lstlisting}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Probleme}
+  \onslide<+->
+
+  \begin{itemize}
+  \item<+-> Aufwendig
+    \begin{itemize}
+    \item<+-> Jede Referenz muss einzeln formatiert werden
+    \item<+-> Verwendete Referenzen müssen manuell zusammengestellt werden
+    \item<+-> Manuelle Sortierung
+    \end{itemize}
+  \item<+-> Unflexibel
+    \begin{itemize}
+    \item<+-> Änderung der Verzeichnis-Formatierung?
+    \item<+-> Änderung der Zitat-Formatierung?
+    \item<+-> Hinzufügen und Löschen von Quellen?
+    \end{itemize}
+  \item<+-> Fehleranfällig
+  \end{itemize}
+
+\end{frame}
+
+\section{Bib\TeX}
+
+\begin{frame}
+  \frametitle{Möglichkeiten}
+  \onslide<+->
+
+  \begin{itemize}
+  \item<+-> Automatische Erstellung von \lstinline|thebibliography|-Umgebungen
+  \item<+-> Automatische Sortierung
+  \item<+-> Automatische Formatierung nach vordefinierten Stilen
+  \item<+-> Verwendung von separaten Paketen zur Anpassung der Zitat-Stile.
+  \end{itemize}
+
+  \onslide<+->
+
+  Autoren: Leslie Lamport, Oren Patashnik, 1985
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Bib\TeX-\enquote{Datenbanken}}
+  \onslide<+->
+
+  \begin{itemize}
+  \item<+-> Zur Verwendung von Bib\TeX müssen die Literaturquellen in
+    einer \enquote{Bib\TeX-Datenbank} abgelegt werden.
+  \item<+-> Dies ist eine Textdatei in einem bestimmten Format\onslide<+->%
+\begin{lstlisting}
+@article{Key,
+  title     = {Was soll das alles?},
+  author    = {John Doe and Otto Normalverbraucher},
+  journal   = {Zeitschrift der Zukunft},
+  year      = {2015},
+  publisher = {Fantasy Press},
+}
+\end{lstlisting}
+  \item<+-> Formate \verb|@article|, \verb|@book|, \verb|@proceedings|,
+    \verb|@inproceedings|, \verb|@misc|, \dots
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Aufruf}
+  \onslide<+->
+
+  \begin{itemize}
+  \item<+-> In der \LaTeX-Datei, an der Stelle, an der das Literaturverzeichnis
+    liegen soll:
+\begin{lstlisting}
+\bibliography{quellen1.bib,quellen2.bib}
+\bibliographystyle{plain}  % 'plain' ist der Stil
+\end{lstlisting}
+  \item<+-> Aufruf \LaTeX, dann Bib\TeX, dann \LaTeX\ (zwei Mal)
+    \onslide<+->
+\begin{verbatim}
+$ pdflatex myfile.tex
+$ bibtex myfile
+$ pdflatex myfile.tex
+$ pdflatex myfile.tex
+\end{verbatim}
+    \begin{itemize}
+    \item<+-> Erster Aufruf extrahiert alle Quellen aus dem Dokument
+    \item<+-> Aufruf von Bib\TeX\ formatiert und sortiert die
+      verwendeten Referenzen
+    \item<+-> Nächster Aufruf von \LaTeX\ für Literaturverzeichnis ein
+    \item<+-> Letzter Aufruf von \LaTeX\ fügt Quellenzitate ein
+    \end{itemize}
+  \item<+-> Wird meist automatisch von der Entwicklungsumgebung gemacht
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Woher Bib\TeX-Einträge bekommen?}
+
+  \centering
+
+  \only<2>{\includegraphics[height=\textheight]{pics/slubbib1.jpg}}
+  \only<3>{%
+    \includegraphics[
+      width=\textwidth,
+      viewport=100 300 800 700,
+      clip]
+      {pics/slubbib2.jpg}}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Pakete und Stile}
+  \onslide<+->
+
+  Es gibt viele ($\geq 295$) Bib\TeX-Stile:
+  \begin{itemize}
+  \item<+-> \texttt{plain}, \texttt{acm}, \texttt{apa}, \texttt{astron},
+    \texttt{chicagoa}, \texttt{humanbio}, \texttt{humannat}, \dots
+  \item<+-> Harvard: \texttt{agsm}, \texttt{dcu}, \dots
+  \item<+-> Naturwissenschaften: \texttt{abbrnat}, \texttt{plainnat},
+    \texttt{unsrtnat}
+  \item<+-> \dots
+  \end{itemize}
+
+  \onslide<+->
+
+  \begin{block}{Was bleibt?}
+    Zum Quellenverweis im Text wird immer noch der Befehl \lstinline|\cite|
+    verwendet!
+  \end{block}
+
+  \onslide<+->
+
+  Für die Anpassung von Quellenverweisen gibt es eine Vielzahl von Paketen
+
+  \begin{itemize}
+  \item<+-> \lstinline|natbib| für naturwissenschaftliche Arbeiten
+  \item<+-> \lstinline|harvard| für vorrangig geisteswissenschaftliche Arbeiten
+  \item<+-> \lstinline|jurabib| für juristische Texte
+  \item<+-> \dots
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Nachteile}
+  \onslide<+->
+
+  \begin{itemize}
+  \item<+-> Bib\TeX\ bestimmt nur die Formatierung des
+    Literaturverzeichnisses, nicht der Quellenverweise
+    \begin{itemize}
+    \item<+-> Widerspricht dem Prinzip der Trennung von Inhalt und Form
+    \end{itemize}
+  \item<+-> Anpassung von Bib\TeX-Stilen \emph{sehr aufwendig} (eigene
+    Programmiersprache, in Postfix-Notation)
+  \item<+-> Unterstützung für UTF-8 fehlt (kleine Abhilfe: \texttt{bibtex8})
+  \end{itemize}
+
+\end{frame}
+
+\section{Bib\LaTeX\ und Biber}
+
+\begin{frame}
+  \frametitle{Möglichkeiten}
+  \onslide<+->
+
+  \begin{itemize}
+  \item<+-> Verwendung von bereits bestehenden Bib\TeX-Datenbanken
+  \item<+-> Anpassung und Definition der Formatierung von Literaturverzeichnis
+    \emph{und} Quellenverweisen
+  \item<+-> Unterstützung von UTF-8
+  \item<+-> \enquote{Einfache} Anpassung bereits bestehender Stile
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Verwendung}
+  \onslide<+->
+
+  \begin{itemize}
+  \item<+-> In der Präambel das Paket \lstinline|biblatex| einbinden
+  \item<+-> Formatierungsoptionen werden dem Paket übergeben \onslide<+->
+\begin{lstlisting}
+\usepackage[maxnames=2,
+            style=numeric-comp,
+            isbn=false,
+            backend=bibtex]
+           {biblatex}
+\end{lstlisting}
+    \begin{itemize}
+    \item<+-> Maximal zwei Autoren pro Quelle
+    \item<+-> Verwende Zahlen für die Quellen, sortiert und zusammengefasst
+    \item<+-> Zeige keine ISBN an
+    \end{itemize}
+    \onslide<+->%
+    Übersetzung wie bei Bib\TeX
+  \item<+-> \emph{sehr viele} Optionen, siehe Dokumentation von Bib\LaTeX
+\begin{verbatim}
+$ texdoc biblatex
+\end{verbatim}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Verwendung}
+  \begin{itemize}
+  \item<+-> Zitierung mittels \lstinline|\cite|, \lstinline|\parencite|,
+    \lstinline|\footcite|, oder \lstinline|\autocite|
+  \item<+-> Weitere stilabhängige Zitierungskommandos verfügbar
+  \item<+-> Angabe von Bib\TeX-Datenbanken mit
+    \lstinline|\addbibresource|
+  \item<+-> Ausgabe des Literaturverzeichnisses mit
+    \lstinline|\printbibliography|
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Beispiel}
+  \onslide<+->
+
+\begin{lstlisting}[frame=none]
+\documentclass{scrartcl}
+\usepackage[backend=bibtex,
+            style=alphabetic,
+            backref=true,
+            $\mathtt{autocite}$=footnote,
+            sorting=nty,
+            backend=bibtex]{biblatex}
+\addbibresource{mybibtexfiles.bib}  % mit Endung .bib
+
+\begin{document}
+
+Es gibt unendlich viele Primzahlen~\autocite{Euklid}.
+
+\printbibliography
+
+\end{document}
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bib\LaTeX-Stile}
+  \onslide<+->
+
+  \begin{itemize}
+  \item<+-> \texttt{numeric}, \texttt{numeric-comp}, \texttt{alphabetic} für
+    einfache Literaturverzeichnisse
+  \item<+-> \texttt{authortitle}, \texttt{authoryear}, \dots\ für
+    Literaturangaben im Harvard-Stil
+  \item<+-> \texttt{juradiss}, \texttt{authoryear-dw}, \dots\ (in den jeweiligen
+    Paketen) für Literaturangaben in juristischen und geisteswissenschaftlichen
+    Texten
+  \item<+-> Paket \texttt{biblatex-trad} für einige \enquote{klassische}
+    Bib\TeX-Stile (\texttt{trad-plain}, \texttt{trad-unsrt}, \dots)
+  \item<+-> \dots
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Backends}
+  \onslide<+->
+
+  \begin{block}{Problem}
+    Unterstützung von UTF-8?
+  \end{block}
+
+  \onslide<+->
+
+  \begin{block}{Lösung: \texttt{biber}}
+    \begin{itemize}
+    \item<+-> neues Backend \texttt{biber} als Ersatz für \texttt{bibtex}
+    \item<+-> implementiert in Perl (und damit portabel)
+    \item<+-> Unterstützung von UTF-8
+    \item<+-> Unterstützung von erweiterten Formaten
+    \item<+-> \enquote{Nachteil}: langsamer als \texttt{bibtex}
+    \end{itemize}
+  \end{block}
+
+  \onslide<+->
+
+  \begin{block}{Verwendung}
+\begin{lstlisting}
+\usepackage[backend=biber]{biblatex}
+\end{lstlisting}
+    (oder auch ohne Angabe der Option \texttt{backend})
+  \end{block}
+
+\end{frame}
+
 \end{document}
