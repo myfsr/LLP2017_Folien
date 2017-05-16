@@ -1,0 +1,89 @@
+\input{preamble.tex}
+\subtitle{Nummerierung, Referenzierung, Bibliographie}
+\date{2017-05-16}
+
+\begin{document}
+
+\section{Referenzieren}
+
+\begin{frame}[fragile]
+  \frametitle{Verweise im Dokument}
+
+  \onslide<+->
+
+  \LaTeX\ erlaubt die automatische Erstellung von Verweisen innerhalb des Dokuments
+
+  \begin{itemize}
+  \item<+-> mit dem Befehl \lstinline!\label{label-name}! wird ein \emph{Label} im Dokument
+    gesetzt
+  \item<+-> mit dem Befehl \lstinline!\ref{label-name}! wird auf dieses Label verwiesen
+  \end{itemize}
+
+  \onslide<+->
+
+\begin{lstlisting}
+\section{Einführung}
+\label{sec:introduction}
+
+Das Problem, welches wir behandeln wollen, ist wichtig!
+
+\section{Das Problem}
+
+Siehe Abschnitt~\ref{sec:introduction}!
+\end{lstlisting}
+
+  \onslide<+->
+
+  \emph{Wichtig}: Zweimaliges Übersetzen notwendig! (Machen viele Editoren automatisch.)
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Platzierung von Labeln}
+
+  \onslide<+->
+
+  Die Formatierung von \lstinline!\ref{label-name}! hängt von dem Verweis ab.
+
+  \onslide<+->
+
+\begin{lstlisting}
+\section{Abschnitt}
+\label{sec:section}         % Verweis auf Abschnittsnummer
+
+\begin{enumerate}
+\item\label{item:1} Eintrag % Verweis auf Einzelpunkt
+\end{enumerate}
+
+\begin{figure}
+  $\dots$
+  \caption{\label{figure} Bildunterschrift}
+                            % Verweis auf Abbildung
+\end{figure}
+\end{lstlisting}
+
+  \onslide<+->
+
+  Verweis auf die Seitenzahl mit \lstinline!\pageref{label-name}!.
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Nützliche Pakete}
+
+  \onslide<+->
+
+  Es gibt einige nützliche Pakete, die Verweise besser formatieren können
+
+  \begin{itemize}
+  \item<+-> \lstinline!ntheorem! gibt den Befehl \lstinline!\thref{thm:main-theorem}!,
+    welcher automatisch den Typ der Aussage hinzufügt (Satz~5.1, Lemma~5.1, Bemerkung~5.1,
+    \dots)
+  \item<+-> \lstinline!cleveref! gibt \lstinline!\cref! und weitere Befehle, welche
+    automatisch den Typ der Referenz hinzufügen
+  \item<+-> \lstinline!varioref! gibt \lstinline!\vref!, \lstinline!\vpageref!, und
+    weitere, welche intelligente Formatierungen abhängig vom Abstand zwischen Referenz und
+    Verweis erlauben
+  \end{itemize}
+
+\end{frame}

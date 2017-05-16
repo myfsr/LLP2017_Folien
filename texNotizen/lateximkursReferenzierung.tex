@@ -1,0 +1,70 @@
+\documentclass{scrartcl}
+
+% Standardpakete, die immer geladen werden sollten
+
+% das Ü wird nicht angezeigt
+% das liegt daran, dass LaTeX standardmäßig nicht das Speicherformat UTF-8 erkennt. Das muss man ihm mitteilen:
+% damit sollte (fast) alle westeuropäischen Buchstaben erkannt werden
+\usepackage[utf8]{inputenc}
+
+% das Ü wird jetzt als U plus Punkten eingefügt
+% unter anderem kann es damit in manchen pdf-Programmen nicht gesucht werden
+% mit fontenc kann eingestellt werden, tatsächlich mehr Zeichen zu nutzen
+% Standard für westeuropäische Texte:
+\usepackage[T1]{fontenc}
+% Die Umgebung "proof" startet mit dem Wort "proof". Das passt nicht in einen deutschen Text
+% automatisch generierte Texte werden mit dem Paket babel in die angegebene Sprache übersetzt
+% babel sorgt auch für deutsche Silbentrennung und weitere Feinheiten
+% deshalb ist babel ein Standardpaket, was immer geladen werden sollte (auch für englische Texte)
+% ngerman = new german (neue deutsche Rechtschreibung)
+\usepackage[ngerman]{babel}
+
+% Standardpakete für Mathematik, die man immer braucht
+
+% beim Kompilieren kommt der Fehler "Undefined control sequence" für \text
+% Lösung: nutze Paket amsmath
+% amsmath sollte immer benutzt werden, wenn man den Mathematikmodus nutzt
+\usepackage{amsmath}
+% amssymb liefert diverse Symbole für den Mathemodus
+% unter anderem \mathbb für doppelt gestrichene Buchstaben (bb = blackboard)
+\usepackage{amssymb}
+% amsthm bietet Formatierung für Sätze, Bemerkungen, Lemmas, Aufgaben, ...
+\usepackage{amsthm}
+% für mehr Einstellungsmöglichkeiten gibt es zusätzlich \usepackage{ntheorem}
+
+\newtheorem{thm}{Satz}[section]
+% Gib Autor, Titel und Datum an
+% wird bei \maketitle genutzt
+\author{Felix Hilsky}
+\title{Referenzierung}
+\date{2017-05-23}
+
+\begin{document}
+  \maketitle
+
+  \section{Einführung} \label{sec:einfuehrung}
+  %
+  Es gibt ein großes Problem, das hier beschrieben wird.
+  %
+  \section{Problem}
+  %
+  Wie in der Einführung~\ref{sec:einfuehrung} erwähnt, gibt es ein Problem. Es besteht darin... Das kann man auch in der Abbildung~\ref{fig:sinnvollesBild} erkennen.
+  %
+  \begin{figure}
+    Hier könnte Ihr Bild stehen.
+    \caption{Eine sinnvolle Bildunterschrift stehen.}
+    \label{fig:sinnvollesBild}
+  \end{figure}
+  %
+  \begin{thm}[Satz über tolle Graphen]\label{thm:tollerGraph}
+    Ein Graph ist genau dann toll, wenn man ihn nicht mit endlich vielen Zeichen beschreiben kann:
+    \begin{equation}
+      G \text{ toll} \iff \nexists \{a_1, \dots, a_n\}: G = B(a_1, \dots, a_n)
+      \label{equ:toll}
+    \end{equation}
+  \end{thm}
+  %
+  \section{Vorbereitungen}
+  \subsection{Notation}
+  Sei $G$ ein Graph. Wie wie in Satz~\ref{thm:tollerGraph} auf Seite~\pageref{thm:tollerGraph} gesehen haben, ist es schwer tolle Graphen anzugeben. Dabei ist $B$ wie in der Äquivalenz~\eqref{equ:toll} ein Operator, der natürliche Sätze interpretiert.
+\end{document}
