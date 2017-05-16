@@ -35,6 +35,9 @@ Siehe Abschnitt~\ref{sec:introduction}!
   \onslide<+->
 
   \emph{Wichtig}: Zweimaliges Übersetzen notwendig! (Machen viele Editoren automatisch.)
+  % beim ersten Mal werden die Informationen für die Label gesammelt. Beim zweiten Mal bei den Referenzierungen eingesetzt.
+  % Demonstrieren: beim ersten Mal entstehen ??.
+  % Demonstrieren: Zeilen in aux-Datei
 
 \end{frame}
 
@@ -43,23 +46,25 @@ Siehe Abschnitt~\ref{sec:introduction}!
 
   \onslide<+->
 
-  Die Formatierung von \lstinline!\ref{label-name}! hängt von dem Verweis ab.
+  % Die Formatierung von \lstinline!\ref{label-name}! hängt von dem Verweis ab.
+  % was wollte Daniel uns damit sagen?
+  Faustregel: alles, was eine Nummer hat, kann mit einem Label versehen werden.
 
   \onslide<+->
-
+% an Konvention kat:name erinnern
 \begin{lstlisting}
 \section{Abschnitt}
 \label{sec:section}         % Verweis auf Abschnittsnummer
-
 \begin{enumerate}
-\item\label{item:1} Eintrag % Verweis auf Einzelpunkt
+\item\label{item:eintrag} Eintrag % Verweis auf Einzelpunkt
 \end{enumerate}
-
 \begin{figure}
-  $\dots$
-  \caption{\label{figure} Bildunterschrift}
-                            % Verweis auf Abbildung
+  $\dots$                 % Verweis auf Abbildung
+  \caption{\label{fig:mein Bild} Bildunterschrift}
 \end{figure}
+\begin{equation}
+  \int a dx = b \label{eq:int} % Verweis auf Formel
+\end{equation} % bei align kann auf jede Zeile verwiesen werden
 \end{lstlisting}
 
   \onslide<+->
@@ -76,6 +81,7 @@ Siehe Abschnitt~\ref{sec:introduction}!
   Es gibt einige nützliche Pakete, die Verweise besser formatieren können
 
   \begin{itemize}
+  \item<+-> \lstinline!amsmath! gibt den Befehl \lstinline!\eqref{eq:ref}!, der die Klammern um den Verweis setzt: %\eqref{eq:int}.
   \item<+-> \lstinline!ntheorem! gibt den Befehl \lstinline!\thref{thm:main-theorem}!,
     welcher automatisch den Typ der Aussage hinzufügt (Satz~5.1, Lemma~5.1, Bemerkung~5.1,
     \dots)
@@ -87,3 +93,5 @@ Siehe Abschnitt~\ref{sec:introduction}!
   \end{itemize}
 
 \end{frame}
+
+\end{document}
