@@ -1,0 +1,93 @@
+\documentclass{latex-htw-uebung}
+
+\title{4.~Übungsblatt}
+\date{23.\ Mai~2017}
+
+\begin{document}
+
+\NewTask Erstelle ein Dokument mit einem Abschnitt, auf den du mit \lstinline|\label{sec:inhalt}| und \lstinline|\ref{sec:inhalt}| verweist. Übersetze das Dokument \emph{einmal} mit \lstinline|pdflatex|. (Vermutlich musst du es über ein Terminal machen, da Editoren oft automatisch mehrmals übersetzen. Lösche vorher alle \lstinline|.aux|-Dateien.) Ist der Verweis richtig eingefügt? Schaue dir die entstandene \lstinline|.aux|-Datei an. Erkennst du, welche Zeile zum Label gehört?
+\NewTask Gehe zur Website der SLUB (\url{http://slub-dresden.de}), suche da nach
+einem von Dir kürzlich gelesenen Buch, und schaue dir den von der Website dazu
+bereitgestellten \textsc{Bib\TeX}-Eintrag an.
+
+\NewTask Lege eine Datei mit dem Namen \texttt{meineBuecher.bib} an und füge
+folgenden Inhalt ein:
+
+\begin{lstlisting}
+@book{MP1,
+  title  = {Wie ich \LaTeX{} meisterte},
+  author = {Max Power},
+  editor = {Santos L. Halper},
+  address = {Springfield},
+  publisher = {Läufer Verlag},
+  year   = {1999},
+  isbn   = {3-1234-4321-3},
+}
+@article{wichtigerArtikel,
+  author = {Maxine Power and Roy Force and Chesty LaRue },
+  title = {Die neuesten Entwicklungen in guter Typographie},
+  journal = {Neue Typographie},
+  volume = {23},
+  number = {3},
+  year = {2013},
+  pages   = {42-84},
+}
+\end{lstlisting}
+Füge noch einen weiteren \textsc{Bib\TeX} Eintrag vom Typ
+\lstinline|@article| mit dem Schlüsselwort \lstinline|wa2| hinzu, wobei
+alle Daten deiner Fantasie überlassen sind.
+
+
+Erstelle weiter eine Datei \texttt{meineAusarbeitung.tex} mit
+folgenden Inhalt:
+
+\begin{lstlisting}
+\documentclass[a4paper,ngerman]{article}
+
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[backend=bibtex,
+            style=numeric-comp, backref=false,
+            (*@autocite@*)=footnote, maxnames=2,
+            isbn=true]{biblatex}
+\addbibresource{meineBuecher.bib}
+\title{Mein Werk}
+\author{Mein Name}
+
+\begin{document}
+\maketitle
+Motiviert durch das \LaTeX{}-Standardwerk~\cite{MP1} habe ich meine Studien zu
+diesem Thema vertieft. Der aktuelle Stand der Forschung wird
+in~\cite{wichtigerArtikel} wiedergegeben. Auch wichtig in diesem Zusammenhang
+ist~\cite{wa2}.
+
+\printbibliography
+\end{document}
+\end{lstlisting}
+Führe nun nacheinander \texttt{pdflatex meineAusarbeitung.tex},
+\texttt{bibtex meineAusarbeitung}, \texttt{pdflatex
+  meineAusarbeitung.tex}, \texttt{pdflatex meineAusarbeitung.tex}
+aus. Schau Dir das resultierende Dokument an und führe die Übersetzungsschritte nach jeweils jeder der
+folgenden Veränderungen wieder durch und betrachte das Ergebnis.
+
+\begin{itemize}
+
+\item Ersetze \lstinline|maxnames=2| durch \lstinline|maxnames=3|.
+\item Ersetze \lstinline|style=numeric-comp| durch
+  \lstinline|style=alphabetic|.
+\item Ersetze ein  \lstinline|\cite| durch \lstinline|\footcite|.
+\item Ersetze das \lstinline|\footcite| durch \lstinline|\autocite|.
+\item Ersetze \verb|autocite=footnote| durch \verb|autocite=inline|,
+\item Ersetze \lstinline|ngerman| durch \lstinline|american|.
+\item Ersetze \lstinline|backref=false| durch
+  \lstinline|backref=true|.
+\end{itemize}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% ispell-local-dictionary: "de_DE"
+%%% End:
