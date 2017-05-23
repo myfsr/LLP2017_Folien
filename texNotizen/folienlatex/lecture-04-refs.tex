@@ -53,8 +53,7 @@ Siehe Abschnitt~\ref{sec:introduction}!
   \onslide<+->
 % an Konvention kat:name erinnern
 \begin{lstlisting}
-\section{Abschnitt}
-\label{sec:section}         % Verweis auf Abschnittsnummer
+\section{Abschnitt} \label{sec:section} % Verweis auf Abschnittsnummer
 \begin{enumerate}
 \item\label{item:eintrag} Eintrag % Verweis auf Einzelpunkt
 \end{enumerate}
@@ -81,15 +80,16 @@ Siehe Abschnitt~\ref{sec:introduction}!
   Es gibt einige nützliche Pakete, die Verweise besser formatieren können
 
   \begin{itemize}
-  \item<+-> \lstinline!amsmath! gibt den Befehl \lstinline!\eqref{eq:ref}!, der die Klammern um den Verweis setzt: %\eqref{eq:int}.
-  \item<+-> \lstinline!ntheorem! gibt den Befehl \lstinline!\thref{thm:main-theorem}!,
-    welcher automatisch den Typ der Aussage hinzufügt (Satz~5.1, Lemma~5.1, Bemerkung~5.1,
-    \dots)
-  \item<+-> \lstinline!cleveref! gibt \lstinline!\cref! und weitere Befehle, welche
-    automatisch den Typ der Referenz hinzufügen
-  \item<+-> \lstinline!varioref! gibt \lstinline!\vref!, \lstinline!\vpageref!, und
-    weitere, welche intelligente Formatierungen abhängig vom Abstand zwischen Referenz und
-    Verweis erlauben
+    \item<+-> \lstinline!hyperref! macht aus Verweisen klickbare Links (und noch viel mehr) $\to$ fast immer nutzen
+    \item<+-> \lstinline!amsmath! gibt den Befehl \lstinline!\eqref{eq:ref}!, der die Klammern um den Verweis setzt: %\eqref{eq:int}.
+    \item<+-> \lstinline!ntheorem! gibt den Befehl \lstinline!\thref{thm:main-theorem}!,
+      welcher automatisch den Typ der Aussage hinzufügt (Satz~5.1, Lemma~5.1, Bemerkung~5.1,
+      \dots)
+    \item<+-> \lstinline!cleveref! gibt \lstinline!\cref! und weitere Befehle, welche
+      automatisch den Typ der Referenz hinzufügen
+    \item<+-> \lstinline!varioref! gibt \lstinline!\vref!, \lstinline!\vpageref!, und
+      weitere, welche intelligente Formatierungen abhängig vom Abstand zwischen Referenz und
+      Verweis erlauben
   \end{itemize}
 
 \end{frame}
@@ -112,7 +112,7 @@ Siehe Abschnitt~\ref{sec:introduction}!
 
 \begin{frame}[fragile]
   \frametitle{Es geht auch manuell mit \LaTeX}
-  \onslide<+->
+  % \onslide<+->
 
   \begin{itemize}
     \item<+-> Anlegen eines Literaturverzeichnisses innerhalb der Umgebung \lstinline!thebibliography!
@@ -163,13 +163,13 @@ Siehe Abschnitt~\ref{sec:introduction}!
       Programmiersprache) %, in Postfix-Notation)
     \item<+-> Unterstützung für UTF-8 fehlt% (kleine Abhilfe: \texttt{bibtex8}) % gerade bei Autorennamen kommen ungewöhnliche Zeichen vor
   \end{itemize}
-
+  \onslide<+->
   \centerline{$\implies$ Nutze Bib\LaTeX}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Bib\TeX-\enquote{Datenbanken}}
-  \onslide<+->
+  % \onslide<+->
 
   \begin{itemize}
   \item<+-> Zur Verwendung von Bib\LaTeX müssen die Literaturquellen in
@@ -186,58 +186,83 @@ Siehe Abschnitt~\ref{sec:introduction}!
 \end{lstlisting}
   \item<+-> Formate \verb|@article|, \verb|@book|, \verb|@proceedings|,
     \verb|@inproceedings|, \verb|@misc|, \dots
-  \item<+-> siehe
+  \item<+-> siehe Dokumentation von \lstinline|biblatex|
   \end{itemize}
 
 \end{frame}
 
-% \begin{frame}[fragile]
-%   \frametitle{Aufruf}
-%   \onslide<+->
+\begin{frame}[fragile]
+  \frametitle{Aufruf}
+  % \onslide<+->
 
-%   \begin{itemize}
-%   \item<+-> In der \LaTeX-Datei, an der Stelle, an der das Literaturverzeichnis
-%     liegen soll:
-% \begin{lstlisting}
-% \bibliography{quellen1.bib,quellen2.bib}
-% \bibliographystyle{plain}  % 'plain' ist der Stil
-% \end{lstlisting}
-%   \item<+-> Aufruf \LaTeX, dann Bib\TeX, dann \LaTeX\ (zwei Mal)
-%     \onslide<+->
-% \begin{verbatim}
-% $ pdflatex myfile.tex
-% $ bibtex myfile
-% $ pdflatex myfile.tex
-% $ pdflatex myfile.tex
-% \end{verbatim}
-%     \begin{itemize}
-%     \item<+-> Erster Aufruf extrahiert alle Quellen aus dem Dokument
-%     \item<+-> Aufruf von Bib\TeX\ formatiert und sortiert die
-%       verwendeten Referenzen
-%     \item<+-> Nächster Aufruf von \LaTeX\ für Literaturverzeichnis ein
-%     \item<+-> Letzter Aufruf von \LaTeX\ fügt Quellenzitate ein
-%     \end{itemize}
-%   \item<+-> Wird meist automatisch von der Entwicklungsumgebung gemacht
-%   \end{itemize}
+  \begin{itemize}
+  \item<+-> In der \LaTeX-Datei in der Präambel:
+\begin{lstlisting}
+\usepackage[backend=biber]{biblatex}  % default: bibtex
+\addbibresource{quellen1.bib}           % statt biber, veraltetz
+\end{lstlisting}
+  \item<+-> In der \LaTeX-Datei zum Einfügen der Bibliographie:
+\begin{lstlisting}
+\printbibliography
+\end{lstlisting}
+  \item<+-> In der \LaTeX-Datei zum Einfügen eines Verweises:
+\begin{lstlisting}
+\autocite{key}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
 
-% \end{frame}
+\begin{frame}[fragile]
+  \frametitle{Übersetzung}
+  \begin{itemize}
+    \item<+-> Aufruf \LaTeX, dann biber, dann \LaTeX\ (zwei Mal)
+    \onslide<+->
+\begin{verbatim}
+$ pdflatex myfile.tex
+$ biber myfile          # ohne Dateiendung! 
+$ pdflatex myfile.tex
+$ pdflatex myfile.tex
+\end{verbatim}
+    \begin{itemize}
+    \item<+-> Erster Aufruf extrahiert alle Quellen aus dem Dokument
+    \item<+-> Aufruf von Bib\TeX\ formatiert und sortiert die
+      verwendeten Referenzen
+    \item<+-> Nächster Aufruf von \LaTeX\ fügt Literaturverzeichnis ein
+    \item<+-> Letzter Aufruf von \LaTeX\ fügt Quellenzitate ein
+    \end{itemize}
+  \item<+-> Wird meist automatisch von der Entwicklungsumgebung gemacht
+  \end{itemize}
 
-% \begin{frame}[fragile]
-%   \frametitle{Woher Bib\TeX-Einträge bekommen?}
+\end{frame}
 
-%   \centering
+\begin{frame}[fragile]
+  \frametitle{Woher Bib\TeX-Einträge bekommen?}
 
-%   \only<2>{Hier Bild von SLUB-Website einfügen} %\includegraphics[height=\textheight]{pics/slubbib1.jpg}}
-%   \only<3>{%
-%     hier 2. Bild von slub website einfügen}
-%     % \includegraphics[
-%     %   width=\textwidth,
-%     %   viewport=100 300 800 700,
-%     %   clip]
-%     %   {pics/slubbib2.jpg}}
+  \centering
 
-% \end{frame}
+  \only<2>{\includegraphics[height=\textheight, width=\textwidth, keepaspectratio]{pics/bibresourceslub.png}}
+  \only<3>{\includegraphics[height=\textheight, width=\textwidth, keepaspectratio]{pics/bibresourceslubatbook.png}}
 
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Stile}
+  \begin{itemize}
+    \item Es gibt viele ($\geq 295$) Bib\TeX-Stile.
+    \item Meist durch andere (Institut, Zeitschrift, etc.) vorgegeben.
+    \item Angegeben in der Präambel
+\begin{lstlisting}
+\usepackage[style=numeric-comp,  % Alternativen:
+            backend=biber]         % BibLaTeX-Doku
+           {biblatex}              % 3.3.1 Zitierstile
+\end{lstlisting}
+\item<+-> \emph{sehr viele} Optionen, siehe Dokumentation von Bib\LaTeX
+\begin{verbatim}
+$ texdoc biblatex
+\end{verbatim}
+  \end{itemize}
+
+\end{frame}
 % \begin{frame}[fragile]
 %   \frametitle{Pakete und Stile}
 %   \onslide<+->
