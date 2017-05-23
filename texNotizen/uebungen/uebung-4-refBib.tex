@@ -1,18 +1,25 @@
 \documentclass{latex-htw-uebung}
 
 \title{4.~Übungsblatt}
-\date{23.\ Mai~2017}
+\date{23.~Mai~2017}
+
+\newcommand{\beachte}[1]{\textbf{#1}}
 
 \begin{document}
 
-\NewTask Erstelle ein Dokument mit einem Abschnitt, auf den du mit \lstinline|\label{sec:inhalt}| und \lstinline|\ref{sec:inhalt}| verweist. Nutze die Dokumentenklasse \lstinline{article} und keine Pakete. Übersetze das Dokument \emph{einmal} mit \lstinline|pdflatex|. (Vermutlich musst du es über ein Terminal machen, da Editoren oft automatisch mehrmals übersetzen. Lösche vorher alle \lstinline|.aux|-Dateien.) Ist der Verweis richtig eingefügt? Schaue dir die entstandene \lstinline|.aux|-Datei an. Erkennst du, welche Zeile zum Label gehört?
-\NewTask Übersetze das Dokument ein zweites Mal (ohne es zwischendurch zu verändern). Ändert sich das \lstinline|.pdf|?
-\NewTask Ergänze das Paket \lstinline|hyperref|. Schaue dir nach einem Übersetzungvorgang die \lstinline|.aux|-Datei an. Findest du wieder die Zeile, die zum Label gehört?
+\NewTask Erstelle ein Dokument mit einem Abschnitt, auf den du mit \lstinline|\label{sec:inhalt}| und \lstinline|\ref{sec:inhalt}| verweist. Nutze die Dokumentenklasse \lstinline{article} und keine Pakete.
+\begin{itemize}
+  \item Übersetze das Dokument \emph{einmal} mit \lstinline|pdflatex|. (Vermutlich musst du es über ein Terminal machen, da Editoren oft automatisch mehrmals übersetzen. Lösche vorher alle \lstinline|.aux|-Dateien.)
+  \item Ist der Verweis richtig eingefügt?
+  \item Schaue dir die entstandene \lstinline|.aux|-Datei an. Erkennst du, welche Zeile zum Label gehört?
+  \item Übersetze das Dokument ein zweites Mal (ohne es zwischendurch zu verändern). Ändert sich das \lstinline|.pdf|?
+  \item Ergänze das Paket \lstinline|hyperref|. Schaue dir nach zwei Übersetzungvorgängen die \lstinline|.aux|-Datei an. Findest du wieder die Zeile, die zum Label gehört? Was hat sich in der \lstinline|.pdf| geändert?
+\end{itemize} 
 \NewTask Gehe zur Website der SLUB (\url{http://slub-dresden.de}), suche da nach
 einem von Dir kürzlich gelesenen Buch, und schaue dir den von der Website dazu
 bereitgestellten \textsc{Bib\TeX}-Eintrag an.
 
-\NewTask Lege eine Datei mit dem Namen \texttt{meineBuecher.bib} an und füge
+\NewTask (Diese Aufgabe kann auch gut mit dem Material von Aufgabe \ref{task:Handschr} gemacht werden.) Lege eine Datei mit dem Namen \texttt{meineBuecher.bib} an und füge
 folgenden Inhalt ein:
 
 \begin{lstlisting}
@@ -49,7 +56,7 @@ folgenden Inhalt:
 \usepackage{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[backend=bibtex,
+\usepackage[backend=biber,
             style=numeric-comp, backref=false,
             (*@autocite@*)=footnote, maxnames=2,
             isbn=true]{biblatex}
@@ -59,18 +66,22 @@ folgenden Inhalt:
 
 \begin{document}
 \maketitle
-Motiviert durch das \LaTeX{}-Standardwerk~\cite{MP1} habe ich meine Studien zu
-diesem Thema vertieft. Der aktuelle Stand der Forschung wird
-in~\cite{wichtigerArtikel} wiedergegeben. Auch wichtig in diesem Zusammenhang
-ist~\cite{wa2}.
+Motiviert durch das \LaTeX{}-Standardwerk~\autocite{MP1} habe ich meine
+Studien zu diesem Thema vertieft. Der aktuelle Stand der Forschung wird
+in~\autocite{wichtigerArtikel} wiedergegeben. Auch wichtig in diesem
+Zusammenhang ist~\autocite{wa2}.
 
 \printbibliography
 \end{document}
 \end{lstlisting}
-Führe nun nacheinander \texttt{pdflatex meineAusarbeitung.tex},
-\texttt{bibtex meineAusarbeitung}, \texttt{pdflatex
-  meineAusarbeitung.tex}, \texttt{pdflatex meineAusarbeitung.tex}
-aus. Schau Dir das resultierende Dokument an und führe die Übersetzungsschritte nach jeweils jeder der
+Führe nun nacheinander
+\begin{itemize}
+  \item \texttt{pdflatex meineAusarbeitung.tex},
+  \item \texttt{biber meineAusarbeitung},
+  \item \texttt{pdflatex meineAusarbeitung.tex},
+  \item \texttt{pdflatex meineAusarbeitung.tex} aus.
+\end{itemize}
+Schau Dir das resultierende Dokument an und führe die Übersetzungsschritte nach jeweils jeder der
 folgenden Veränderungen wieder durch und betrachte das Ergebnis.
 
 \begin{itemize}
@@ -78,12 +89,29 @@ folgenden Veränderungen wieder durch und betrachte das Ergebnis.
 \item Ersetze \lstinline|maxnames=2| durch \lstinline|maxnames=3|.
 \item Ersetze \lstinline|style=numeric-comp| durch
   \lstinline|style=alphabetic|.
-\item Ersetze ein  \lstinline|\cite| durch \lstinline|\footcite|.
-\item Ersetze das \lstinline|\footcite| durch \lstinline|\autocite|.
+% \item Ersetze ein  \lstinline|\cite| durch \lstinline|\footcite|.
+% \item Ersetze das \lstinline|\footcite| durch \lstinline|\autocite|.
 \item Ersetze \verb|autocite=footnote| durch \verb|autocite=inline|,
 \item Ersetze \lstinline|ngerman| durch \lstinline|american|.
 \item Ersetze \lstinline|backref=false| durch
   \lstinline|backref=true|.
+\item Nutze das Paket \lstinline|hyperref|. Erkennst du Veränderungen?
+\end{itemize}
+
+\NewTask \label{task:Handschr} (Fortsetzung von Übung~3)
+
+Schreibe das Dokument für Übung~4, das auf der Seite \url{myfsr.de/llp} als Bild verlinkt ist. Es ist das gleiche wie für Übung~3 plus ein paar Verweisen. \beachte{Dabei soll das Resultat nicht genauso aussehen, sondern ein schönes Dokument werden.} Um dir Tipparbeit zu ersparen, findest du im \url{github}-Repository eine Datei mit einem Gutteil der Texte (\url{uebung3texte.txt}).
+
+Wenn du stattdessen einen eigenen Text texst, lasse es eine Tabelle und ein Bild beinhalten.
+
+Für ein paar Teile können dir diese Hinweise hoffentlich helfen:
+\begin{itemize}
+  \item Modifikationen von Symbolen wie Punkte, Pfeile, Hüte, etc.\ finden sich als \enquote{accents} in der Symbolliste. (\url{ctan.org/pkg/comprehensive} oder \lstinline!texdoc symbols!)
+  \item Bei der Ableitung gibt es mindestens drei verschiedene Notationen für erste und zweite Ableitungen. Ich weiß noch nicht, welche ich nutzen soll. Daher möchte ich es an einer Stelle in der Präambel anpassen können.
+  \item Mehrere Zeilen umspannende Klammern können mithilfe der \lstinline!aligned!-Umgebung des Paketes \lstinline!amsmath! erstellt werden. Schaue dir dafür die Dokumentation (Abschnitt \enquote{Alignment building blocks}) des Paketes an!
+  \item Neben \lstinline!\mathbb! gibt es noch mehr besondere Arten Variablen im Mathematikmodus zu setzen. Auch diese finden sich in der Symbolliste.
+  \item Das Paket \lstinline!hyperref! bietet (neben vielem anderen) das Makro \lstinline!\url{Link}!, dass \enquote{Link} als Link formatiert.
+  \item Wenn du einen Wikipedia-Eintrag zitieren möchtest, rufe ihn im Browser auf, klicke auf der linken Seite auf \enquote{Artikel zitieren} bzw.\ \enquote{Cite this page} und erhalte so den Bib\TeX-Eintrag.
 \end{itemize}
 
 \end{document}
