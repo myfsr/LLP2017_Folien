@@ -1,0 +1,97 @@
+\documentclass{latex-htw-uebung}
+
+\title{7. Übungsblatt}
+\date{29.~Mai~2017}
+
+\begin{document}
+
+\NewTask Hier eine kleine BEAMER-Präsentation zum Anfangen.
+
+\begin{lstlisting}
+  \documentclass[ngerman]{beamer}
+  \usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}\usepackage{babel}
+
+  \usetheme{Dresden}
+  \title[Zeitreisen heute.]{Über die Möglichkeit von Zeitreisen}
+  \author[Doc Brown et al.]{Doc Brown, Danny McFly, Tom McFly}
+  \date{\today}
+  \institute[TU Dresden]{Technische Universität Dresden}
+
+  \begin{document}
+  \frame{\titlepage}
+  \section{Einleitung}
+  \begin{frame}
+    \frametitle{Historischer Überblick.}
+    Wie wir seit H.\,G.\,Wells wissen \ldots
+    \begin{block}{Zusammenfassung}<2->
+      Der Flux-Kompensator ist wichtig!
+    \end{block}
+  \end{frame}
+
+\end{document}
+\end{lstlisting}
+Nachdem du den Code eingegeben hast, führe die folgenden Schritte aus:
+\begin{enumerate}
+\item Ändere das genutzte BEAMER-Theme (\lstinline|usetheme|)
+  nacheinander in \texttt{Copenhagen}, \texttt{Darmstadt},
+  \texttt{Goettingen}, \texttt{PaloAlto}, \texttt{CambridgeUS}. Hast du einen Favoriten?
+\item Ändere alle Daten nach eigenen Ideen, d.\,h.\ Autor, Titel,
+  Hochschule, etc.
+\item Füge ein weiteres \lstinline|frame| hinzu, welches einen von dir
+  gewählten Titel trägt. Dieses \lstinline|frame| soll aus drei
+  Blöcken bestehen, mit jeweils einer von dir gewählten
+  Blocküberschrift sowie ein paar Wörtern Inhalt.
+\item Verändere das eben erstellte \lstinline|frame|, so dass die
+  Blöcke nacheinander erscheinen.
+\item Füge ein weiteres \lstinline|frame| hinzu, welches den Titel
+  \enquote{Achtung} trägt, und eine Liste von fünf Stichpunkten, welche
+  nacheinander aufgedeckt werden.
+
+\item Füge folgendes \lstinline|frame| hinzu:
+  \begin{lstlisting}
+\begin{frame}\frametitle{Cover Story}
+  Der folgende Text wird \uncover<2->{erst nach und
+   nach} \only<3-4>{nicht} \uncover<1-4>{sinnvoll} \visible<6->{lesbar.}
+\end{frame}
+   \end{lstlisting}
+Versuche anhand des entstandenen \lstinline|frame| das
+unterschiedliche Verhalten von \lstinline|uncover|, \lstinline|visible|,
+und \lstinline|only| zu verstehen. Schaue in der \lstinline|beamer|-Dokumentation nach, ob deine Beobachtungen das ganze Verhalten beschreibt.
+
+% \item Lade das Paket \texttt{listings}  und füge folgendes \lstinline|frame| hinzu:
+%   \begin{lstlisting}
+% \begin{frame}[fragile]
+%   \begin{lstlisting}[language=C]
+%     #include <stdio.h>
+%     main(){
+%       printf("Hello World");
+%     }
+%   \end{(*@{lstlisting}{@*)}
+% \end{frame}
+%     \end{lstlisting}
+% Man kann also leicht Quellcode darstellen.
+% \item Lade das Paket \texttt{tikz} und füge das folgende
+%   \lstinline|frame| hinzu:
+%   \begin{lstlisting}
+% \begin{frame}\frametitle{Spaß mit TikZ}
+%   \begin{tikzpicture}[overlay,anchor=south west]
+%     \draw[blue](0,0) circle(2);
+%     \draw[red](7,3) circle(1);
+%   \end{tikzpicture}
+%   Wichtiger Text
+% \end{frame}
+%   \end{lstlisting}
+% Du siehst, du kannst in den Frames \enquote{herummalen} mit TikZ. Male
+% weiter mit deinen TiKZ-Kenntnissen in diesem Frame herum.
+
+\item Entferne die (nervigen) Navigationssymbole (siehe Vortrag).
+
+\end{enumerate}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% ispell-local-dictionary: "de_DE"
+%%% End:
