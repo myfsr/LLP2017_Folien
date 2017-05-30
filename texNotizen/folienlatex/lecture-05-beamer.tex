@@ -27,7 +27,7 @@
 
 \end{frame}
 
-\section{\LaTeX\texttt{-beamer}}
+% \section{\LaTeX\texttt{-beamer}}
 
 % \begin{frame}
 %   \frametitle{Was ist und was soll \LaTeX-\texttt{beamer}?}
@@ -148,7 +148,7 @@
 
   \onslide<+->
 
-  Vordefinierte Blöcke: \texttt{Satz}, \texttt{Beweis}, \texttt{Beispiel}, \dots (Ja, deutsche Namen!)
+  Vordefinierte Blöcke: \texttt{Satz}, \texttt{Beweis}, \texttt{Beispiel}, \dots{} (Ja, deutsche Namen!)
 
   % Je nach Theme können die Blöcke auch Schatten haben:
 
@@ -318,13 +318,18 @@ Kreativität darf man hier nicht erwarten \dots
   \onslide<+->
 
   Die Kommandos \lstinline{\author}, \lstinline{\title}, \lstinline{\subtitle},
-  \lstinline{\date} funktionieren wie gewohnt.
+  \lstinline{\date} funktionieren wie gewohnt. (In der Präambel!)
   % subtitle von KoMa-Klasse
 
   \onslide<+->
 
   Darüber hinaus gibt es noch \lstinline{\institute}, \lstinline{\titlegraphic},
   \lstinline{\subject}, \lstinline{\keywords}.
+\begin{lstlisting}
+  \author{Leslie Knuth}
+  \subject{La oder \Tex?} \keywords{LaTeX, TeX, Typographie, 1980er}
+  \institute{\Tex-Community College}
+\end{lstlisting}
 
 \end{slide}
 
@@ -443,31 +448,31 @@ Kreativität darf man hier nicht erwarten \dots
 
 \end{frame}
 
-\section{Schnelleres Übersetzen}
-\begin{slide}
-  \frametitle{Schnelleres Übersetzen}
+% \section{Schnelleres Übersetzen}
+% \begin{slide}
+%   \frametitle{Schnelleres Übersetzen}
 
-  \onslide<+->
+%   \onslide<+->
 
-  \begin{block}{\textcolor{red}{Problem}}
-    Mit steigender Zahl von Folien wird die Übersetzung merklich langsamer.
-  \end{block}
+%   \begin{block}{\textcolor{red}{Problem}}
+%     Mit steigender Zahl von Folien wird die Übersetzung merklich langsamer.
+%   \end{block}
 
-  \onslide<+->
+%   \onslide<+->
 
-  \begin{block}{\textcolor{green!50!black}{Lösung}}
-    Nur die Folien übersetzen, die aktuell benötigt werden:
-\begin{lstlisting}
-% in der Präambel
-\includeonlyframes{current}
-% im Dokument
-\begin{frame}[label=current]
-  ...
-\end{frame}
-\end{lstlisting}
-  \end{block}
+%   \begin{block}{\textcolor{green!50!black}{Lösung}}
+%     Nur die Folien übersetzen, die aktuell benötigt werden:
+% \begin{lstlisting}
+% % in der Präambel
+% \includeonlyframes{current}
+% % im Dokument
+% \begin{frame}[label=current]
+%   ...
+% \end{frame}
+% \end{lstlisting}
+%   \end{block}
 
-\end{slide}
+% \end{slide}
 
 % \begin{slide}
 %   \frametitle{Handouts}
@@ -494,6 +499,150 @@ Kreativität darf man hier nicht erwarten \dots
   % Es sind dann eventuell kleine Anpassungen im Dokument nötig.
 
 % \end{slide}
+
+\begin{slide}
+  \begin{block}{Empfehlung}
+    Lest die Dokumentation! Sie ist gut und enthält auch gute inhaltliche Hinweise für Präsentationen! Und sie ist unterhaltsam.
+  \end{block}
+\end{slide}
+
+\begin{slide}
+  \frametitle{Meine Fragen}
+  \begin{itemize}
+    \item Was war gut?
+    \item Was war schlecht? Wie wäre es besser gewesen?
+    \item Hätte es mehr oder weniger Übungen geben sollen?
+    \item Kommentare zur Auswertung der Übungen?
+    \item Kannst du dir jetzt vorstellen jetzt eine Bachelor-Arbeit zu schreiben? Sprich: was fehlte und was war unnötig?
+  \end{itemize}
+  \begin{block}{Mein Angebot}
+    Wenn ihr auf (\LaTeX-)Probleme stoßt, fragt mich (persönlich oder \url{felix.hilsky@myfsr.de}). Ich freue mich, wenn ich ein interessantes Problem lösen kann und damit etwas zu lernen.
+  \end{block}
+
+\end{slide}
+
+\appendix
+\section{Debugging}
+
+\begin{frame}[fragile]
+  \frametitle{Fehlermeldungen in \LaTeX}
+
+  \onslide<+->
+
+  \begin{block}{Problem \dots}
+    \begin{itemize}
+    \item<+-> Fehlermeldungen in \LaTeX\ sind meist schwer verständlich
+    \item<+-> Ursache: Fehler werden meist oft erst erkannt, \emph{nachdem} alle
+      Makros expandiert worden sind
+    \item<+-> Fehlerbeschreibung ist deswegen meist \emph{nicht hilfreich}
+    \end{itemize}
+  \end{block}
+
+  \onslide<+->
+
+  \begin{block}{Allgemeine Lösungstrategien}
+    \begin{itemize}
+    \item<+-> Ordnung im \TeX-Dokument
+    \item<+-> Fehlereinkreisung durch \enquote{binäre Suche}
+    \item<+-> \lstinline|\RequirePackage{nag}| zum Auffinden veralteter Befehle
+    \item<+-> Verwendung von externen \emph{Prüfprogrammen} wie \texttt{lacheck}
+      oder \texttt{chktex}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\enquote{Klassische} Fehlermeldungen}
+
+  \onslide<+->
+
+  \begin{itemize}
+  \item<+-> Schließende \} ohne dazu passende, öffnende \{
+
+\begin{verbatim}
+! Too many }'s.
+l.6 \date December 2004}
+\end{verbatim}
+
+  \item<+-> Undefinierter Befehl (meistens vertippt)
+
+\begin{verbatim}
+! Undefined control sequence.
+l.6 \dtae
+{December 2004}
+\end{verbatim}
+
+  \item<+-> Mathematikbefehl außerhalb des Mathematikmodus' benutzt
+
+\begin{verbatim}
+! Missing $ inserted
+\end{verbatim}
+
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\enquote{Klassische} Fehlermeldungen}
+  \onslide<+->
+
+  \begin{itemize}
+  \item<+-> Unerlaubter Absatz im Argument eines Makros
+
+\begin{verbatim}
+Runaway argument?
+{December 2004 \maketitle
+! Paragraph ended before \date was complete.
+<to be read again>
+\par
+l.8
+\end{verbatim}
+
+  \item<+-> Fehlendes \lstinline|\item| in Aufzählung
+
+\begin{verbatim}
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+...
+l.37   \end{itemize}
+\end{verbatim}
+  \end{itemize}
+
+  \onslide<+->
+
+  Mehr Hilfe unter
+  \begin{itemize}
+  \item<+-> \url{https://en.wikibooks.org/wiki/LaTeX/Errors_and_Warnings}
+  \item<+-> Lokale \TeX\ User-Group (\url{http://tug-dd.kxpq.de})
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Mehr Informationen bei Fehlern}
+
+  \onslide<+->
+
+  \TeX\ (und damit auch \LaTeX) kann dazu gebracht werden, bei Fehlern mehr
+  Informationen auszugeben.
+
+  \begin{itemize}
+  \item<+-> \lstinline|\errorcontextlines=5| im Dokument sorgt dafür, dass bei
+    Fehlern die ersten 5 Expansionsstufen angezeigt werden.
+  \item<+-> \lstinline|\listfiles| in der Präambel zeigt die Versionen aller
+    geladenen Pakete an
+  \item<+-> Viele \emph{Tracing-Befehle} sind direkt in \TeX\ eingebaut
+\begin{lstlisting}
+\tracingmacros=1
+\tracingcommands=1
+\tracingall
+\end{lstlisting}
+    (Siehe auch
+    \url{https://tex.stackexchange.com/questions/60491/latex-tracing-commands-list})
+  \item<+-> \lstinline|\usepackage{trace}|
+  \end{itemize}
+
+\end{frame}
 
 \end{document}
 
