@@ -1,0 +1,225 @@
+\documentclass{beamer}
+
+\usetheme{Boadilla}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+    backgroundcolor=\color{white},
+    % choose the background color;
+    % you must add \usepackage{color} or \usepackage{xcolor}
+    basicstyle=\footnotesize\ttfamily,
+    % the size of the fonts that are used for the code
+    breakatwhitespace=false,
+    % sets if automatic breaks should only happen at whitespace
+    breaklines=true,                 % sets automatic line breaking
+    captionpos=b,                    % sets the caption-position to bottom
+    commentstyle=\color{mygreen},    % comment style
+    % deletekeywords={...},
+    % if you want to delete keywords from the given language
+    extendedchars=true,
+    % lets you use non-ASCII characters;
+    % for 8-bits encodings only, does not work with UTF-8
+    frame=single,                    % adds a frame around the code
+    keepspaces=true,
+    % keeps spaces in text,
+    % useful for keeping indentation of code
+    % (possibly needs columns=flexible)
+    keywordstyle=\color{blue},       % keyword style
+    % morekeywords={*,...},
+    % if you want to add more keywords to the set
+    numbers=left,
+    % where to put the line-numbers; possible values are (none, left, right)
+    numbersep=5pt,
+    % how far the line-numbers are from the code
+    numberstyle=\tiny\color{mygray},
+    % the style that is used for the line-numbers
+    rulecolor=\color{black},
+    % if not set, the frame-color may be changed on line-breaks
+    % within not-black text (e.g. comments (green here))
+    stepnumber=1,
+    % the step between two line-numbers.
+    % If it's 1, each line will be numbered
+    stringstyle=\color{mymauve},     % string literal style
+    tabsize=4,                       % sets default tabsize to 4 spaces
+    % show the filename of files included with \lstinputlisting;
+    % also try caption instead of title
+    language = Python,
+	showspaces = false,
+	showtabs = false,
+	showstringspaces = false,
+	escapechar = ,
+}
+
+
+\title{Grundlagen und Grundideen für Python}
+% \subtitle
+\author{Felix V.}
+\date{\today}
+
+%\lstset{
+%  backgroundcolor=\color{black},
+%  basicstyle=\color{green}
+%}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Grundlagen und Grundideen für Python}
+  \tableofcontents
+\end{frame}
+
+\begin{frame}
+  \frametitle{Software}
+  \begin{itemize}
+  \item<+-> Interpreter
+    \begin{itemize}
+      \item python3.4-3.7
+    \end{itemize}
+  \item<+-> Editoren
+    \begin{itemize}
+    \item Emacs
+    \item VIM
+    \item Atom
+    \item Sublimetext3
+    \item IDLE
+    \end{itemize}
+  \item<+-> IDEs
+    \begin{itemize}
+    \item pycharm (Jetbrains)
+    \item Eric
+    \item Spider3
+    \end{itemize}
+  \item<+-> Package Manager
+    \begin{itemize}
+    \item pip
+    \end{itemize}
+  \item<+-> iPython
+  \end{itemize}
+\end{frame}
+
+\section{Interpreter VS Compiler}
+\begin{frame}
+  \frametitle{Interpreter VS Compiler}
+  \begin{itemize}
+  \item<+-> Compiler
+    \begin{itemize}
+    \item übersetzt in Maschinensprache
+    \item erstellt eigene Datei (executable)
+    \end{itemize}
+  \item<+-> Interpreter
+    \begin{itemize}
+    \item erstellt keine eigene Datei
+    \item liest eine Zeile und führt sie aus (oft langsamer als Compiler)
+    \item Ermöglicht die einfache Umsetzung eines REPLs
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\section{Shell und REPL}
+\begin{frame}[fragile]
+  \frametitle{Shell und REPL}
+  \begin{itemize}
+    \item<1-> die Prompt beginnt mit \lstinline+>>>+
+    \item<1-> man kann validen Python code schreiben und mit $<$Enter$>$
+    \item<1-> öffnen entweder iPython oder IDLE starten oder in eurem Terminal python3 ausführen
+    \item<2-> Aufgabe 1:\begin{itemize}
+      \item gebt euren ersten Python Befehl ein, ein kleines Hello Python \\
+        \begin{lstlisting}
+          >>> print('Hello Python')
+          \end{lstlisting}
+    \end{itemize}
+    \item<3-> man kann alles von der Python shell aus ausführen
+  \end{itemize}
+\end{frame}
+
+
+\section{Typen - naja fast}
+\begin{frame}
+\frametitle{Typen - naja fast}
+Python ist eine schwach typisierte Scriptsprache (weakly typed scripting language). Es gibt Typen (anders als in JavaScript), aber Variablen haben keine festen Typen.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Typen - naja fast}
+	\textbf{builtin Datentypen:}\\
+	\begin{tabular}{c|l}
+		Name & Funktion \\ \hline
+		\texttt{object} & Basistyp, alles erbt von \texttt{object} \\
+		\texttt{int} & Ganzzahl "beliebiger" Größe \\
+		\texttt{float} & Kommazahl "beliebiger" Größe \\
+		\texttt{bool} & Wahrheitswert (\texttt{True}, \texttt{False})\\
+		\texttt{None} & Typ des \texttt{None}-Objektes \\
+		\texttt{type} & Grundtyp aller Typen (z.B. \texttt{int} ist eine Instanz von \texttt{int}) \\
+		\texttt{list} & standard Liste \\
+		\texttt{tuple} & unveränderbares n-Tupel \\
+		\texttt{set} & (mathematische) Menge von Objekten \\
+		\texttt{frozenset} & unveränderbare (mathematische) Menge von Objekten \\
+		\texttt{dict} & Hash-Map \\
+	\end{tabular}
+\end{frame}
+
+\section{Operationen, ein praktischer Taschenrechner}
+%\begin{frame}
+%
+% \begin{itemize}
+%  \item int ist nicht beschränkt
+%  \item Es gibt \lstinline?+,-,*,/,**?
+%    \begin{itemize}
+%    \item
+%    \textcolor{red}{Vorsicht} unterschied zwischen Python 2.7 und 3.*:\\
+%      \lstinline+/+ ist in Python 3 keine Integer Division
+%       \end{itemize}
+%  \end{itemize}
+%\end{frame}
+
+\section{Operatoren}
+\begin{frame}[fragile]{Operatoren}
+   \frametitle{Python als praktischer Taschenrechner} 
+   \begin{description}
+       \item<+-> int ist nicht beschränkt
+	\item<+->[mathematisch] \alert{\texttt{+}}, \alert{\texttt{-}}, \alert{\texttt{*}}, \alert{\texttt{/}} \\
+             \textcolor{red}{!Vorsicht!} unterschied zwischen Python 2.7 und 3.*:\\
+      \lstinline+/+ ist in Python 3 keine Integer Division
+	    \item<+->[vergleichend] \alert{\texttt{<}}, \alert{\texttt{>}}, \alert{\texttt{<=}}, \alert{\texttt{>=}}, \alert{\texttt{==}} (Wert gleich), \alert{\texttt{is}} (gleiches Objekt/gleiche Referenz)
+	    \item<+->[logisch] \alert{\texttt{and}}, \alert{\texttt{or}}, \alert{\texttt{not}}\alert{\texttt{(a \&\& b) || (!c)}} aus C oder Java entspricht \alert{\texttt{(a and b) or not c}} in Python
+	    \item<+->[bitweise] \alert{\texttt{\&}}, \alert{\texttt{|}}, \alert{\texttt{<<}}, \alert{\texttt{>>}}, \alert{\texttt{\^}} (xor), \alert{\texttt{\~}} (invertieren)
+	    \item<+->[Accessoren] \alert{\texttt{.}} (für Methoden und Attribute), \alert{\texttt{[]}} (für Datenstrukturen mit Index)
+	\end{description}
+\end{frame}
+
+
+\section{Skripte}
+\begin{frame}[fragile]
+  \frametitle{Skripte}
+  \begin{itemize}
+  \item<1-> scripte enden mit *.py
+  \item<1-> scripte sind in utf-8
+  \item<2-> scripte sollten mit einem schbang/hashbang beginnen
+    \begin{lstlisting}
+      #!/usr/bin/env python3
+    \end{lstlisting}
+  \item<3-> zu pfaden, ordnern zu libraries und main functionen kommen wir später
+  \end{itemize}
+\end{frame}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% coding: utf-8
+%%% TeX-master: t
+%%% End:
+%vim:fdm=marker set ft=tex:
